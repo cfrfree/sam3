@@ -199,52 +199,6 @@ def move_batched_datapoint_to_device(batch: BatchedDatapoint, device: torch.devi
 def unwrap_model(model):
 	return model.module if hasattr(model, 'module') else model
 
-
-def compute_mask_from_output(output: dict, target_shape: torch.Size) -> torch.Tensor:
-	pred_masks = output["pred_masks"]
-	if pred_masks.dim() == 4:
-		logits = pred_masks
-	elif pred_masks.dim() == 3:
-		logits = pred_masks.unsqueeze(1)
-	else:
-		raise ValueError(f"Unexpected pred_masks dim: {pred_masks.dim()}")
-
-	selected_query = output["pred_logits"].argmax(1).squeeze(1)
-	batch_idx = torch.arange(logits.shape[0], device=logits.device)
-	best_logits = logits[batch_idx, selected_query]
-	if best_logits.shape[-2:] != target_shape[-2:]:
-		best_logits = F.interpolate(
-			best_logits.unsqueeze(1), size=target_shape[-2:], mode="bilinear", align_corners=False
-		).squeeze(1)
-	return best_logits.sigmoid() > 0.5
-
-
-def compute_loss(output: dict, target_mask: torch.Tensor) -> torch.Tensor:
-	pred_masks = output["pred_masks"]
-	if pred_masks.dim() == 4:
-		selected_query = output["pred_logits"].argmax(1).squeeze(1)
-		batch_idx = torch.arange(pred_masks.shape[0], device=pred_masks.device)
-		logits = pred_masks[batch_idx, selected_query]
-	elif pred_masks.dim() == 3:
-		logits = pred_masks
-	else:
-		raise ValueError(f"Unexpected pred_masks dim: {pred_masks.dim()}")
-
-	if logits.shape[-2:] != target_mask.shape[-2:]:
-		logits = F.interpolate(
-			logits.unsqueeze(1), size=target_mask.shape[-2:], mode="bilinear", align_corners=False
-		).squeeze(1)
-
-	target_float = target_mask.to(torch.float32)
-	bce = F.binary_cross_entropy_with_logits(logits, target_float)
-	pred_probs = torch.sigmoid(logits)
-	intersection = (pred_probs * target_float).sum(dim=[1, 2])
-	union = pred_probs.sum(dim=[1, 2]) + target_float.sum(dim=[1, 2])
-	dice = 1 - (2 * intersection + 1) / (union + 1)
-	dice = dice.mean()
-	return bce + dice
-
-
 def evaluate(model, dataloader, device, args):
 	model.eval()
 	
@@ -258,27 +212,28 @@ def evaluate(model, dataloader, device, args):
 	correct = torch.zeros(len(thresholds), dtype=torch.float32, device=device)
 
 	with torch.no_grad():
-		for batch in dataloader:
-			batch = move_batched_datapoint_to_device(batch, device)
-			outputs = model(batch)
-			output = outputs[0]["pred_masks"][:, 0]
-			target_mask = batch.find_targets[0].segments
-			pred_mask = compute_mask_from_output(output, target_mask.shape)
+		with torch.autocast(device_type="cuda", dtype=torch.bfloat16):
+			for batch in dataloader:
+				batch = move_batched_datapoint_to_device(batch, device)
+				outputs = model(batch)
+				output = outputs[0]["pred_masks"][:, 0]
+				target_mask = batch.find_targets[0].segments
+				pred_mask = compute_mask_from_output(output, target_mask.shape)
 
-			for i in range(pred_mask.shape[0]):
-				pred = pred_mask[i]
-				gt = target_mask[i].to(torch.bool)
-				intersection = torch.logical_and(pred, gt).sum().item()
-				union = torch.logical_or(pred, gt).sum().item()
-				
-				iou = 1.0 if union == 0 and intersection == 0 else (intersection / union if union > 0 else 0.0)
-				
-				total_iou_sum += iou
-				total_intersection += intersection
-				total_union += union
-				for idx, thr in enumerate(thresholds):
-					correct[idx] += int(iou >= thr)
-				total_samples += 1
+				for i in range(pred_mask.shape[0]):
+					pred = pred_mask[i]
+					gt = target_mask[i].to(torch.bool)
+					intersection = torch.logical_and(pred, gt).sum().item()
+					union = torch.logical_or(pred, gt).sum().item()
+					
+					iou = 1.0 if union == 0 and intersection == 0 else (intersection / union if union > 0 else 0.0)
+					
+					total_iou_sum += iou
+					total_intersection += intersection
+					total_union += union
+					for idx, thr in enumerate(thresholds):
+						correct[idx] += int(iou >= thr)
+					total_samples += 1
 
 	# 【关键修改】在分布式模式下同步所有指标
 	if utils.is_dist_avail_and_initialized():
@@ -311,6 +266,26 @@ def compute_mask_from_output(output, shape):
 	pred = pred.squeeze(1)
 	return (pred > 0.5).float()
 
+def calculate_dummy_loss(obj):
+	"""递归查找所有带有梯度的张量并计算哑损失 (Dummy Loss)"""
+	dummy_loss = 0.0
+	if isinstance(obj, torch.Tensor):
+		if obj.requires_grad:
+			dummy_loss += 0.0 * obj.sum()
+	elif isinstance(obj, dict):
+		for v in obj.values():
+			dummy_loss += calculate_dummy_loss(v)
+	elif isinstance(obj, (list, tuple)):
+		for item in obj:
+			dummy_loss += calculate_dummy_loss(item)
+	elif hasattr(obj, '__dict__'):  # 处理类似 SAM3Output 等带有属性的自定义对象
+		for v in vars(obj).values():
+			dummy_loss += calculate_dummy_loss(v)
+	elif hasattr(obj, '__iter__') and not isinstance(obj, str): # 兜底其他可迭代对象
+		for item in obj:
+			dummy_loss += calculate_dummy_loss(item)
+	return dummy_loss
+
 
 def train_one_epoch(model, dataloader, optimizer, device, epoch, args):
 	model.train()
@@ -322,10 +297,24 @@ def train_one_epoch(model, dataloader, optimizer, device, epoch, args):
 	for batch_idx, batch in enumerate(dataloader):
 		batch = move_batched_datapoint_to_device(batch, device)
 		optimizer.zero_grad()
-		outputs = model(batch)
-		output = outputs[0]["pred_masks"][:, 0]  # take the first query's mask
-		target_mask = batch.find_targets[0].segments
-		loss = compute_loss(output, target_mask)
+		
+		# 前向传播
+		with torch.autocast(device_type="cuda", dtype=torch.bfloat16):
+			outputs = model(batch)
+			
+			# 1. 计算你的真实 Loss
+			output_mask = outputs[0]["pred_masks"][:, 0]  # take the first query's mask
+			target_mask = batch.find_targets[0].segments
+			loss = compute_loss(output_mask, target_mask)
+			
+			# 2. 【🌟 终极修复：递归捕获所有深层未使用返回值】
+			# 将 outputs 丢进递归函数，它会自动扒出 aux_outputs, prev_encoder_out 等所有梯度张量
+			dummy_loss = calculate_dummy_loss(outputs)
+			
+			# 巧妙地将 dummy_loss 融入计算图，实际不改变 loss 数值
+			loss = loss + dummy_loss
+
+		# 反向传播
 		loss.backward()
 		optimizer.step()
 
