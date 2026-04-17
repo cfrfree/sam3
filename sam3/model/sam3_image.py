@@ -505,6 +505,25 @@ class Sam3Image(torch.nn.Module):
             self._compute_matching(out, self.back_convert(find_target))
         return out
 
+    def forward(self, batch):
+        # Run backbone
+        backbone_out = self.backbone(
+            images=batch.find_input.images,
+            input_ids=batch.find_input.input_ids,
+            attention_mask=batch.find_input.attention_mask,
+            image_ids=batch.find_input.img_ids,
+            text_ids=batch.find_input.text_ids,
+            geometric_prompt=batch.geometric_prompt,
+        )
+        # Run grounding
+        out = self.forward_grounding(
+            backbone_out=backbone_out,
+            find_input=batch.find_input,
+            find_target=batch.find_target,
+            geometric_prompt=batch.geometric_prompt,
+        )
+        return [out]
+
     def _postprocess_out(self, out: Dict, multimask_output: bool = False):
         # For multimask output, during eval we return the single best mask with the dict keys expected by the evaluators, but also return the multimasks output with new keys.
         num_mask_boxes = out["pred_boxes"].size(1)

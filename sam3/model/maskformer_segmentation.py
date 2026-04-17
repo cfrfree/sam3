@@ -91,6 +91,8 @@ class SegmentationHead(nn.Module):
         # used to update the output dictionary
         self.instance_keys = ["pred_masks"]
 
+        self._device = None
+
     @property
     def device(self):
         if self._device is None:
