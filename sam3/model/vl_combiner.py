@@ -140,6 +140,9 @@ class SAM3VLBackbone(nn.Module):
     ):
         output = {}
 
+        # Move language backbone to device
+        self.language_backbone.to(device)
+
         # Forward through text_encoder
         text_to_encode = copy(captions)
         if additional_text is not None:

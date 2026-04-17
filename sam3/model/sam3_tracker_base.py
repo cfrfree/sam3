@@ -156,7 +156,16 @@ class Sam3TrackerBase(torch.nn.Module):
 
     @property
     def device(self):
-        return next(self.parameters()).device
+        try:
+            # Handle DataParallel case where parameters are in module
+            if hasattr(self, 'module'):
+                return next(self.module.parameters()).device
+            else:
+                return next(self.parameters()).device
+        except StopIteration:
+            # Fallback if no parameters (shouldn't happen in normal cases)
+            import torch
+            return torch.device('cpu')
 
     def _get_tpos_enc(self, rel_pos_list, device, max_abs_pos=None, dummy=False):
         if dummy:

@@ -104,7 +104,17 @@ class Sam3Image(torch.nn.Module):
 
     @property
     def device(self):
-        self._device = getattr(self, "_device", None) or next(self.parameters()).device
+        if self._device is None:
+            try:
+                # Handle DataParallel case where parameters are in module
+                if hasattr(self, 'module'):
+                    self._device = next(self.module.parameters()).device
+                else:
+                    self._device = next(self.parameters()).device
+            except StopIteration:
+                # Fallback if no parameters (shouldn't happen in normal cases)
+                import torch
+                self._device = torch.device('cpu')
         return self._device
 
     def to(self, *args, **kwargs):

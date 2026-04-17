@@ -1,0 +1,1604 @@
+nohup: ignoring input
+/root/miniconda3/lib/python3.8/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/root/miniconda3/lib/python3.8/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+RANK and WORLD_SIZE in environment: 1/2
+RANK and WORLD_SIZE in environment: 0/2
+swanlab: swanlab version 0.7.14 is available!  Upgrade: `pip install -U swanlab`
+swanlab: Tracking run with swanlab version 0.7.13
+swanlab: Run data will be saved locally in /root/TGRS/rrsis/swanlog/run-20260408_095041-mlm73h7y878jcu56vaqhx
+swanlab: 👋 Hi chenfree,welcome to swanlab!
+swanlab: Syncing run rrsisd_embedding to the cloud
+swanlab: 🏠 View project at https://swanlab.cn/@chenfree/rrsis
+swanlab: 🚀 View run at https://swanlab.cn/@chenfree/rrsis/runs/mlm73h7y878jcu56vaqhx
+Process with rank 0 is running on device cuda:0
+Image size: 480
+loading dataset refship into memory...
+creating index...
+index created.
+DONE (t=0.68s)
+/root/miniconda3/lib/python3.8/site-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+loading dataset refship into memory...
+creating index...
+index created.
+DONE (t=0.61s)
+Window size 12!
+/root/miniconda3/lib/python3.8/site-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3190.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Initializing Multi-modal Swin Transformer weights from /root/nas/refship/swin_base_patch4_window12_384_22k.pth
+Epoch: [0]  [  0/761]  eta: 1:31:44  lr: 4.99985216795691e-05  loss: 0.6162 (0.6162)  time: 7.2333  data: 2.2379  max mem: 17513
+Epoch: [0]  [ 50/761]  eta: 0:16:20  lr: 4.9924599462106865e-05  loss: 0.2181 (0.3620)  time: 1.2615  data: 0.0013  max mem: 19378
+Epoch: [0]  [100/761]  eta: 0:14:31  lr: 4.985066508097782e-05  loss: 0.1517 (0.2613)  time: 1.2620  data: 0.0015  max mem: 19378
+Epoch: [0]  [150/761]  eta: 0:13:12  lr: 4.977671851412925e-05  loss: 0.1210 (0.2194)  time: 1.2601  data: 0.0016  max mem: 19378
+Epoch: [0]  [200/761]  eta: 0:12:02  lr: 4.970275973943197e-05  loss: 0.0967 (0.1973)  time: 1.2670  data: 0.0015  max mem: 19378
+Epoch: [0]  [250/761]  eta: 0:10:55  lr: 4.962878873467997e-05  loss: 0.0899 (0.1814)  time: 1.2669  data: 0.0012  max mem: 19378
+Epoch: [0]  [300/761]  eta: 0:09:49  lr: 4.9554805477589995e-05  loss: 0.1062 (0.1678)  time: 1.2703  data: 0.0009  max mem: 19378
+Epoch: [0]  [350/761]  eta: 0:08:47  lr: 4.948080994580113e-05  loss: 0.0983 (0.1584)  time: 1.2877  data: 0.0009  max mem: 19378
+Epoch: [0]  [400/761]  eta: 0:07:42  lr: 4.9406802116874455e-05  loss: 0.0853 (0.1498)  time: 1.2662  data: 0.0013  max mem: 19378
+Epoch: [0]  [450/761]  eta: 0:06:39  lr: 4.933278196829259e-05  loss: 0.0864 (0.1432)  time: 1.3195  data: 0.0013  max mem: 19378
+Epoch: [0]  [500/761]  eta: 0:05:34  lr: 4.92587494774593e-05  loss: 0.0778 (0.1375)  time: 1.2761  data: 0.0016  max mem: 19378
+Epoch: [0]  [550/761]  eta: 0:04:30  lr: 4.9184704621699125e-05  loss: 0.0968 (0.1334)  time: 1.2574  data: 0.0012  max mem: 19378
+Epoch: [0]  [600/761]  eta: 0:03:25  lr: 4.911064737825691e-05  loss: 0.0673 (0.1298)  time: 1.2645  data: 0.0018  max mem: 19378
+Epoch: [0]  [650/761]  eta: 0:02:21  lr: 4.903657772429742e-05  loss: 0.0849 (0.1272)  time: 1.2560  data: 0.0017  max mem: 19378
+Epoch: [0]  [700/761]  eta: 0:01:17  lr: 4.896249563690496e-05  loss: 0.0707 (0.1239)  time: 1.2672  data: 0.0012  max mem: 19378
+Epoch: [0]  [750/761]  eta: 0:00:14  lr: 4.8888401093082884e-05  loss: 0.0501 (0.1202)  time: 1.2529  data: 0.0016  max mem: 19378
+Epoch: [0] Total time: 0:16:10
+Test:  [  0/870]  eta: 0:21:46    time: 1.5012  data: 1.4416  max mem: 19378
+Test:  [100/870]  eta: 0:00:44    time: 0.0430  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:33    time: 0.0428  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:27    time: 0.0432  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:22    time: 0.0434  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:17    time: 0.0433  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0433  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0430  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0428  data: 0.0006  max mem: 19378
+Test: Total time: 0:00:39
+Final results:
+Mean IoU is 32.28
+
+    precision@0.5 = 33.22
+    precision@0.6 = 26.67
+    precision@0.7 = 20.11
+    precision@0.8 = 12.30
+    precision@0.9 = 3.91
+    overall IoU = 59.79
+
+Epoch 0: Mean IoU 32.28, Overall IoU 59.79
+New best overall IoU: 59.79. Saving model for epoch: 0
+
+Epoch: [1]  [  0/761]  eta: 0:34:09  lr: 4.8872098619498915e-05  loss: 0.0479 (0.0479)  time: 2.6936  data: 1.3250  max mem: 19378
+Epoch: [1]  [ 50/761]  eta: 0:15:25  lr: 4.8797988847572395e-05  loss: 0.0607 (0.0712)  time: 1.2730  data: 0.0013  max mem: 19378
+Epoch: [1]  [100/761]  eta: 0:14:08  lr: 4.872386656787239e-05  loss: 0.0621 (0.0708)  time: 1.2668  data: 0.0015  max mem: 19378
+Epoch: [1]  [150/761]  eta: 0:13:01  lr: 4.8649731757138825e-05  loss: 0.0519 (0.0684)  time: 1.2777  data: 0.0015  max mem: 19378
+Epoch: [1]  [200/761]  eta: 0:11:55  lr: 4.857558439202891e-05  loss: 0.0561 (0.0657)  time: 1.2731  data: 0.0013  max mem: 19378
+Epoch: [1]  [250/761]  eta: 0:10:52  lr: 4.850142444911672e-05  loss: 0.0567 (0.0651)  time: 1.2804  data: 0.0012  max mem: 19378
+Epoch: [1]  [300/761]  eta: 0:09:48  lr: 4.842725190489269e-05  loss: 0.0536 (0.0655)  time: 1.2802  data: 0.0012  max mem: 19378
+Epoch: [1]  [350/761]  eta: 0:08:44  lr: 4.835306673576329e-05  loss: 0.0555 (0.0650)  time: 1.2748  data: 0.0010  max mem: 19378
+Epoch: [1]  [400/761]  eta: 0:07:40  lr: 4.827886891805045e-05  loss: 0.0503 (0.0649)  time: 1.2686  data: 0.0015  max mem: 19378
+Epoch: [1]  [450/761]  eta: 0:06:36  lr: 4.820465842799121e-05  loss: 0.0688 (0.0650)  time: 1.2684  data: 0.0016  max mem: 19378
+Epoch: [1]  [500/761]  eta: 0:05:32  lr: 4.813043524173722e-05  loss: 0.0500 (0.0657)  time: 1.2677  data: 0.0014  max mem: 19378
+Epoch: [1]  [550/761]  eta: 0:04:28  lr: 4.805619933535433e-05  loss: 0.0491 (0.0652)  time: 1.2652  data: 0.0016  max mem: 19378
+Epoch: [1]  [600/761]  eta: 0:03:25  lr: 4.7981950684822064e-05  loss: 0.0476 (0.0645)  time: 1.2610  data: 0.0016  max mem: 19378
+Epoch: [1]  [650/761]  eta: 0:02:21  lr: 4.7907689266033234e-05  loss: 0.0405 (0.0635)  time: 1.2780  data: 0.0009  max mem: 19378
+Epoch: [1]  [700/761]  eta: 0:01:17  lr: 4.7833415054793426e-05  loss: 0.0428 (0.0631)  time: 1.2488  data: 0.0012  max mem: 19378
+Epoch: [1]  [750/761]  eta: 0:00:14  lr: 4.775912802682055e-05  loss: 0.0591 (0.0628)  time: 1.2721  data: 0.0008  max mem: 19378
+Epoch: [1] Total time: 0:16:10
+Test:  [  0/870]  eta: 0:15:44    time: 1.0855  data: 1.0265  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0438  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0429  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0432  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0438  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0430  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0432  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0432  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0432  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 41.42
+
+    precision@0.5 = 45.29
+    precision@0.6 = 37.70
+    precision@0.7 = 31.03
+    precision@0.8 = 21.84
+    precision@0.9 = 7.70
+    overall IoU = 68.84
+
+Epoch 1: Mean IoU 41.42, Overall IoU 68.84
+New best overall IoU: 68.84. Saving model for epoch: 1
+
+Epoch: [2]  [  0/761]  eta: 0:35:33  lr: 4.7742783158242505e-05  loss: 0.0283 (0.0283)  time: 2.8029  data: 1.3658  max mem: 19378
+Epoch: [2]  [ 50/761]  eta: 0:15:59  lr: 4.7668480460844346e-05  loss: 0.0382 (0.0490)  time: 1.3302  data: 0.0013  max mem: 19378
+Epoch: [2]  [100/761]  eta: 0:14:24  lr: 4.759416489249117e-05  loss: 0.0530 (0.0520)  time: 1.2716  data: 0.0016  max mem: 19378
+Epoch: [2]  [150/761]  eta: 0:13:22  lr: 4.751983642861538e-05  loss: 0.0403 (0.0500)  time: 1.3458  data: 0.0015  max mem: 19378
+Epoch: [2]  [200/761]  eta: 0:12:11  lr: 4.744549504455967e-05  loss: 0.0440 (0.0494)  time: 1.2719  data: 0.0015  max mem: 19378
+Epoch: [2]  [250/761]  eta: 0:11:02  lr: 4.737114071557662e-05  loss: 0.0419 (0.0489)  time: 1.2738  data: 0.0016  max mem: 19378
+Epoch: [2]  [300/761]  eta: 0:09:54  lr: 4.72967734168281e-05  loss: 0.0502 (0.0490)  time: 1.2569  data: 0.0017  max mem: 19378
+Epoch: [2]  [350/761]  eta: 0:08:48  lr: 4.722239312338489e-05  loss: 0.0390 (0.0486)  time: 1.2718  data: 0.0015  max mem: 19378
+Epoch: [2]  [400/761]  eta: 0:07:43  lr: 4.714799981022609e-05  loss: 0.0425 (0.0491)  time: 1.2569  data: 0.0017  max mem: 19378
+Epoch: [2]  [450/761]  eta: 0:06:38  lr: 4.707359345223871e-05  loss: 0.0467 (0.0489)  time: 1.2608  data: 0.0016  max mem: 19378
+Epoch: [2]  [500/761]  eta: 0:05:34  lr: 4.699917402421707e-05  loss: 0.0524 (0.0492)  time: 1.2685  data: 0.0014  max mem: 19378
+Epoch: [2]  [550/761]  eta: 0:04:29  lr: 4.692474150086239e-05  loss: 0.0383 (0.0497)  time: 1.2602  data: 0.0016  max mem: 19378
+Epoch: [2]  [600/761]  eta: 0:03:25  lr: 4.685029585678222e-05  loss: 0.0383 (0.0501)  time: 1.2604  data: 0.0011  max mem: 19378
+Epoch: [2]  [650/761]  eta: 0:02:21  lr: 4.677583706648995e-05  loss: 0.0419 (0.0497)  time: 1.2648  data: 0.0009  max mem: 19378
+Epoch: [2]  [700/761]  eta: 0:01:17  lr: 4.670136510440429e-05  loss: 0.0359 (0.0497)  time: 1.2791  data: 0.0009  max mem: 19378
+Epoch: [2]  [750/761]  eta: 0:00:14  lr: 4.662687994484874e-05  loss: 0.0381 (0.0495)  time: 1.2743  data: 0.0012  max mem: 19378
+Epoch: [2] Total time: 0:16:12
+Test:  [  0/870]  eta: 0:16:25    time: 1.1326  data: 1.0777  max mem: 19378
+Test:  [100/870]  eta: 0:00:42    time: 0.0441  data: 0.0008  max mem: 19378
+Test:  [200/870]  eta: 0:00:33    time: 0.0443  data: 0.0008  max mem: 19378
+Test:  [300/870]  eta: 0:00:27    time: 0.0441  data: 0.0008  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0440  data: 0.0008  max mem: 19378
+Test:  [500/870]  eta: 0:00:17    time: 0.0442  data: 0.0008  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0432  data: 0.0008  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0440  data: 0.0008  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0438  data: 0.0008  max mem: 19378
+Test: Total time: 0:00:39
+Final results:
+Mean IoU is 40.19
+
+    precision@0.5 = 43.22
+    precision@0.6 = 37.82
+    precision@0.7 = 29.54
+    precision@0.8 = 20.92
+    precision@0.9 = 10.11
+    overall IoU = 67.82
+
+Epoch 2: Mean IoU 40.19, Overall IoU 67.82
+Epoch: [3]  [  0/761]  eta: 0:36:39  lr: 4.6610491436088535e-05  loss: 0.0631 (0.0631)  time: 2.8899  data: 1.4805  max mem: 19378
+Epoch: [3]  [ 50/761]  eta: 0:16:48  lr: 4.6535990140709434e-05  loss: 0.0308 (0.0450)  time: 1.3885  data: 0.0008  max mem: 19378
+Epoch: [3]  [100/761]  eta: 0:15:19  lr: 4.646147559051574e-05  loss: 0.0342 (0.0421)  time: 1.3367  data: 0.0013  max mem: 19378
+Epoch: [3]  [150/761]  eta: 0:13:59  lr: 4.638694775952082e-05  loss: 0.0519 (0.0447)  time: 1.3189  data: 0.0013  max mem: 19378
+Epoch: [3]  [200/761]  eta: 0:12:43  lr: 4.631240662164062e-05  loss: 0.0341 (0.0437)  time: 1.3087  data: 0.0011  max mem: 19378
+Epoch: [3]  [250/761]  eta: 0:11:26  lr: 4.623785215069311e-05  loss: 0.0425 (0.0432)  time: 1.2751  data: 0.0013  max mem: 19378
+Epoch: [3]  [300/761]  eta: 0:10:12  lr: 4.6163284320397736e-05  loss: 0.0352 (0.0432)  time: 1.2482  data: 0.0017  max mem: 19378
+Epoch: [3]  [350/761]  eta: 0:09:01  lr: 4.6088703104374876e-05  loss: 0.0305 (0.0424)  time: 1.2429  data: 0.0020  max mem: 19378
+Epoch: [3]  [400/761]  eta: 0:07:52  lr: 4.6014108476145266e-05  loss: 0.0355 (0.0424)  time: 1.2459  data: 0.0018  max mem: 19378
+Epoch: [3]  [450/761]  eta: 0:06:44  lr: 4.5939500409129486e-05  loss: 0.0372 (0.0426)  time: 1.2410  data: 0.0020  max mem: 19378
+Epoch: [3]  [500/761]  eta: 0:05:38  lr: 4.586487887664737e-05  loss: 0.0272 (0.0422)  time: 1.2415  data: 0.0020  max mem: 19378
+Epoch: [3]  [550/761]  eta: 0:04:32  lr: 4.5790243851917446e-05  loss: 0.0359 (0.0419)  time: 1.2487  data: 0.0011  max mem: 19378
+Epoch: [3]  [600/761]  eta: 0:03:27  lr: 4.571559530805636e-05  loss: 0.0296 (0.0417)  time: 1.2455  data: 0.0016  max mem: 19378
+Epoch: [3]  [650/761]  eta: 0:02:22  lr: 4.564093321807833e-05  loss: 0.0360 (0.0419)  time: 1.2528  data: 0.0019  max mem: 19378
+Epoch: [3]  [700/761]  eta: 0:01:18  lr: 4.556625755489453e-05  loss: 0.0316 (0.0420)  time: 1.2565  data: 0.0015  max mem: 19378
+Epoch: [3]  [750/761]  eta: 0:00:14  lr: 4.549156829131255e-05  loss: 0.0485 (0.0418)  time: 1.2535  data: 0.0014  max mem: 19378
+Epoch: [3] Total time: 0:16:16
+Test:  [  0/870]  eta: 0:16:16    time: 1.1229  data: 1.0596  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0438  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0435  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0431  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0437  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0431  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0431  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0434  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0422  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:39
+Final results:
+Mean IoU is 46.98
+
+    precision@0.5 = 53.10
+    precision@0.6 = 44.83
+    precision@0.7 = 37.36
+    precision@0.8 = 28.85
+    precision@0.9 = 12.53
+    overall IoU = 72.20
+
+Epoch 3: Mean IoU 46.98, Overall IoU 72.20
+New best overall IoU: 72.20. Saving model for epoch: 3
+
+Epoch: [4]  [  0/761]  eta: 0:37:22  lr: 4.5475134825442336e-05  loss: 0.0202 (0.0202)  time: 2.9471  data: 1.4763  max mem: 19378
+Epoch: [4]  [ 50/761]  eta: 0:16:27  lr: 4.54004289323991e-05  loss: 0.0322 (0.0339)  time: 1.3548  data: 0.0015  max mem: 19378
+Epoch: [4]  [100/761]  eta: 0:14:51  lr: 4.532570937821724e-05  loss: 0.0307 (0.0336)  time: 1.2873  data: 0.0013  max mem: 19378
+Epoch: [4]  [150/761]  eta: 0:13:31  lr: 4.5250976135366726e-05  loss: 0.0333 (0.0352)  time: 1.2926  data: 0.0012  max mem: 19378
+Epoch: [4]  [200/761]  eta: 0:12:17  lr: 4.517622917621142e-05  loss: 0.0312 (0.0343)  time: 1.2786  data: 0.0011  max mem: 19378
+Epoch: [4]  [250/761]  eta: 0:11:07  lr: 4.510146847300845e-05  loss: 0.0323 (0.0356)  time: 1.2817  data: 0.0012  max mem: 19378
+Epoch: [4]  [300/761]  eta: 0:09:59  lr: 4.502669399790765e-05  loss: 0.0279 (0.0352)  time: 1.2754  data: 0.0012  max mem: 19378
+Epoch: [4]  [350/761]  eta: 0:08:53  lr: 4.495190572295091e-05  loss: 0.0305 (0.0348)  time: 1.2787  data: 0.0009  max mem: 19378
+Epoch: [4]  [400/761]  eta: 0:07:46  lr: 4.487710362007154e-05  loss: 0.0395 (0.0351)  time: 1.2455  data: 0.0013  max mem: 19378
+Epoch: [4]  [450/761]  eta: 0:06:41  lr: 4.4802287661093705e-05  loss: 0.0323 (0.0359)  time: 1.2626  data: 0.0013  max mem: 19378
+Epoch: [4]  [500/761]  eta: 0:05:35  lr: 4.472745781773175e-05  loss: 0.0365 (0.0361)  time: 1.2544  data: 0.0011  max mem: 19378
+Epoch: [4]  [550/761]  eta: 0:04:30  lr: 4.465261406158957e-05  loss: 0.0317 (0.0363)  time: 1.2456  data: 0.0017  max mem: 19378
+Epoch: [4]  [600/761]  eta: 0:03:26  lr: 4.457775636416001e-05  loss: 0.0285 (0.0361)  time: 1.2495  data: 0.0015  max mem: 19378
+Epoch: [4]  [650/761]  eta: 0:02:21  lr: 4.4502884696824156e-05  loss: 0.0385 (0.0365)  time: 1.2437  data: 0.0015  max mem: 19378
+Epoch: [4]  [700/761]  eta: 0:01:17  lr: 4.4427999030850755e-05  loss: 0.0333 (0.0362)  time: 1.2451  data: 0.0015  max mem: 19378
+Epoch: [4]  [750/761]  eta: 0:00:14  lr: 4.435309933739553e-05  loss: 0.0378 (0.0363)  time: 1.2511  data: 0.0014  max mem: 19378
+Epoch: [4] Total time: 0:16:10
+Test:  [  0/870]  eta: 0:16:06    time: 1.1114  data: 1.0566  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0428  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0433  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0429  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0432  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0430  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0426  data: 0.0008  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0431  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0431  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 48.47
+
+    precision@0.5 = 55.17
+    precision@0.6 = 47.13
+    precision@0.7 = 39.54
+    precision@0.8 = 29.77
+    precision@0.9 = 14.60
+    overall IoU = 73.40
+
+Epoch 4: Mean IoU 48.47, Overall IoU 73.40
+New best overall IoU: 73.40. Saving model for epoch: 4
+
+Epoch: [5]  [  0/761]  eta: 0:35:35  lr: 4.4336619519473764e-05  loss: 0.0332 (0.0332)  time: 2.8064  data: 1.3762  max mem: 19378
+Epoch: [5]  [ 50/761]  eta: 0:16:38  lr: 4.4261702673264506e-05  loss: 0.0235 (0.0332)  time: 1.3729  data: 0.0013  max mem: 19378
+Epoch: [5]  [100/761]  eta: 0:15:12  lr: 4.418677173513184e-05  loss: 0.0229 (0.0285)  time: 1.3562  data: 0.0014  max mem: 19378
+Epoch: [5]  [150/761]  eta: 0:13:58  lr: 4.411182667586308e-05  loss: 0.0320 (0.0299)  time: 1.3669  data: 0.0010  max mem: 19378
+Epoch: [5]  [200/761]  eta: 0:12:48  lr: 4.4036867466129686e-05  loss: 0.0235 (0.0308)  time: 1.3556  data: 0.0009  max mem: 19378
+Epoch: [5]  [250/761]  eta: 0:11:38  lr: 4.3961894076486635e-05  loss: 0.0189 (0.0297)  time: 1.3578  data: 0.0014  max mem: 19378
+Epoch: [5]  [300/761]  eta: 0:10:30  lr: 4.3886906477371694e-05  loss: 0.0269 (0.0298)  time: 1.3550  data: 0.0014  max mem: 19378
+Epoch: [5]  [350/761]  eta: 0:09:21  lr: 4.381190463910475e-05  loss: 0.0293 (0.0297)  time: 1.3614  data: 0.0011  max mem: 19378
+Epoch: [5]  [400/761]  eta: 0:08:12  lr: 4.373688853188711e-05  loss: 0.0238 (0.0297)  time: 1.3571  data: 0.0011  max mem: 19378
+Epoch: [5]  [450/761]  eta: 0:07:04  lr: 4.366185812580079e-05  loss: 0.0291 (0.0302)  time: 1.3628  data: 0.0015  max mem: 19378
+Epoch: [5]  [500/761]  eta: 0:05:55  lr: 4.3586813390807866e-05  loss: 0.0279 (0.0304)  time: 1.3497  data: 0.0015  max mem: 19378
+Epoch: [5]  [550/761]  eta: 0:04:47  lr: 4.351175429674966e-05  loss: 0.0258 (0.0302)  time: 1.3374  data: 0.0015  max mem: 19378
+Epoch: [5]  [600/761]  eta: 0:03:38  lr: 4.343668081334612e-05  loss: 0.0275 (0.0303)  time: 1.3276  data: 0.0016  max mem: 19378
+Epoch: [5]  [650/761]  eta: 0:02:30  lr: 4.336159291019503e-05  loss: 0.0295 (0.0306)  time: 1.2666  data: 0.0013  max mem: 19378
+Epoch: [5]  [700/761]  eta: 0:01:22  lr: 4.328649055677132e-05  loss: 0.0289 (0.0306)  time: 1.2527  data: 0.0013  max mem: 19378
+Epoch: [5]  [750/761]  eta: 0:00:14  lr: 4.321137372242634e-05  loss: 0.0262 (0.0308)  time: 1.2625  data: 0.0014  max mem: 19378
+Epoch: [5] Total time: 0:17:00
+Test:  [  0/870]  eta: 0:16:40    time: 1.1496  data: 1.0880  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0436  data: 0.0008  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0432  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0435  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0429  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0431  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0429  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0435  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 50.75
+
+    precision@0.5 = 56.67
+    precision@0.6 = 50.00
+    precision@0.7 = 41.84
+    precision@0.8 = 32.64
+    precision@0.9 = 16.55
+    overall IoU = 74.86
+
+Epoch 5: Mean IoU 50.75, Overall IoU 74.86
+New best overall IoU: 74.86. Saving model for epoch: 5
+
+Epoch: [6]  [  0/761]  eta: 0:37:13  lr: 4.3194846072477215e-05  loss: 0.0264 (0.0264)  time: 2.9344  data: 1.4375  max mem: 19378
+Epoch: [6]  [ 50/761]  eta: 0:16:39  lr: 4.311971152972305e-05  loss: 0.0224 (0.0249)  time: 1.3730  data: 0.0013  max mem: 19378
+Epoch: [6]  [100/761]  eta: 0:15:20  lr: 4.304456243756205e-05  loss: 0.0249 (0.0240)  time: 1.3802  data: 0.0008  max mem: 19378
+Epoch: [6]  [150/761]  eta: 0:14:07  lr: 4.2969398764942495e-05  loss: 0.0197 (0.0239)  time: 1.3851  data: 0.0010  max mem: 19378
+Epoch: [6]  [200/761]  eta: 0:12:56  lr: 4.289422048068591e-05  loss: 0.0242 (0.0243)  time: 1.3737  data: 0.0014  max mem: 19378
+Epoch: [6]  [250/761]  eta: 0:11:46  lr: 4.281902755348627e-05  loss: 0.0222 (0.0250)  time: 1.3676  data: 0.0012  max mem: 19378
+Epoch: [6]  [300/761]  eta: 0:10:35  lr: 4.274381995190926e-05  loss: 0.0252 (0.0256)  time: 1.3534  data: 0.0014  max mem: 19378
+Epoch: [6]  [350/761]  eta: 0:09:25  lr: 4.266859764439148e-05  loss: 0.0255 (0.0258)  time: 1.3523  data: 0.0014  max mem: 19378
+Epoch: [6]  [400/761]  eta: 0:08:15  lr: 4.259336059923969e-05  loss: 0.0215 (0.0260)  time: 1.3504  data: 0.0013  max mem: 19378
+Epoch: [6]  [450/761]  eta: 0:07:06  lr: 4.251810878462997e-05  loss: 0.0246 (0.0259)  time: 1.3693  data: 0.0014  max mem: 19378
+Epoch: [6]  [500/761]  eta: 0:05:56  lr: 4.244284216860696e-05  loss: 0.0230 (0.0262)  time: 1.3249  data: 0.0015  max mem: 19378
+Epoch: [6]  [550/761]  eta: 0:04:46  lr: 4.236756071908304e-05  loss: 0.0178 (0.0260)  time: 1.2674  data: 0.0014  max mem: 19378
+Epoch: [6]  [600/761]  eta: 0:03:37  lr: 4.2292264403837537e-05  loss: 0.0242 (0.0263)  time: 1.2684  data: 0.0016  max mem: 19378
+Epoch: [6]  [650/761]  eta: 0:02:29  lr: 4.2216953190515915e-05  loss: 0.0291 (0.0265)  time: 1.2644  data: 0.0015  max mem: 19378
+Epoch: [6]  [700/761]  eta: 0:01:21  lr: 4.2141627046628896e-05  loss: 0.0276 (0.0270)  time: 1.3061  data: 0.0011  max mem: 19378
+Epoch: [6]  [750/761]  eta: 0:00:14  lr: 4.2066285939551706e-05  loss: 0.0227 (0.0269)  time: 1.3072  data: 0.0013  max mem: 19378
+Epoch: [6] Total time: 0:16:56
+Test:  [  0/870]  eta: 0:17:04    time: 1.1779  data: 1.1194  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0428  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0429  data: 0.0008  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0433  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0427  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0429  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0429  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0422  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 51.86
+
+    precision@0.5 = 57.70
+    precision@0.6 = 49.77
+    precision@0.7 = 42.07
+    precision@0.8 = 32.53
+    precision@0.9 = 15.40
+    overall IoU = 75.03
+
+Epoch 6: Mean IoU 51.86, Overall IoU 75.03
+New best overall IoU: 75.03. Saving model for epoch: 6
+
+Epoch: [7]  [  0/761]  eta: 0:33:44  lr: 4.204970888468381e-05  loss: 0.0142 (0.0142)  time: 2.6600  data: 1.3592  max mem: 19378
+Epoch: [7]  [ 50/761]  eta: 0:15:05  lr: 4.197434947813585e-05  loss: 0.0220 (0.0233)  time: 1.2417  data: 0.0016  max mem: 19378
+Epoch: [7]  [100/761]  eta: 0:13:53  lr: 4.189897503548206e-05  loss: 0.0170 (0.0227)  time: 1.2404  data: 0.0011  max mem: 19378
+Epoch: [7]  [150/761]  eta: 0:12:48  lr: 4.182358552365554e-05  loss: 0.0199 (0.0223)  time: 1.2295  data: 0.0013  max mem: 19378
+Epoch: [7]  [200/761]  eta: 0:11:44  lr: 4.174818090945025e-05  loss: 0.0194 (0.0228)  time: 1.2370  data: 0.0013  max mem: 19378
+Epoch: [7]  [250/761]  eta: 0:10:41  lr: 4.1672761159520216e-05  loss: 0.0243 (0.0230)  time: 1.2478  data: 0.0017  max mem: 19378
+Epoch: [7]  [300/761]  eta: 0:09:38  lr: 4.1597326240378606e-05  loss: 0.0182 (0.0234)  time: 1.2448  data: 0.0013  max mem: 19378
+Epoch: [7]  [350/761]  eta: 0:08:35  lr: 4.152187611839685e-05  loss: 0.0186 (0.0236)  time: 1.2487  data: 0.0014  max mem: 19378
+Epoch: [7]  [400/761]  eta: 0:07:32  lr: 4.1446410759803784e-05  loss: 0.0238 (0.0237)  time: 1.2446  data: 0.0015  max mem: 19378
+Epoch: [7]  [450/761]  eta: 0:06:29  lr: 4.137093013068472e-05  loss: 0.0211 (0.0239)  time: 1.2479  data: 0.0011  max mem: 19378
+Epoch: [7]  [500/761]  eta: 0:05:26  lr: 4.129543419698058e-05  loss: 0.0187 (0.0238)  time: 1.2478  data: 0.0018  max mem: 19378
+Epoch: [7]  [550/761]  eta: 0:04:24  lr: 4.1219922924486956e-05  loss: 0.0263 (0.0240)  time: 1.2504  data: 0.0016  max mem: 19378
+Epoch: [7]  [600/761]  eta: 0:03:21  lr: 4.1144396278853195e-05  loss: 0.0229 (0.0247)  time: 1.2567  data: 0.0015  max mem: 19378
+Epoch: [7]  [650/761]  eta: 0:02:18  lr: 4.1068854225581506e-05  loss: 0.0230 (0.0248)  time: 1.2542  data: 0.0015  max mem: 19378
+Epoch: [7]  [700/761]  eta: 0:01:16  lr: 4.099329673002599e-05  loss: 0.0217 (0.0248)  time: 1.2601  data: 0.0013  max mem: 19378
+Epoch: [7]  [750/761]  eta: 0:00:13  lr: 4.091772375739172e-05  loss: 0.0207 (0.0248)  time: 1.2555  data: 0.0013  max mem: 19378
+Epoch: [7] Total time: 0:15:52
+Test:  [  0/870]  eta: 0:15:57    time: 1.1007  data: 1.0474  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0421  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0428  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0421  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 50.16
+
+    precision@0.5 = 56.32
+    precision@0.6 = 48.97
+    precision@0.7 = 40.80
+    precision@0.8 = 32.64
+    precision@0.9 = 15.40
+    overall IoU = 72.85
+
+Epoch 7: Mean IoU 50.16, Overall IoU 72.85
+Epoch: [8]  [  0/761]  eta: 0:40:43  lr: 4.090109562292082e-05  loss: 0.0310 (0.0310)  time: 3.2109  data: 1.2961  max mem: 19378
+Epoch: [8]  [ 50/761]  eta: 0:15:34  lr: 4.082550372091311e-05  loss: 0.0241 (0.0252)  time: 1.2728  data: 0.0009  max mem: 19378
+Epoch: [8]  [100/761]  eta: 0:14:14  lr: 4.0749896264044446e-05  loss: 0.0229 (0.0248)  time: 1.2760  data: 0.0009  max mem: 19378
+Epoch: [8]  [150/761]  eta: 0:13:04  lr: 4.0674273217033535e-05  loss: 0.0165 (0.0237)  time: 1.2786  data: 0.0008  max mem: 19378
+Epoch: [8]  [200/761]  eta: 0:11:57  lr: 4.059863454444599e-05  loss: 0.0247 (0.0248)  time: 1.2708  data: 0.0006  max mem: 19378
+Epoch: [8]  [250/761]  eta: 0:10:52  lr: 4.0522980210693364e-05  loss: 0.0213 (0.0250)  time: 1.2728  data: 0.0012  max mem: 19378
+Epoch: [8]  [300/761]  eta: 0:09:48  lr: 4.0447310180032105e-05  loss: 0.0207 (0.0249)  time: 1.2819  data: 0.0009  max mem: 19378
+Epoch: [8]  [350/761]  eta: 0:08:43  lr: 4.037162441656264e-05  loss: 0.0212 (0.0246)  time: 1.2482  data: 0.0014  max mem: 19378
+Epoch: [8]  [400/761]  eta: 0:07:38  lr: 4.029592288422832e-05  loss: 0.0227 (0.0245)  time: 1.2472  data: 0.0016  max mem: 19378
+Epoch: [8]  [450/761]  eta: 0:06:34  lr: 4.022020554681439e-05  loss: 0.0173 (0.0244)  time: 1.2642  data: 0.0010  max mem: 19378
+Epoch: [8]  [500/761]  eta: 0:05:30  lr: 4.014447236794699e-05  loss: 0.0204 (0.0242)  time: 1.2535  data: 0.0012  max mem: 19378
+Epoch: [8]  [550/761]  eta: 0:04:26  lr: 4.0068723311092116e-05  loss: 0.0228 (0.0240)  time: 1.2504  data: 0.0015  max mem: 19378
+Epoch: [8]  [600/761]  eta: 0:03:23  lr: 3.999295833955458e-05  loss: 0.0211 (0.0236)  time: 1.2494  data: 0.0015  max mem: 19378
+Epoch: [8]  [650/761]  eta: 0:02:20  lr: 3.991717741647694e-05  loss: 0.0204 (0.0236)  time: 1.2453  data: 0.0016  max mem: 19378
+Epoch: [8]  [700/761]  eta: 0:01:17  lr: 3.984138050483847e-05  loss: 0.0173 (0.0233)  time: 1.2477  data: 0.0017  max mem: 19378
+Epoch: [8]  [750/761]  eta: 0:00:13  lr: 3.976556756745402e-05  loss: 0.0203 (0.0233)  time: 1.2441  data: 0.0018  max mem: 19378
+Epoch: [8] Total time: 0:16:00
+Test:  [  0/870]  eta: 0:15:57    time: 1.1007  data: 1.0304  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0420  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:31    time: 0.0418  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0428  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0428  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0422  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 54.10
+
+    precision@0.5 = 60.69
+    precision@0.6 = 52.99
+    precision@0.7 = 44.25
+    precision@0.8 = 34.48
+    precision@0.9 = 18.16
+    overall IoU = 75.33
+
+Epoch 8: Mean IoU 54.10, Overall IoU 75.33
+New best overall IoU: 75.33. Saving model for epoch: 8
+
+Epoch: [9]  [  0/761]  eta: 0:32:37  lr: 3.974888656686835e-05  loss: 0.0229 (0.0229)  time: 2.5723  data: 1.2637  max mem: 19378
+Epoch: [9]  [ 50/761]  eta: 0:15:03  lr: 3.9673054027477206e-05  loss: 0.0171 (0.0192)  time: 1.2391  data: 0.0019  max mem: 19378
+Epoch: [9]  [100/761]  eta: 0:13:51  lr: 3.959720537919619e-05  loss: 0.0143 (0.0188)  time: 1.2392  data: 0.0019  max mem: 19378
+Epoch: [9]  [150/761]  eta: 0:12:46  lr: 3.9521340584303554e-05  loss: 0.0173 (0.0194)  time: 1.2504  data: 0.0014  max mem: 19378
+Epoch: [9]  [200/761]  eta: 0:11:43  lr: 3.94454596049085e-05  loss: 0.0229 (0.0199)  time: 1.2502  data: 0.0012  max mem: 19378
+Epoch: [9]  [250/761]  eta: 0:10:40  lr: 3.936956240295017e-05  loss: 0.0146 (0.0196)  time: 1.2573  data: 0.0013  max mem: 19378
+Epoch: [9]  [300/761]  eta: 0:09:37  lr: 3.929364894019641e-05  loss: 0.0207 (0.0202)  time: 1.2561  data: 0.0014  max mem: 19378
+Epoch: [9]  [350/761]  eta: 0:08:34  lr: 3.9217719178242716e-05  loss: 0.0163 (0.0201)  time: 1.2564  data: 0.0016  max mem: 19378
+Epoch: [9]  [400/761]  eta: 0:07:31  lr: 3.914177307851104e-05  loss: 0.0134 (0.0197)  time: 1.2549  data: 0.0013  max mem: 19378
+Epoch: [9]  [450/761]  eta: 0:06:29  lr: 3.906581060224864e-05  loss: 0.0174 (0.0196)  time: 1.2539  data: 0.0016  max mem: 19378
+Epoch: [9]  [500/761]  eta: 0:05:26  lr: 3.8989831710526915e-05  loss: 0.0183 (0.0197)  time: 1.2529  data: 0.0017  max mem: 19378
+Epoch: [9]  [550/761]  eta: 0:04:23  lr: 3.891383636424021e-05  loss: 0.0225 (0.0200)  time: 1.2478  data: 0.0015  max mem: 19378
+Epoch: [9]  [600/761]  eta: 0:03:21  lr: 3.8837824524104647e-05  loss: 0.0176 (0.0198)  time: 1.2488  data: 0.0018  max mem: 19378
+Epoch: [9]  [650/761]  eta: 0:02:18  lr: 3.8761796150656906e-05  loss: 0.0136 (0.0196)  time: 1.2541  data: 0.0015  max mem: 19378
+Epoch: [9]  [700/761]  eta: 0:01:16  lr: 3.8685751204253004e-05  loss: 0.0189 (0.0195)  time: 1.2509  data: 0.0016  max mem: 19378
+Epoch: [9]  [750/761]  eta: 0:00:13  lr: 3.8609689645067096e-05  loss: 0.0174 (0.0197)  time: 1.2444  data: 0.0013  max mem: 19378
+Epoch: [9] Total time: 0:15:51
+Test:  [  0/870]  eta: 0:15:52    time: 1.0950  data: 1.0225  max mem: 19378
+Test:  [100/870]  eta: 0:00:39    time: 0.0415  data: 0.0006  max mem: 19378
+Test:  [200/870]  eta: 0:00:31    time: 0.0417  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:25    time: 0.0415  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:20    time: 0.0414  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0414  data: 0.0006  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0433  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0445  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0442  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 55.51
+
+    precision@0.5 = 61.72
+    precision@0.6 = 54.71
+    precision@0.7 = 46.44
+    precision@0.8 = 36.55
+    precision@0.9 = 19.89
+    overall IoU = 75.86
+
+Epoch 9: Mean IoU 55.51, Overall IoU 75.86
+New best overall IoU: 75.86. Saving model for epoch: 9
+
+Epoch: [10]  [  0/761]  eta: 0:36:14  lr: 3.8592953868641204e-05  loss: 0.0125 (0.0125)  time: 2.8570  data: 1.4975  max mem: 19378
+Epoch: [10]  [ 50/761]  eta: 0:16:29  lr: 3.851687198766286e-05  loss: 0.0174 (0.0209)  time: 1.3723  data: 0.0011  max mem: 19378
+Epoch: [10]  [100/761]  eta: 0:15:15  lr: 3.844077340483285e-05  loss: 0.0141 (0.0192)  time: 1.3752  data: 0.0009  max mem: 19378
+Epoch: [10]  [150/761]  eta: 0:14:03  lr: 3.836465807973128e-05  loss: 0.0161 (0.0187)  time: 1.3712  data: 0.0010  max mem: 19378
+Epoch: [10]  [200/761]  eta: 0:12:54  lr: 3.8288525971751054e-05  loss: 0.0144 (0.0181)  time: 1.3800  data: 0.0012  max mem: 19378
+Epoch: [10]  [250/761]  eta: 0:11:45  lr: 3.821237704009666e-05  loss: 0.0162 (0.0179)  time: 1.3847  data: 0.0010  max mem: 19378
+Epoch: [10]  [300/761]  eta: 0:10:35  lr: 3.813621124378284e-05  loss: 0.0173 (0.0179)  time: 1.3857  data: 0.0012  max mem: 19378
+Epoch: [10]  [350/761]  eta: 0:09:26  lr: 3.80600285416333e-05  loss: 0.0196 (0.0182)  time: 1.3693  data: 0.0017  max mem: 19378
+Epoch: [10]  [400/761]  eta: 0:08:17  lr: 3.798382889227939e-05  loss: 0.0150 (0.0181)  time: 1.3712  data: 0.0013  max mem: 19378
+Epoch: [10]  [450/761]  eta: 0:07:08  lr: 3.790761225415878e-05  loss: 0.0186 (0.0181)  time: 1.3767  data: 0.0009  max mem: 19378
+Epoch: [10]  [500/761]  eta: 0:05:58  lr: 3.783137858551409e-05  loss: 0.0153 (0.0180)  time: 1.3182  data: 0.0010  max mem: 19378
+Epoch: [10]  [550/761]  eta: 0:04:48  lr: 3.7755127844391574e-05  loss: 0.0130 (0.0180)  time: 1.3031  data: 0.0018  max mem: 19378
+Epoch: [10]  [600/761]  eta: 0:03:39  lr: 3.7678859988639736e-05  loss: 0.0172 (0.0179)  time: 1.3030  data: 0.0017  max mem: 19378
+Epoch: [10]  [650/761]  eta: 0:02:30  lr: 3.7602574975907953e-05  loss: 0.0196 (0.0182)  time: 1.3073  data: 0.0014  max mem: 19378
+Epoch: [10]  [700/761]  eta: 0:01:22  lr: 3.752627276364507e-05  loss: 0.0118 (0.0181)  time: 1.3060  data: 0.0015  max mem: 19378
+Epoch: [10]  [750/761]  eta: 0:00:14  lr: 3.744995330909803e-05  loss: 0.0181 (0.0181)  time: 1.3016  data: 0.0013  max mem: 19378
+Epoch: [10] Total time: 0:17:06
+Test:  [  0/870]  eta: 0:15:59    time: 1.1027  data: 1.0494  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0427  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0427  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0425  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 54.91
+
+    precision@0.5 = 61.15
+    precision@0.6 = 54.02
+    precision@0.7 = 45.52
+    precision@0.8 = 37.13
+    precision@0.9 = 20.23
+    overall IoU = 75.98
+
+Epoch 10: Mean IoU 54.91, Overall IoU 75.98
+New best overall IoU: 75.98. Saving model for epoch: 10
+
+Epoch: [11]  [  0/761]  eta: 0:34:32  lr: 3.7433160710921187e-05  loss: 0.0178 (0.0178)  time: 2.7231  data: 1.4123  max mem: 19378
+Epoch: [11]  [ 50/761]  eta: 0:15:09  lr: 3.735682016259557e-05  loss: 0.0150 (0.0178)  time: 1.2405  data: 0.0014  max mem: 19378
+Epoch: [11]  [100/761]  eta: 0:13:56  lr: 3.7280462276345115e-05  loss: 0.0166 (0.0176)  time: 1.2429  data: 0.0017  max mem: 19378
+Epoch: [11]  [150/761]  eta: 0:12:49  lr: 3.7204087008756846e-05  loss: 0.0153 (0.0172)  time: 1.2428  data: 0.0016  max mem: 19378
+Epoch: [11]  [200/761]  eta: 0:11:45  lr: 3.71276943162098e-05  loss: 0.0169 (0.0173)  time: 1.2511  data: 0.0009  max mem: 19378
+Epoch: [11]  [250/761]  eta: 0:10:42  lr: 3.705128415487354e-05  loss: 0.0162 (0.0176)  time: 1.2689  data: 0.0007  max mem: 19378
+Epoch: [11]  [300/761]  eta: 0:09:39  lr: 3.6974856480706665e-05  loss: 0.0150 (0.0174)  time: 1.2509  data: 0.0015  max mem: 19378
+Epoch: [11]  [350/761]  eta: 0:08:35  lr: 3.6898411249455325e-05  loss: 0.0189 (0.0176)  time: 1.2417  data: 0.0018  max mem: 19378
+Epoch: [11]  [400/761]  eta: 0:07:32  lr: 3.682194841665167e-05  loss: 0.0141 (0.0174)  time: 1.2478  data: 0.0004  max mem: 19378
+Epoch: [11]  [450/761]  eta: 0:06:30  lr: 3.6745467937612366e-05  loss: 0.0143 (0.0174)  time: 1.2473  data: 0.0004  max mem: 19378
+Epoch: [11]  [500/761]  eta: 0:05:27  lr: 3.6668969767436996e-05  loss: 0.0130 (0.0175)  time: 1.2430  data: 0.0019  max mem: 19378
+Epoch: [11]  [550/761]  eta: 0:04:24  lr: 3.659245386100655e-05  loss: 0.0150 (0.0176)  time: 1.2425  data: 0.0020  max mem: 19378
+Epoch: [11]  [600/761]  eta: 0:03:21  lr: 3.651592017298181e-05  loss: 0.0165 (0.0177)  time: 1.2474  data: 0.0016  max mem: 19378
+Epoch: [11]  [650/761]  eta: 0:02:19  lr: 3.643936865780179e-05  loss: 0.0194 (0.0184)  time: 1.2561  data: 0.0017  max mem: 19378
+Epoch: [11]  [700/761]  eta: 0:01:16  lr: 3.636279926968211e-05  loss: 0.0182 (0.0187)  time: 1.2563  data: 0.0015  max mem: 19378
+Epoch: [11]  [750/761]  eta: 0:00:13  lr: 3.628621196261339e-05  loss: 0.0144 (0.0187)  time: 1.2737  data: 0.0011  max mem: 19378
+Epoch: [11] Total time: 0:15:54
+Test:  [  0/870]  eta: 0:15:52    time: 1.0947  data: 1.0382  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0434  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0431  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0429  data: 0.0008  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0428  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0430  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0431  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0431  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 53.84
+
+    precision@0.5 = 59.31
+    precision@0.6 = 52.53
+    precision@0.7 = 45.75
+    precision@0.8 = 35.86
+    precision@0.9 = 19.66
+    overall IoU = 75.31
+
+Epoch 11: Mean IoU 53.84, Overall IoU 75.31
+Epoch: [12]  [  0/761]  eta: 0:40:58  lr: 3.626936034574811e-05  loss: 0.0161 (0.0161)  time: 3.2307  data: 1.3623  max mem: 19378
+Epoch: [12]  [ 50/761]  eta: 0:15:34  lr: 3.61927511149261e-05  loss: 0.0137 (0.0158)  time: 1.2794  data: 0.0012  max mem: 19378
+Epoch: [12]  [100/761]  eta: 0:14:11  lr: 3.611612386220174e-05  loss: 0.0142 (0.0158)  time: 1.2630  data: 0.0013  max mem: 19378
+Epoch: [12]  [150/761]  eta: 0:13:02  lr: 3.603947854082995e-05  loss: 0.0158 (0.0160)  time: 1.2708  data: 0.0010  max mem: 19378
+Epoch: [12]  [200/761]  eta: 0:11:55  lr: 3.596281510383361e-05  loss: 0.0141 (0.0156)  time: 1.2631  data: 0.0013  max mem: 19378
+Epoch: [12]  [250/761]  eta: 0:10:52  lr: 3.5886133504001855e-05  loss: 0.0154 (0.0159)  time: 1.2985  data: 0.0009  max mem: 19378
+Epoch: [12]  [300/761]  eta: 0:09:48  lr: 3.580943369388843e-05  loss: 0.0134 (0.0162)  time: 1.2750  data: 0.0012  max mem: 19378
+Epoch: [12]  [350/761]  eta: 0:08:44  lr: 3.573271562580985e-05  loss: 0.0175 (0.0164)  time: 1.2907  data: 0.0010  max mem: 19378
+Epoch: [12]  [400/761]  eta: 0:07:40  lr: 3.565597925184371e-05  loss: 0.0134 (0.0166)  time: 1.2643  data: 0.0011  max mem: 19378
+Epoch: [12]  [450/761]  eta: 0:06:36  lr: 3.557922452382692e-05  loss: 0.0134 (0.0165)  time: 1.2552  data: 0.0013  max mem: 19378
+Epoch: [12]  [500/761]  eta: 0:05:31  lr: 3.5502451393353854e-05  loss: 0.0146 (0.0163)  time: 1.2377  data: 0.0015  max mem: 19378
+Epoch: [12]  [550/761]  eta: 0:04:27  lr: 3.542565981177461e-05  loss: 0.0129 (0.0163)  time: 1.2531  data: 0.0010  max mem: 19378
+Epoch: [12]  [600/761]  eta: 0:03:24  lr: 3.534884973019315e-05  loss: 0.0139 (0.0163)  time: 1.2542  data: 0.0016  max mem: 19378
+Epoch: [12]  [650/761]  eta: 0:02:20  lr: 3.527202109946547e-05  loss: 0.0172 (0.0163)  time: 1.2464  data: 0.0018  max mem: 19378
+Epoch: [12]  [700/761]  eta: 0:01:17  lr: 3.519517387019774e-05  loss: 0.0206 (0.0167)  time: 1.2442  data: 0.0019  max mem: 19378
+Epoch: [12]  [750/761]  eta: 0:00:13  lr: 3.5118307992744384e-05  loss: 0.0158 (0.0168)  time: 1.2437  data: 0.0017  max mem: 19378
+Epoch: [12] Total time: 0:16:02
+Test:  [  0/870]  eta: 0:15:52    time: 1.0953  data: 1.0405  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0430  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0428  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0424  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 56.09
+
+    precision@0.5 = 63.68
+    precision@0.6 = 56.09
+    precision@0.7 = 46.67
+    precision@0.8 = 35.52
+    precision@0.9 = 20.23
+    overall IoU = 76.14
+
+Epoch 12: Mean IoU 56.09, Overall IoU 76.14
+New best overall IoU: 76.14. Saving model for epoch: 12
+
+Epoch: [13]  [  0/761]  eta: 0:34:51  lr: 3.5101394992167685e-05  loss: 0.0156 (0.0156)  time: 2.7483  data: 1.3587  max mem: 19378
+Epoch: [13]  [ 50/761]  eta: 0:15:08  lr: 3.5024506296329116e-05  loss: 0.0131 (0.0168)  time: 1.2484  data: 0.0014  max mem: 19378
+Epoch: [13]  [100/761]  eta: 0:13:55  lr: 3.494759884118259e-05  loss: 0.0177 (0.0177)  time: 1.2505  data: 0.0017  max mem: 19378
+Epoch: [13]  [150/761]  eta: 0:12:50  lr: 3.487067257625905e-05  loss: 0.0166 (0.0177)  time: 1.2522  data: 0.0007  max mem: 19378
+Epoch: [13]  [200/761]  eta: 0:11:46  lr: 3.47937274508296e-05  loss: 0.0150 (0.0178)  time: 1.2502  data: 0.0010  max mem: 19378
+Epoch: [13]  [250/761]  eta: 0:10:43  lr: 3.4716763413903515e-05  loss: 0.0144 (0.0179)  time: 1.2647  data: 0.0008  max mem: 19378
+Epoch: [13]  [300/761]  eta: 0:09:41  lr: 3.463978041422623e-05  loss: 0.0165 (0.0178)  time: 1.2686  data: 0.0006  max mem: 19378
+Epoch: [13]  [350/761]  eta: 0:08:37  lr: 3.456277840027733e-05  loss: 0.0160 (0.0176)  time: 1.2641  data: 0.0010  max mem: 19378
+Epoch: [13]  [400/761]  eta: 0:07:35  lr: 3.448575732026853e-05  loss: 0.0132 (0.0174)  time: 1.2629  data: 0.0007  max mem: 19378
+Epoch: [13]  [450/761]  eta: 0:06:32  lr: 3.440871712214156e-05  loss: 0.0156 (0.0171)  time: 1.2764  data: 0.0005  max mem: 19378
+Epoch: [13]  [500/761]  eta: 0:05:29  lr: 3.4331657753566146e-05  loss: 0.0108 (0.0168)  time: 1.2691  data: 0.0004  max mem: 19378
+Epoch: [13]  [550/761]  eta: 0:04:26  lr: 3.425457916193784e-05  loss: 0.0141 (0.0168)  time: 1.2699  data: 0.0009  max mem: 19378
+Epoch: [13]  [600/761]  eta: 0:03:23  lr: 3.4177481294375964e-05  loss: 0.0146 (0.0167)  time: 1.2644  data: 0.0010  max mem: 19378
+Epoch: [13]  [650/761]  eta: 0:02:20  lr: 3.410036409772141e-05  loss: 0.0128 (0.0165)  time: 1.2818  data: 0.0010  max mem: 19378
+Epoch: [13]  [700/761]  eta: 0:01:17  lr: 3.4023227518534506e-05  loss: 0.0155 (0.0166)  time: 1.2671  data: 0.0013  max mem: 19378
+Epoch: [13]  [750/761]  eta: 0:00:13  lr: 3.3946071503092784e-05  loss: 0.0133 (0.0165)  time: 1.2498  data: 0.0017  max mem: 19378
+Epoch: [13] Total time: 0:16:00
+Test:  [  0/870]  eta: 0:15:48    time: 1.0899  data: 1.0352  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:31    time: 0.0419  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0408  data: 0.0006  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0409  data: 0.0006  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0408  data: 0.0006  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0413  data: 0.0008  max mem: 19378
+Test: Total time: 0:00:37
+Final results:
+Mean IoU is 56.68
+
+    precision@0.5 = 64.14
+    precision@0.6 = 55.98
+    precision@0.7 = 47.36
+    precision@0.8 = 36.09
+    precision@0.9 = 21.03
+    overall IoU = 75.69
+
+Epoch 13: Mean IoU 56.68, Overall IoU 75.69
+Epoch: [14]  [  0/761]  eta: 0:39:24  lr: 3.392909456599239e-05  loss: 0.0058 (0.0058)  time: 3.1072  data: 1.3677  max mem: 19378
+Epoch: [14]  [ 50/761]  eta: 0:15:21  lr: 3.385191476515444e-05  loss: 0.0159 (0.0149)  time: 1.2493  data: 0.0012  max mem: 19378
+Epoch: [14]  [100/761]  eta: 0:14:02  lr: 3.377471540777598e-05  loss: 0.0135 (0.0146)  time: 1.2544  data: 0.0014  max mem: 19378
+Epoch: [14]  [150/761]  eta: 0:12:53  lr: 3.369749643920887e-05  loss: 0.0129 (0.0147)  time: 1.2456  data: 0.0015  max mem: 19378
+Epoch: [14]  [200/761]  eta: 0:11:47  lr: 3.362025780451269e-05  loss: 0.0144 (0.0147)  time: 1.2476  data: 0.0017  max mem: 19378
+Epoch: [14]  [250/761]  eta: 0:10:43  lr: 3.354299944845243e-05  loss: 0.0109 (0.0147)  time: 1.2448  data: 0.0016  max mem: 19378
+Epoch: [14]  [300/761]  eta: 0:09:39  lr: 3.3465721315496176e-05  loss: 0.0129 (0.0146)  time: 1.2466  data: 0.0015  max mem: 19378
+Epoch: [14]  [350/761]  eta: 0:08:36  lr: 3.338842334981271e-05  loss: 0.0132 (0.0146)  time: 1.2469  data: 0.0018  max mem: 19378
+Epoch: [14]  [400/761]  eta: 0:07:33  lr: 3.3311105495269143e-05  loss: 0.0147 (0.0147)  time: 1.2508  data: 0.0018  max mem: 19378
+Epoch: [14]  [450/761]  eta: 0:06:30  lr: 3.323376769542848e-05  loss: 0.0121 (0.0146)  time: 1.2482  data: 0.0012  max mem: 19378
+Epoch: [14]  [500/761]  eta: 0:05:27  lr: 3.315640989354724e-05  loss: 0.0142 (0.0146)  time: 1.2498  data: 0.0016  max mem: 19378
+Epoch: [14]  [550/761]  eta: 0:04:24  lr: 3.307903203257292e-05  loss: 0.0138 (0.0147)  time: 1.2502  data: 0.0013  max mem: 19378
+Epoch: [14]  [600/761]  eta: 0:03:21  lr: 3.300163405514154e-05  loss: 0.0157 (0.0148)  time: 1.2492  data: 0.0013  max mem: 19378
+Epoch: [14]  [650/761]  eta: 0:02:19  lr: 3.292421590357515e-05  loss: 0.0123 (0.0147)  time: 1.2515  data: 0.0013  max mem: 19378
+Epoch: [14]  [700/761]  eta: 0:01:16  lr: 3.284677751987922e-05  loss: 0.0128 (0.0147)  time: 1.2555  data: 0.0016  max mem: 19378
+Epoch: [14]  [750/761]  eta: 0:00:13  lr: 3.2769318845740145e-05  loss: 0.0154 (0.0147)  time: 1.2550  data: 0.0013  max mem: 19378
+Epoch: [14] Total time: 0:15:53
+Test:  [  0/870]  eta: 0:16:04    time: 1.1081  data: 1.0468  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0421  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0429  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0419  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0420  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0420  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 56.62
+
+    precision@0.5 = 62.53
+    precision@0.6 = 55.86
+    precision@0.7 = 48.74
+    precision@0.8 = 37.24
+    precision@0.9 = 22.30
+    overall IoU = 75.79
+
+Epoch 14: Mean IoU 56.62, Overall IoU 75.79
+Epoch: [15]  [  0/761]  eta: 0:39:45  lr: 3.275227520863539e-05  loss: 0.0170 (0.0170)  time: 3.1353  data: 1.4274  max mem: 19378
+Epoch: [15]  [ 50/761]  eta: 0:15:12  lr: 3.267479170071954e-05  loss: 0.0133 (0.0140)  time: 1.2446  data: 0.0017  max mem: 19378
+Epoch: [15]  [100/761]  eta: 0:13:58  lr: 3.259728777175064e-05  loss: 0.0108 (0.0129)  time: 1.2614  data: 0.0011  max mem: 19378
+Epoch: [15]  [150/761]  eta: 0:12:50  lr: 3.251976336236971e-05  loss: 0.0135 (0.0131)  time: 1.2556  data: 0.0016  max mem: 19378
+Epoch: [15]  [200/761]  eta: 0:11:46  lr: 3.244221841288754e-05  loss: 0.0131 (0.0131)  time: 1.2560  data: 0.0012  max mem: 19378
+Epoch: [15]  [250/761]  eta: 0:10:42  lr: 3.23646528632819e-05  loss: 0.0127 (0.0134)  time: 1.2546  data: 0.0016  max mem: 19378
+Epoch: [15]  [300/761]  eta: 0:09:38  lr: 3.228706665319482e-05  loss: 0.0135 (0.0133)  time: 1.2479  data: 0.0014  max mem: 19378
+Epoch: [15]  [350/761]  eta: 0:08:35  lr: 3.2209459721929825e-05  loss: 0.0128 (0.0133)  time: 1.2624  data: 0.0010  max mem: 19378
+Epoch: [15]  [400/761]  eta: 0:07:31  lr: 3.213183200844911e-05  loss: 0.0112 (0.0132)  time: 1.2314  data: 0.0017  max mem: 19378
+Epoch: [15]  [450/761]  eta: 0:06:29  lr: 3.205418345137069e-05  loss: 0.0112 (0.0132)  time: 1.2498  data: 0.0019  max mem: 19378
+Epoch: [15]  [500/761]  eta: 0:05:26  lr: 3.197651398896553e-05  loss: 0.0106 (0.0133)  time: 1.2503  data: 0.0015  max mem: 19378
+Epoch: [15]  [550/761]  eta: 0:04:23  lr: 3.1898823559154655e-05  loss: 0.0118 (0.0133)  time: 1.2569  data: 0.0016  max mem: 19378
+Epoch: [15]  [600/761]  eta: 0:03:21  lr: 3.182111209950622e-05  loss: 0.0138 (0.0134)  time: 1.2441  data: 0.0013  max mem: 19378
+Epoch: [15]  [650/761]  eta: 0:02:18  lr: 3.174337954723249e-05  loss: 0.0118 (0.0134)  time: 1.2429  data: 0.0019  max mem: 19378
+Epoch: [15]  [700/761]  eta: 0:01:16  lr: 3.16656258391869e-05  loss: 0.0114 (0.0133)  time: 1.2446  data: 0.0015  max mem: 19378
+Epoch: [15]  [750/761]  eta: 0:00:13  lr: 3.1587850911860986e-05  loss: 0.0113 (0.0134)  time: 1.2447  data: 0.0016  max mem: 19378
+Epoch: [15] Total time: 0:15:51
+Test:  [  0/870]  eta: 0:15:41    time: 1.0822  data: 1.0277  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:31    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0418  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0420  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0420  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0423  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 56.89
+
+    precision@0.5 = 64.48
+    precision@0.6 = 55.52
+    precision@0.7 = 47.47
+    precision@0.8 = 37.82
+    precision@0.9 = 21.38
+    overall IoU = 76.42
+
+Epoch 15: Mean IoU 56.89, Overall IoU 76.42
+New best overall IoU: 76.42. Saving model for epoch: 15
+
+Epoch: [16]  [  0/761]  eta: 0:33:14  lr: 3.1570737573885835e-05  loss: 0.0108 (0.0108)  time: 2.6212  data: 1.2765  max mem: 19378
+Epoch: [16]  [ 50/761]  eta: 0:15:09  lr: 3.149293667250404e-05  loss: 0.0130 (0.0132)  time: 1.2490  data: 0.0009  max mem: 19378
+Epoch: [16]  [100/761]  eta: 0:13:56  lr: 3.141511440954417e-05  loss: 0.0126 (0.0127)  time: 1.2477  data: 0.0014  max mem: 19378
+Epoch: [16]  [150/761]  eta: 0:12:49  lr: 3.133727072031143e-05  loss: 0.0116 (0.0126)  time: 1.2470  data: 0.0014  max mem: 19378
+Epoch: [16]  [200/761]  eta: 0:11:45  lr: 3.125940553973595e-05  loss: 0.0123 (0.0126)  time: 1.2496  data: 0.0015  max mem: 19378
+Epoch: [16]  [250/761]  eta: 0:10:41  lr: 3.118151880236954e-05  loss: 0.0130 (0.0127)  time: 1.2494  data: 0.0013  max mem: 19378
+Epoch: [16]  [300/761]  eta: 0:09:38  lr: 3.110361044238246e-05  loss: 0.0122 (0.0133)  time: 1.2493  data: 0.0016  max mem: 19378
+Epoch: [16]  [350/761]  eta: 0:08:35  lr: 3.102568039356012e-05  loss: 0.0197 (0.0140)  time: 1.2509  data: 0.0015  max mem: 19378
+Epoch: [16]  [400/761]  eta: 0:07:32  lr: 3.094772858929975e-05  loss: 0.0133 (0.0141)  time: 1.2502  data: 0.0015  max mem: 19378
+Epoch: [16]  [450/761]  eta: 0:06:29  lr: 3.0869754962607016e-05  loss: 0.0115 (0.0143)  time: 1.2577  data: 0.0014  max mem: 19378
+Epoch: [16]  [500/761]  eta: 0:05:27  lr: 3.0791759446092626e-05  loss: 0.0128 (0.0143)  time: 1.2577  data: 0.0016  max mem: 19378
+Epoch: [16]  [550/761]  eta: 0:04:24  lr: 3.071374197196889e-05  loss: 0.0122 (0.0144)  time: 1.2573  data: 0.0015  max mem: 19378
+Epoch: [16]  [600/761]  eta: 0:03:21  lr: 3.0635702472046224e-05  loss: 0.0110 (0.0142)  time: 1.2545  data: 0.0013  max mem: 19378
+Epoch: [16]  [650/761]  eta: 0:02:19  lr: 3.055764087772961e-05  loss: 0.0126 (0.0143)  time: 1.2709  data: 0.0010  max mem: 19378
+Epoch: [16]  [700/761]  eta: 0:01:16  lr: 3.0479557120015052e-05  loss: 0.0119 (0.0142)  time: 1.2371  data: 0.0015  max mem: 19378
+Epoch: [16]  [750/761]  eta: 0:00:13  lr: 3.0401451129485953e-05  loss: 0.0130 (0.0142)  time: 1.2565  data: 0.0015  max mem: 19378
+Epoch: [16] Total time: 0:15:53
+Test:  [  0/870]  eta: 0:15:41    time: 1.0826  data: 1.0274  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0432  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0429  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0427  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0427  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0428  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0428  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 56.14
+
+    precision@0.5 = 62.64
+    precision@0.6 = 55.29
+    precision@0.7 = 47.36
+    precision@0.8 = 38.62
+    precision@0.9 = 22.41
+    overall IoU = 76.76
+
+Epoch 16: Mean IoU 56.14, Overall IoU 76.76
+New best overall IoU: 76.76. Saving model for epoch: 16
+
+Epoch: [17]  [  0/761]  eta: 0:34:05  lr: 3.038426482099898e-05  loss: 0.0130 (0.0130)  time: 2.6883  data: 1.2516  max mem: 19378
+Epoch: [17]  [ 50/761]  eta: 0:16:03  lr: 3.0306131611826866e-05  loss: 0.0170 (0.0174)  time: 1.3291  data: 0.0013  max mem: 19378
+Epoch: [17]  [100/761]  eta: 0:14:48  lr: 3.0227976014242216e-05  loss: 0.0111 (0.0155)  time: 1.3285  data: 0.0011  max mem: 19378
+Epoch: [17]  [150/761]  eta: 0:13:39  lr: 3.014979795747484e-05  loss: 0.0116 (0.0149)  time: 1.3418  data: 0.0011  max mem: 19378
+Epoch: [17]  [200/761]  eta: 0:12:25  lr: 3.0071597370326234e-05  loss: 0.0132 (0.0144)  time: 1.2803  data: 0.0010  max mem: 19378
+Epoch: [17]  [250/761]  eta: 0:11:14  lr: 2.999337418116574e-05  loss: 0.0109 (0.0144)  time: 1.2920  data: 0.0009  max mem: 19378
+Epoch: [17]  [300/761]  eta: 0:10:05  lr: 2.9915128317926692e-05  loss: 0.0125 (0.0140)  time: 1.2703  data: 0.0013  max mem: 19378
+Epoch: [17]  [350/761]  eta: 0:08:57  lr: 2.9836859708102454e-05  loss: 0.0118 (0.0141)  time: 1.2547  data: 0.0009  max mem: 19378
+Epoch: [17]  [400/761]  eta: 0:07:49  lr: 2.9758568278742465e-05  loss: 0.0118 (0.0138)  time: 1.2523  data: 0.0008  max mem: 19378
+Epoch: [17]  [450/761]  eta: 0:06:43  lr: 2.96802539564482e-05  loss: 0.0145 (0.0139)  time: 1.2725  data: 0.0009  max mem: 19378
+Epoch: [17]  [500/761]  eta: 0:05:37  lr: 2.9601916667369106e-05  loss: 0.0135 (0.0138)  time: 1.2624  data: 0.0009  max mem: 19378
+Epoch: [17]  [550/761]  eta: 0:04:32  lr: 2.9523556337198483e-05  loss: 0.0114 (0.0138)  time: 1.2588  data: 0.0014  max mem: 19378
+Epoch: [17]  [600/761]  eta: 0:03:27  lr: 2.9445172891169304e-05  loss: 0.0133 (0.0138)  time: 1.2691  data: 0.0011  max mem: 19378
+Epoch: [17]  [650/761]  eta: 0:02:22  lr: 2.9366766254049994e-05  loss: 0.0118 (0.0138)  time: 1.2592  data: 0.0015  max mem: 19378
+Epoch: [17]  [700/761]  eta: 0:01:18  lr: 2.928833635014018e-05  loss: 0.0094 (0.0137)  time: 1.2646  data: 0.0008  max mem: 19378
+Epoch: [17]  [750/761]  eta: 0:00:14  lr: 2.920988310326631e-05  loss: 0.0102 (0.0135)  time: 1.2707  data: 0.0009  max mem: 19378
+Epoch: [17] Total time: 0:16:15
+Test:  [  0/870]  eta: 0:15:56    time: 1.0993  data: 1.0403  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0428  data: 0.0008  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0428  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0430  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0430  data: 0.0008  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0422  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 57.99
+
+    precision@0.5 = 65.63
+    precision@0.6 = 57.13
+    precision@0.7 = 48.16
+    precision@0.8 = 38.28
+    precision@0.9 = 22.18
+    overall IoU = 76.69
+
+Epoch 17: Mean IoU 57.99, Overall IoU 76.69
+Epoch: [18]  [  0/761]  eta: 0:39:57  lr: 2.9192620248725523e-05  loss: 0.0104 (0.0104)  time: 3.1498  data: 1.4308  max mem: 19378
+Epoch: [18]  [ 50/761]  eta: 0:15:20  lr: 2.9114138419586895e-05  loss: 0.0120 (0.0122)  time: 1.2587  data: 0.0015  max mem: 19378
+Epoch: [18]  [100/761]  eta: 0:13:59  lr: 2.903563307666577e-05  loss: 0.0116 (0.0120)  time: 1.2482  data: 0.0020  max mem: 19378
+Epoch: [18]  [150/761]  eta: 0:12:52  lr: 2.8957104142235086e-05  loss: 0.0103 (0.0119)  time: 1.2712  data: 0.0008  max mem: 19378
+Epoch: [18]  [200/761]  eta: 0:11:47  lr: 2.887855153807577e-05  loss: 0.0145 (0.0120)  time: 1.2430  data: 0.0019  max mem: 19378
+Epoch: [18]  [250/761]  eta: 0:10:43  lr: 2.8799975185472162e-05  loss: 0.0117 (0.0119)  time: 1.2447  data: 0.0018  max mem: 19378
+Epoch: [18]  [300/761]  eta: 0:09:39  lr: 2.872137500520733e-05  loss: 0.0125 (0.0120)  time: 1.2424  data: 0.0017  max mem: 19378
+Epoch: [18]  [350/761]  eta: 0:08:36  lr: 2.8642750917558336e-05  loss: 0.0096 (0.0120)  time: 1.2453  data: 0.0019  max mem: 19378
+Epoch: [18]  [400/761]  eta: 0:07:33  lr: 2.8564102842291472e-05  loss: 0.0092 (0.0119)  time: 1.2426  data: 0.0015  max mem: 19378
+Epoch: [18]  [450/761]  eta: 0:06:30  lr: 2.8485430698657402e-05  loss: 0.0091 (0.0119)  time: 1.2451  data: 0.0019  max mem: 19378
+Epoch: [18]  [500/761]  eta: 0:05:27  lr: 2.840673440538624e-05  loss: 0.0094 (0.0118)  time: 1.2443  data: 0.0019  max mem: 19378
+Epoch: [18]  [550/761]  eta: 0:04:24  lr: 2.832801388068263e-05  loss: 0.0115 (0.0119)  time: 1.2573  data: 0.0007  max mem: 19378
+Epoch: [18]  [600/761]  eta: 0:03:21  lr: 2.8249269042220644e-05  loss: 0.0107 (0.0120)  time: 1.2484  data: 0.0014  max mem: 19378
+Epoch: [18]  [650/761]  eta: 0:02:19  lr: 2.8170499807138744e-05  loss: 0.0083 (0.0120)  time: 1.2436  data: 0.0019  max mem: 19378
+Epoch: [18]  [700/761]  eta: 0:01:16  lr: 2.809170609203461e-05  loss: 0.0109 (0.0119)  time: 1.2432  data: 0.0019  max mem: 19378
+Epoch: [18]  [750/761]  eta: 0:00:13  lr: 2.801288781295988e-05  loss: 0.0109 (0.0119)  time: 1.2439  data: 0.0014  max mem: 19378
+Epoch: [18] Total time: 0:15:54
+Test:  [  0/870]  eta: 0:15:43    time: 1.0840  data: 1.0301  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0428  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0432  data: 0.0007  max mem: 19378
+swanlab: [2026.04.08 15:12:07] network error, swanlab will resume uploads when the network improves
+Test:  [300/870]  eta: 0:00:26    time: 0.0427  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0430  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0424  data: 0.0006  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0427  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0426  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 59.65
+
+    precision@0.5 = 67.36
+    precision@0.6 = 60.11
+    precision@0.7 = 50.00
+    precision@0.8 = 39.43
+    precision@0.9 = 22.53
+    overall IoU = 77.43
+
+Epoch 18: Mean IoU 59.65, Overall IoU 77.43
+New best overall IoU: 77.43. Saving model for epoch: 18
+
+Epoch: [19]  [  0/761]  eta: 0:34:10  lr: 2.7995544486697844e-05  loss: 0.0071 (0.0071)  time: 2.6944  data: 1.3781  max mem: 19378
+Epoch: [19]  [ 50/761]  eta: 0:15:13  lr: 2.791669612509439e-05  loss: 0.0089 (0.0099)  time: 1.2513  data: 0.0014  max mem: 19378
+Epoch: [19]  [100/761]  eta: 0:14:00  lr: 2.783782301117672e-05  loss: 0.0095 (0.0103)  time: 1.2592  data: 0.0016  max mem: 19378
+Epoch: [19]  [150/761]  eta: 0:12:52  lr: 2.7758925059202014e-05  loss: 0.0106 (0.0106)  time: 1.2569  data: 0.0014  max mem: 19378
+Epoch: [19]  [200/761]  eta: 0:11:47  lr: 2.7680002182858616e-05  loss: 0.0085 (0.0106)  time: 1.2516  data: 0.0019  max mem: 19378
+Epoch: [19]  [250/761]  eta: 0:10:43  lr: 2.760105429526047e-05  loss: 0.0106 (0.0107)  time: 1.2561  data: 0.0014  max mem: 19378
+Epoch: [19]  [300/761]  eta: 0:09:39  lr: 2.7522081308941437e-05  loss: 0.0114 (0.0109)  time: 1.2561  data: 0.0011  max mem: 19378
+Epoch: [19]  [350/761]  eta: 0:08:36  lr: 2.7443083135849572e-05  loss: 0.0106 (0.0110)  time: 1.2539  data: 0.0015  max mem: 19378
+Epoch: [19]  [400/761]  eta: 0:07:33  lr: 2.7364059687341327e-05  loss: 0.0125 (0.0112)  time: 1.2551  data: 0.0017  max mem: 19378
+Epoch: [19]  [450/761]  eta: 0:06:30  lr: 2.728501087417563e-05  loss: 0.0115 (0.0113)  time: 1.2781  data: 0.0009  max mem: 19378
+Epoch: [19]  [500/761]  eta: 0:05:27  lr: 2.7205936606507952e-05  loss: 0.0118 (0.0115)  time: 1.2540  data: 0.0013  max mem: 19378
+Epoch: [19]  [550/761]  eta: 0:04:24  lr: 2.7126836793884246e-05  loss: 0.0102 (0.0115)  time: 1.2538  data: 0.0016  max mem: 19378
+Epoch: [19]  [600/761]  eta: 0:03:21  lr: 2.7047711345234843e-05  loss: 0.0114 (0.0115)  time: 1.2449  data: 0.0017  max mem: 19378
+Epoch: [19]  [650/761]  eta: 0:02:19  lr: 2.6968560168868214e-05  loss: 0.0112 (0.0115)  time: 1.2431  data: 0.0019  max mem: 19378
+Epoch: [19]  [700/761]  eta: 0:01:16  lr: 2.688938317246471e-05  loss: 0.0087 (0.0115)  time: 1.2409  data: 0.0017  max mem: 19378
+Epoch: [19]  [750/761]  eta: 0:00:13  lr: 2.681018026307018e-05  loss: 0.0097 (0.0114)  time: 1.2423  data: 0.0018  max mem: 19378
+Epoch: [19] Total time: 0:15:53
+Test:  [  0/870]  eta: 0:15:54    time: 1.0968  data: 1.0424  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0436  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0429  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 57.76
+
+    precision@0.5 = 64.37
+    precision@0.6 = 57.13
+    precision@0.7 = 48.05
+    precision@0.8 = 37.93
+    precision@0.9 = 22.87
+    overall IoU = 76.18
+
+Epoch 19: Mean IoU 57.76, Overall IoU 76.18
+Epoch: [20]  [  0/761]  eta: 0:38:20  lr: 2.6792752136197735e-05  loss: 0.0086 (0.0086)  time: 3.0232  data: 1.4722  max mem: 19378
+Epoch: [20]  [ 50/761]  eta: 0:15:11  lr: 2.6713517486143468e-05  loss: 0.0095 (0.0102)  time: 1.2411  data: 0.0020  max mem: 19378
+Epoch: [20]  [100/761]  eta: 0:13:55  lr: 2.663425671443951e-05  loss: 0.0109 (0.0107)  time: 1.2423  data: 0.0020  max mem: 19378
+Epoch: [20]  [150/761]  eta: 0:12:49  lr: 2.6554969726044283e-05  loss: 0.0114 (0.0107)  time: 1.2437  data: 0.0013  max mem: 19378
+Epoch: [20]  [200/761]  eta: 0:11:45  lr: 2.6475656425253854e-05  loss: 0.0114 (0.0111)  time: 1.2499  data: 0.0009  max mem: 19378
+Epoch: [20]  [250/761]  eta: 0:10:41  lr: 2.6396316715695102e-05  loss: 0.0105 (0.0110)  time: 1.2480  data: 0.0020  max mem: 19378
+Epoch: [20]  [300/761]  eta: 0:09:38  lr: 2.6316950500318773e-05  loss: 0.0093 (0.0109)  time: 1.2496  data: 0.0012  max mem: 19378
+Epoch: [20]  [350/761]  eta: 0:08:35  lr: 2.6237557681392456e-05  loss: 0.0101 (0.0109)  time: 1.2487  data: 0.0013  max mem: 19378
+Epoch: [20]  [400/761]  eta: 0:07:32  lr: 2.6158138160493485e-05  loss: 0.0103 (0.0109)  time: 1.2511  data: 0.0017  max mem: 19378
+Epoch: [20]  [450/761]  eta: 0:06:29  lr: 2.6078691838501672e-05  loss: 0.0093 (0.0110)  time: 1.2521  data: 0.0016  max mem: 19378
+Epoch: [20]  [500/761]  eta: 0:05:26  lr: 2.5999218615592042e-05  loss: 0.0112 (0.0110)  time: 1.2505  data: 0.0013  max mem: 19378
+Epoch: [20]  [550/761]  eta: 0:04:24  lr: 2.5919718391227355e-05  loss: 0.0104 (0.0110)  time: 1.2512  data: 0.0014  max mem: 19378
+Epoch: [20]  [600/761]  eta: 0:03:21  lr: 2.5840191064150615e-05  loss: 0.0091 (0.0110)  time: 1.2502  data: 0.0013  max mem: 19378
+Epoch: [20]  [650/761]  eta: 0:02:18  lr: 2.5760636532377423e-05  loss: 0.0124 (0.0111)  time: 1.2569  data: 0.0013  max mem: 19378
+Epoch: [20]  [700/761]  eta: 0:01:16  lr: 2.5681054693188252e-05  loss: 0.0097 (0.0112)  time: 1.2567  data: 0.0014  max mem: 19378
+Epoch: [20]  [750/761]  eta: 0:00:13  lr: 2.560144544312055e-05  loss: 0.0113 (0.0113)  time: 1.2328  data: 0.0012  max mem: 19378
+Epoch: [20] Total time: 0:15:52
+Test:  [  0/870]  eta: 0:16:34    time: 1.1433  data: 1.0858  max mem: 19378
+Test:  [100/870]  eta: 0:00:42    time: 0.0434  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0433  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0430  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0410  data: 0.0006  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0410  data: 0.0006  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0414  data: 0.0006  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0405  data: 0.0006  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0409  data: 0.0006  max mem: 19378
+Test: Total time: 0:00:37
+Final results:
+Mean IoU is 57.80
+
+    precision@0.5 = 64.60
+    precision@0.6 = 57.47
+    precision@0.7 = 48.74
+    precision@0.8 = 38.74
+    precision@0.9 = 22.99
+    overall IoU = 75.99
+
+Epoch 20: Mean IoU 57.80, Overall IoU 75.99
+Epoch: [21]  [  0/761]  eta: 0:40:21  lr: 2.5583927719231178e-05  loss: 0.0051 (0.0051)  time: 3.1817  data: 1.4269  max mem: 19378
+Epoch: [21]  [ 50/761]  eta: 0:15:24  lr: 2.5504284886690578e-05  loss: 0.0112 (0.0125)  time: 1.2635  data: 0.0011  max mem: 19378
+Epoch: [21]  [100/761]  eta: 0:14:03  lr: 2.5424614410888858e-05  loss: 0.0111 (0.0123)  time: 1.2591  data: 0.0013  max mem: 19378
+Epoch: [21]  [150/761]  eta: 0:12:53  lr: 2.5344916185916402e-05  loss: 0.0086 (0.0118)  time: 1.2552  data: 0.0014  max mem: 19378
+Epoch: [21]  [200/761]  eta: 0:11:48  lr: 2.5265190105086227e-05  loss: 0.0107 (0.0115)  time: 1.2554  data: 0.0011  max mem: 19378
+Epoch: [21]  [250/761]  eta: 0:10:43  lr: 2.5185436060925545e-05  loss: 0.0086 (0.0114)  time: 1.2573  data: 0.0015  max mem: 19378
+Epoch: [21]  [300/761]  eta: 0:09:40  lr: 2.5105653945167163e-05  loss: 0.0095 (0.0113)  time: 1.2528  data: 0.0010  max mem: 19378
+Epoch: [21]  [350/761]  eta: 0:08:36  lr: 2.502584364874081e-05  loss: 0.0117 (0.0115)  time: 1.2505  data: 0.0014  max mem: 19378
+Epoch: [21]  [400/761]  eta: 0:07:33  lr: 2.4946005061764296e-05  loss: 0.0093 (0.0114)  time: 1.2523  data: 0.0014  max mem: 19378
+Epoch: [21]  [450/761]  eta: 0:06:30  lr: 2.486613807353457e-05  loss: 0.0104 (0.0115)  time: 1.2533  data: 0.0016  max mem: 19378
+Epoch: [21]  [500/761]  eta: 0:05:27  lr: 2.4786242572518624e-05  loss: 0.0096 (0.0115)  time: 1.2522  data: 0.0013  max mem: 19378
+Epoch: [21]  [550/761]  eta: 0:04:24  lr: 2.4706318446344273e-05  loss: 0.0117 (0.0115)  time: 1.2442  data: 0.0013  max mem: 19378
+Epoch: [21]  [600/761]  eta: 0:03:21  lr: 2.4626365581790824e-05  loss: 0.0095 (0.0114)  time: 1.2421  data: 0.0015  max mem: 19378
+Epoch: [21]  [650/761]  eta: 0:02:19  lr: 2.454638386477956e-05  loss: 0.0112 (0.0114)  time: 1.2507  data: 0.0018  max mem: 19378
+Epoch: [21]  [700/761]  eta: 0:01:16  lr: 2.4466373180364105e-05  loss: 0.0095 (0.0114)  time: 1.2468  data: 0.0014  max mem: 19378
+Epoch: [21]  [750/761]  eta: 0:00:13  lr: 2.438633341272067e-05  loss: 0.0109 (0.0114)  time: 1.2414  data: 0.0014  max mem: 19378
+Epoch: [21] Total time: 0:15:53
+Test:  [  0/870]  eta: 0:15:51    time: 1.0932  data: 1.0387  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:31    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0420  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0421  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 59.02
+
+    precision@0.5 = 67.13
+    precision@0.6 = 58.16
+    precision@0.7 = 49.89
+    precision@0.8 = 39.54
+    precision@0.9 = 22.87
+    overall IoU = 77.45
+
+Epoch 21: Mean IoU 59.02, Overall IoU 77.45
+New best overall IoU: 77.45. Saving model for epoch: 21
+
+Epoch: [22]  [  0/761]  eta: 0:33:40  lr: 2.4368720749296876e-05  loss: 0.0078 (0.0078)  time: 2.6556  data: 1.3336  max mem: 19378
+Epoch: [22]  [ 50/761]  eta: 0:15:05  lr: 2.4288645341976142e-05  loss: 0.0089 (0.0103)  time: 1.2383  data: 0.0017  max mem: 19378
+Epoch: [22]  [100/761]  eta: 0:13:52  lr: 2.4208540591112384e-05  loss: 0.0091 (0.0099)  time: 1.2476  data: 0.0016  max mem: 19378
+Epoch: [22]  [150/761]  eta: 0:12:47  lr: 2.412840637798831e-05  loss: 0.0125 (0.0104)  time: 1.2520  data: 0.0013  max mem: 19378
+Epoch: [22]  [200/761]  eta: 0:11:44  lr: 2.404824258296632e-05  loss: 0.0109 (0.0106)  time: 1.2489  data: 0.0017  max mem: 19378
+Epoch: [22]  [250/761]  eta: 0:10:40  lr: 2.396804908547789e-05  loss: 0.0103 (0.0106)  time: 1.2374  data: 0.0019  max mem: 19378
+Epoch: [22]  [300/761]  eta: 0:09:37  lr: 2.3887825764012877e-05  loss: 0.0094 (0.0106)  time: 1.2416  data: 0.0013  max mem: 19378
+Epoch: [22]  [350/761]  eta: 0:08:37  lr: 2.380757249610861e-05  loss: 0.0085 (0.0106)  time: 1.2382  data: 0.0017  max mem: 19378
+Epoch: [22]  [400/761]  eta: 0:07:34  lr: 2.3727289158338815e-05  loss: 0.0104 (0.0106)  time: 1.2639  data: 0.0019  max mem: 19378
+Epoch: [22]  [450/761]  eta: 0:06:31  lr: 2.3646975626302406e-05  loss: 0.0087 (0.0106)  time: 1.2620  data: 0.0013  max mem: 19378
+Epoch: [22]  [500/761]  eta: 0:05:28  lr: 2.356663177461204e-05  loss: 0.0104 (0.0106)  time: 1.2558  data: 0.0017  max mem: 19378
+Epoch: [22]  [550/761]  eta: 0:04:25  lr: 2.3486257476882573e-05  loss: 0.0083 (0.0105)  time: 1.2655  data: 0.0012  max mem: 19378
+Epoch: [22]  [600/761]  eta: 0:03:22  lr: 2.3405852605719255e-05  loss: 0.0093 (0.0105)  time: 1.2570  data: 0.0013  max mem: 19378
+Epoch: [22]  [650/761]  eta: 0:02:19  lr: 2.332541703270581e-05  loss: 0.0112 (0.0105)  time: 1.2559  data: 0.0018  max mem: 19378
+Epoch: [22]  [700/761]  eta: 0:01:16  lr: 2.3244950628392275e-05  loss: 0.0109 (0.0107)  time: 1.2575  data: 0.0015  max mem: 19378
+Epoch: [22]  [750/761]  eta: 0:00:13  lr: 2.3164453262282685e-05  loss: 0.0112 (0.0108)  time: 1.2518  data: 0.0016  max mem: 19378
+Epoch: [22] Total time: 0:15:56
+Test:  [  0/870]  eta: 0:15:58    time: 1.1015  data: 1.0406  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0420  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0427  data: 0.0008  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0425  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 57.68
+
+    precision@0.5 = 65.52
+    precision@0.6 = 58.28
+    precision@0.7 = 49.31
+    precision@0.8 = 38.97
+    precision@0.9 = 22.64
+    overall IoU = 77.20
+
+Epoch 22: Mean IoU 57.68, Overall IoU 77.20
+Epoch: [23]  [  0/761]  eta: 0:37:50  lr: 2.3146739673621786e-05  loss: 0.0184 (0.0184)  time: 2.9837  data: 1.3764  max mem: 19378
+Epoch: [23]  [ 50/761]  eta: 0:15:10  lr: 2.3066204355863773e-05  loss: 0.0109 (0.0117)  time: 1.2469  data: 0.0014  max mem: 19378
+Epoch: [23]  [100/761]  eta: 0:13:55  lr: 2.298563778280674e-05  loss: 0.0109 (0.0108)  time: 1.2548  data: 0.0013  max mem: 19378
+Epoch: [23]  [150/761]  eta: 0:12:48  lr: 2.2905039820500472e-05  loss: 0.0104 (0.0108)  time: 1.2516  data: 0.0016  max mem: 19378
+Epoch: [23]  [200/761]  eta: 0:11:44  lr: 2.2824410333894515e-05  loss: 0.0075 (0.0106)  time: 1.2495  data: 0.0017  max mem: 19378
+Epoch: [23]  [250/761]  eta: 0:10:41  lr: 2.2743749186824783e-05  loss: 0.0122 (0.0108)  time: 1.2420  data: 0.0015  max mem: 19378
+Epoch: [23]  [300/761]  eta: 0:09:38  lr: 2.2663056241999962e-05  loss: 0.0083 (0.0106)  time: 1.2431  data: 0.0016  max mem: 19378
+Epoch: [23]  [350/761]  eta: 0:08:35  lr: 2.258233136098765e-05  loss: 0.0082 (0.0105)  time: 1.2431  data: 0.0015  max mem: 19378
+Epoch: [23]  [400/761]  eta: 0:07:32  lr: 2.250157440420034e-05  loss: 0.0103 (0.0114)  time: 1.2440  data: 0.0017  max mem: 19378
+Epoch: [23]  [450/761]  eta: 0:06:29  lr: 2.2420785230881103e-05  loss: 0.0107 (0.0116)  time: 1.2499  data: 0.0015  max mem: 19378
+Epoch: [23]  [500/761]  eta: 0:05:26  lr: 2.233996369908908e-05  loss: 0.0120 (0.0119)  time: 1.2448  data: 0.0013  max mem: 19378
+Epoch: [23]  [550/761]  eta: 0:04:24  lr: 2.2259109665684724e-05  loss: 0.0082 (0.0116)  time: 1.2448  data: 0.0015  max mem: 19378
+Epoch: [23]  [600/761]  eta: 0:03:21  lr: 2.2178222986314794e-05  loss: 0.0110 (0.0116)  time: 1.2774  data: 0.0010  max mem: 19378
+Epoch: [23]  [650/761]  eta: 0:02:19  lr: 2.209730351539711e-05  loss: 0.0093 (0.0114)  time: 1.2321  data: 0.0012  max mem: 19378
+Epoch: [23]  [700/761]  eta: 0:01:16  lr: 2.2016351106105023e-05  loss: 0.0102 (0.0115)  time: 1.2440  data: 0.0015  max mem: 19378
+Epoch: [23]  [750/761]  eta: 0:00:13  lr: 2.1935365610351675e-05  loss: 0.0103 (0.0115)  time: 1.2400  data: 0.0017  max mem: 19378
+Epoch: [23] Total time: 0:15:52
+Test:  [  0/870]  eta: 0:15:27    time: 1.0665  data: 1.0124  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:31    time: 0.0425  data: 0.0008  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0421  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0425  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 59.23
+
+    precision@0.5 = 68.05
+    precision@0.6 = 59.31
+    precision@0.7 = 49.08
+    precision@0.8 = 39.66
+    precision@0.9 = 22.64
+    overall IoU = 77.33
+
+Epoch 23: Mean IoU 59.23, Overall IoU 77.33
+Epoch: [24]  [  0/761]  eta: 0:38:57  lr: 2.1917544346274806e-05  loss: 0.0159 (0.0159)  time: 3.0713  data: 1.4235  max mem: 19378
+Epoch: [24]  [ 50/761]  eta: 0:15:12  lr: 2.1836518282643144e-05  loss: 0.0093 (0.0092)  time: 1.2401  data: 0.0019  max mem: 19378
+Epoch: [24]  [100/761]  eta: 0:13:56  lr: 2.1755458799212076e-05  loss: 0.0081 (0.0099)  time: 1.2444  data: 0.0016  max mem: 19378
+Epoch: [24]  [150/761]  eta: 0:12:49  lr: 2.1674365743726527e-05  loss: 0.0077 (0.0097)  time: 1.2415  data: 0.0017  max mem: 19378
+Epoch: [24]  [200/761]  eta: 0:11:45  lr: 2.1593238962601668e-05  loss: 0.0082 (0.0096)  time: 1.2461  data: 0.0017  max mem: 19378
+Epoch: [24]  [250/761]  eta: 0:10:41  lr: 2.15120783009057e-05  loss: 0.0102 (0.0098)  time: 1.2511  data: 0.0015  max mem: 19378
+Epoch: [24]  [300/761]  eta: 0:09:38  lr: 2.143088360234236e-05  loss: 0.0089 (0.0097)  time: 1.2586  data: 0.0014  max mem: 19378
+Epoch: [24]  [350/761]  eta: 0:08:35  lr: 2.1349654709233085e-05  loss: 0.0114 (0.0102)  time: 1.2581  data: 0.0013  max mem: 19378
+Epoch: [24]  [400/761]  eta: 0:07:32  lr: 2.1268391462498898e-05  loss: 0.0091 (0.0103)  time: 1.2577  data: 0.0013  max mem: 19378
+Epoch: [24]  [450/761]  eta: 0:06:29  lr: 2.1187093701641975e-05  loss: 0.0111 (0.0104)  time: 1.2500  data: 0.0012  max mem: 19378
+Epoch: [24]  [500/761]  eta: 0:05:26  lr: 2.110576126472687e-05  loss: 0.0109 (0.0107)  time: 1.2540  data: 0.0012  max mem: 19378
+Epoch: [24]  [550/761]  eta: 0:04:24  lr: 2.102439398836144e-05  loss: 0.0087 (0.0108)  time: 1.2583  data: 0.0011  max mem: 19378
+Epoch: [24]  [600/761]  eta: 0:03:21  lr: 2.094299170767741e-05  loss: 0.0105 (0.0107)  time: 1.2546  data: 0.0012  max mem: 19378
+Epoch: [24]  [650/761]  eta: 0:02:18  lr: 2.0861554256310606e-05  loss: 0.0102 (0.0107)  time: 1.2668  data: 0.0010  max mem: 19378
+Epoch: [24]  [700/761]  eta: 0:01:16  lr: 2.078008146638082e-05  loss: 0.0100 (0.0107)  time: 1.2570  data: 0.0015  max mem: 19378
+Epoch: [24]  [750/761]  eta: 0:00:13  lr: 2.069857316847134e-05  loss: 0.0088 (0.0107)  time: 1.2516  data: 0.0011  max mem: 19378
+Epoch: [24] Total time: 0:15:52
+Test:  [  0/870]  eta: 0:15:30    time: 1.0691  data: 1.0150  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:31    time: 0.0420  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0421  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0421  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0420  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 58.90
+
+    precision@0.5 = 66.09
+    precision@0.6 = 59.20
+    precision@0.7 = 49.54
+    precision@0.8 = 40.69
+    precision@0.9 = 24.14
+    overall IoU = 77.41
+
+Epoch 24: Mean IoU 58.90, Overall IoU 77.41
+Epoch: [25]  [  0/761]  eta: 0:39:29  lr: 2.068063656081171e-05  loss: 0.0150 (0.0150)  time: 3.1142  data: 1.3862  max mem: 19378
+Epoch: [25]  [ 50/761]  eta: 0:15:15  lr: 2.059908471147758e-05  loss: 0.0091 (0.0093)  time: 1.2559  data: 0.0015  max mem: 19378
+Epoch: [25]  [100/761]  eta: 0:13:55  lr: 2.0517496972461468e-05  loss: 0.0080 (0.0095)  time: 1.2373  data: 0.0012  max mem: 19378
+Epoch: [25]  [150/761]  eta: 0:12:51  lr: 2.0435873169255545e-05  loss: 0.0105 (0.0098)  time: 1.2704  data: 0.0014  max mem: 19378
+Epoch: [25]  [200/761]  eta: 0:11:46  lr: 2.03542131257249e-05  loss: 0.0093 (0.0099)  time: 1.2508  data: 0.0014  max mem: 19378
+Epoch: [25]  [250/761]  eta: 0:10:42  lr: 2.0272516664085015e-05  loss: 0.0085 (0.0099)  time: 1.2452  data: 0.0012  max mem: 19378
+Epoch: [25]  [300/761]  eta: 0:09:38  lr: 2.019078360487889e-05  loss: 0.0094 (0.0098)  time: 1.2416  data: 0.0019  max mem: 19378
+Epoch: [25]  [350/761]  eta: 0:08:35  lr: 2.01090137669537e-05  loss: 0.0092 (0.0098)  time: 1.2447  data: 0.0015  max mem: 19378
+Epoch: [25]  [400/761]  eta: 0:07:32  lr: 2.002720696743702e-05  loss: 0.0080 (0.0098)  time: 1.2478  data: 0.0019  max mem: 19378
+Epoch: [25]  [450/761]  eta: 0:06:30  lr: 1.9945363021712642e-05  loss: 0.0079 (0.0096)  time: 1.2525  data: 0.0018  max mem: 19378
+Epoch: [25]  [500/761]  eta: 0:05:27  lr: 1.9863481743395896e-05  loss: 0.0086 (0.0096)  time: 1.2482  data: 0.0015  max mem: 19378
+Epoch: [25]  [550/761]  eta: 0:04:24  lr: 1.9781562944308542e-05  loss: 0.0090 (0.0096)  time: 1.2481  data: 0.0013  max mem: 19378
+Epoch: [25]  [600/761]  eta: 0:03:21  lr: 1.969960643445317e-05  loss: 0.0098 (0.0097)  time: 1.2450  data: 0.0018  max mem: 19378
+Epoch: [25]  [650/761]  eta: 0:02:19  lr: 1.961761202198711e-05  loss: 0.0106 (0.0097)  time: 1.2506  data: 0.0018  max mem: 19378
+Epoch: [25]  [700/761]  eta: 0:01:16  lr: 1.953557951319588e-05  loss: 0.0069 (0.0097)  time: 1.2449  data: 0.0018  max mem: 19378
+Epoch: [25]  [750/761]  eta: 0:00:13  lr: 1.945350871246606e-05  loss: 0.0091 (0.0097)  time: 1.2455  data: 0.0015  max mem: 19378
+Epoch: [25] Total time: 0:15:53
+Test:  [  0/870]  eta: 0:15:43    time: 1.0845  data: 1.0294  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:31    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0420  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0422  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 58.59
+
+    precision@0.5 = 65.75
+    precision@0.6 = 60.23
+    precision@0.7 = 49.66
+    precision@0.8 = 39.20
+    precision@0.9 = 22.76
+    overall IoU = 77.36
+
+Epoch 25: Mean IoU 58.59, Overall IoU 77.36
+Epoch: [26]  [  0/761]  eta: 0:39:35  lr: 1.9435447977947702e-05  loss: 0.0040 (0.0040)  time: 3.1216  data: 1.4247  max mem: 19378
+Epoch: [26]  [ 50/761]  eta: 0:15:18  lr: 1.9353330193350675e-05  loss: 0.0099 (0.0101)  time: 1.2494  data: 0.0016  max mem: 19378
+Epoch: [26]  [100/761]  eta: 0:14:01  lr: 1.927117367562657e-05  loss: 0.0093 (0.0093)  time: 1.2498  data: 0.0019  max mem: 19378
+Epoch: [26]  [150/761]  eta: 0:12:52  lr: 1.9188978222857196e-05  loss: 0.0088 (0.0093)  time: 1.2470  data: 0.0017  max mem: 19378
+Epoch: [26]  [200/761]  eta: 0:11:47  lr: 1.9106743631105257e-05  loss: 0.0078 (0.0095)  time: 1.2486  data: 0.0017  max mem: 19378
+Epoch: [26]  [250/761]  eta: 0:10:43  lr: 1.9024469694384402e-05  loss: 0.0091 (0.0094)  time: 1.2597  data: 0.0013  max mem: 19378
+Epoch: [26]  [300/761]  eta: 0:09:40  lr: 1.8942156204628682e-05  loss: 0.0098 (0.0095)  time: 1.2576  data: 0.0016  max mem: 19378
+Epoch: [26]  [350/761]  eta: 0:08:36  lr: 1.885980295166142e-05  loss: 0.0101 (0.0095)  time: 1.2573  data: 0.0015  max mem: 19378
+Epoch: [26]  [400/761]  eta: 0:07:33  lr: 1.8777409723163424e-05  loss: 0.0072 (0.0095)  time: 1.2405  data: 0.0016  max mem: 19378
+Epoch: [26]  [450/761]  eta: 0:06:30  lr: 1.8694976304640628e-05  loss: 0.0085 (0.0094)  time: 1.2393  data: 0.0012  max mem: 19378
+Epoch: [26]  [500/761]  eta: 0:05:27  lr: 1.8612502479391006e-05  loss: 0.0077 (0.0094)  time: 1.2411  data: 0.0016  max mem: 19378
+Epoch: [26]  [550/761]  eta: 0:04:24  lr: 1.8529988028470872e-05  loss: 0.0080 (0.0094)  time: 1.2624  data: 0.0007  max mem: 19378
+Epoch: [26]  [600/761]  eta: 0:03:22  lr: 1.8447432730660483e-05  loss: 0.0077 (0.0094)  time: 1.2603  data: 0.0014  max mem: 19378
+Epoch: [26]  [650/761]  eta: 0:02:19  lr: 1.8364836362428928e-05  loss: 0.0094 (0.0094)  time: 1.2601  data: 0.0013  max mem: 19378
+Epoch: [26]  [700/761]  eta: 0:01:16  lr: 1.8282198697898316e-05  loss: 0.0086 (0.0094)  time: 1.2462  data: 0.0015  max mem: 19378
+Epoch: [26]  [750/761]  eta: 0:00:13  lr: 1.8199519508807205e-05  loss: 0.0081 (0.0094)  time: 1.2414  data: 0.0015  max mem: 19378
+Epoch: [26] Total time: 0:15:54
+Test:  [  0/870]  eta: 0:15:47    time: 1.0897  data: 1.0355  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0427  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0430  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0427  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0423  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 58.99
+
+    precision@0.5 = 67.59
+    precision@0.6 = 58.97
+    precision@0.7 = 50.00
+    precision@0.8 = 40.00
+    precision@0.9 = 23.22
+    overall IoU = 77.74
+
+Epoch 26: Mean IoU 58.99, Overall IoU 77.74
+New best overall IoU: 77.74. Saving model for epoch: 26
+
+Epoch: [27]  [  0/761]  eta: 0:34:21  lr: 1.8181324491749894e-05  loss: 0.0089 (0.0089)  time: 2.7094  data: 1.3931  max mem: 19378
+Epoch: [27]  [ 50/761]  eta: 0:15:08  lr: 1.8098594330061553e-05  loss: 0.0082 (0.0091)  time: 1.2471  data: 0.0018  max mem: 19378
+Epoch: [27]  [100/761]  eta: 0:13:57  lr: 1.8015822128364233e-05  loss: 0.0095 (0.0089)  time: 1.2540  data: 0.0014  max mem: 19378
+Epoch: [27]  [150/761]  eta: 0:12:51  lr: 1.7933007650464005e-05  loss: 0.0093 (0.0090)  time: 1.2535  data: 0.0009  max mem: 19378
+Epoch: [27]  [200/761]  eta: 0:11:48  lr: 1.7850150657620534e-05  loss: 0.0094 (0.0090)  time: 1.2599  data: 0.0015  max mem: 19378
+Epoch: [27]  [250/761]  eta: 0:10:44  lr: 1.776725090850635e-05  loss: 0.0084 (0.0090)  time: 1.2467  data: 0.0017  max mem: 19378
+Epoch: [27]  [300/761]  eta: 0:09:40  lr: 1.7684308159165248e-05  loss: 0.0086 (0.0091)  time: 1.2509  data: 0.0015  max mem: 19378
+Epoch: [27]  [350/761]  eta: 0:08:37  lr: 1.7601322162969787e-05  loss: 0.0077 (0.0090)  time: 1.2521  data: 0.0015  max mem: 19378
+Epoch: [27]  [400/761]  eta: 0:07:34  lr: 1.7518292670577898e-05  loss: 0.0081 (0.0090)  time: 1.2518  data: 0.0013  max mem: 19378
+Epoch: [27]  [450/761]  eta: 0:06:31  lr: 1.743521942988855e-05  loss: 0.0092 (0.0090)  time: 1.2533  data: 0.0019  max mem: 19378
+Epoch: [27]  [500/761]  eta: 0:05:28  lr: 1.7352102185996416e-05  loss: 0.0096 (0.0091)  time: 1.2468  data: 0.0012  max mem: 19378
+Epoch: [27]  [550/761]  eta: 0:04:25  lr: 1.7268940681145616e-05  loss: 0.0107 (0.0092)  time: 1.2503  data: 0.0017  max mem: 19378
+Epoch: [27]  [600/761]  eta: 0:03:22  lr: 1.7185734654682377e-05  loss: 0.0083 (0.0092)  time: 1.2557  data: 0.0014  max mem: 19378
+Epoch: [27]  [650/761]  eta: 0:02:19  lr: 1.7102483843006696e-05  loss: 0.0075 (0.0092)  time: 1.2568  data: 0.0012  max mem: 19378
+Epoch: [27]  [700/761]  eta: 0:01:16  lr: 1.7019187979522923e-05  loss: 0.0090 (0.0091)  time: 1.2498  data: 0.0016  max mem: 19378
+Epoch: [27]  [750/761]  eta: 0:00:13  lr: 1.6935846794589208e-05  loss: 0.0079 (0.0091)  time: 1.2739  data: 0.0009  max mem: 19378
+Epoch: [27] Total time: 0:15:55
+Test:  [  0/870]  eta: 0:15:47    time: 1.0888  data: 1.0350  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0435  data: 0.0006  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0440  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0436  data: 0.0006  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0439  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0435  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0430  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0411  data: 0.0006  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0416  data: 0.0006  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 60.16
+
+    precision@0.5 = 67.59
+    precision@0.6 = 60.11
+    precision@0.7 = 51.38
+    precision@0.8 = 41.95
+    precision@0.9 = 23.68
+    overall IoU = 77.60
+
+Epoch 27: Mean IoU 60.16, Overall IoU 77.60
+Epoch: [28]  [  0/761]  eta: 0:39:05  lr: 1.6917505624740615e-05  loss: 0.0080 (0.0080)  time: 3.0824  data: 1.2619  max mem: 19378
+Epoch: [28]  [ 50/761]  eta: 0:15:21  lr: 1.6834108777982012e-05  loss: 0.0076 (0.0083)  time: 1.2635  data: 0.0015  max mem: 19378
+Epoch: [28]  [100/761]  eta: 0:14:02  lr: 1.6750666000019345e-05  loss: 0.0081 (0.0085)  time: 1.2583  data: 0.0014  max mem: 19378
+Epoch: [28]  [150/761]  eta: 0:12:55  lr: 1.6667177011045122e-05  loss: 0.0092 (0.0089)  time: 1.2675  data: 0.0017  max mem: 19378
+Epoch: [28]  [200/761]  eta: 0:11:50  lr: 1.6583641527979567e-05  loss: 0.0085 (0.0089)  time: 1.2578  data: 0.0012  max mem: 19378
+Epoch: [28]  [250/761]  eta: 0:10:45  lr: 1.6500059264413812e-05  loss: 0.0072 (0.0088)  time: 1.2568  data: 0.0012  max mem: 19378
+Epoch: [28]  [300/761]  eta: 0:09:41  lr: 1.6416429930551765e-05  loss: 0.0093 (0.0089)  time: 1.2577  data: 0.0015  max mem: 19378
+Epoch: [28]  [350/761]  eta: 0:08:38  lr: 1.633275323315066e-05  loss: 0.0078 (0.0090)  time: 1.2566  data: 0.0017  max mem: 19378
+Epoch: [28]  [400/761]  eta: 0:07:34  lr: 1.624902887546017e-05  loss: 0.0080 (0.0090)  time: 1.2489  data: 0.0015  max mem: 19378
+Epoch: [28]  [450/761]  eta: 0:06:31  lr: 1.6165256557160152e-05  loss: 0.0084 (0.0090)  time: 1.2455  data: 0.0019  max mem: 19378
+Epoch: [28]  [500/761]  eta: 0:05:28  lr: 1.6081435974296867e-05  loss: 0.0087 (0.0089)  time: 1.2468  data: 0.0013  max mem: 19378
+Epoch: [28]  [550/761]  eta: 0:04:25  lr: 1.5997566819217698e-05  loss: 0.0081 (0.0090)  time: 1.2623  data: 0.0013  max mem: 19378
+Epoch: [28]  [600/761]  eta: 0:03:22  lr: 1.5913648780504348e-05  loss: 0.0087 (0.0089)  time: 1.2503  data: 0.0017  max mem: 19378
+Epoch: [28]  [650/761]  eta: 0:02:19  lr: 1.5829681542904358e-05  loss: 0.0101 (0.0089)  time: 1.2802  data: 0.0009  max mem: 19378
+Epoch: [28]  [700/761]  eta: 0:01:16  lr: 1.5745664787261053e-05  loss: 0.0084 (0.0089)  time: 1.2730  data: 0.0008  max mem: 19378
+Epoch: [28]  [750/761]  eta: 0:00:13  lr: 1.5661598190441704e-05  loss: 0.0075 (0.0089)  time: 1.2784  data: 0.0006  max mem: 19378
+Epoch: [28] Total time: 0:16:00
+Test:  [  0/870]  eta: 0:16:48    time: 1.1587  data: 1.1018  max mem: 19378
+Test:  [100/870]  eta: 0:00:42    time: 0.0435  data: 0.0008  max mem: 19378
+Test:  [200/870]  eta: 0:00:33    time: 0.0439  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:27    time: 0.0436  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0440  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0429  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0434  data: 0.0008  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0433  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:39
+Final results:
+Mean IoU is 59.61
+
+    precision@0.5 = 67.70
+    precision@0.6 = 60.46
+    precision@0.7 = 50.11
+    precision@0.8 = 40.80
+    precision@0.9 = 23.22
+    overall IoU = 77.56
+
+Epoch 28: Mean IoU 59.61, Overall IoU 77.56
+Epoch: [29]  [  0/761]  eta: 0:40:12  lr: 1.564309681804316e-05  loss: 0.0119 (0.0119)  time: 3.1696  data: 1.5187  max mem: 19378
+Epoch: [29]  [ 50/761]  eta: 0:15:37  lr: 1.5558968971510585e-05  loss: 0.0075 (0.0085)  time: 1.2692  data: 0.0012  max mem: 19378
+Epoch: [29]  [100/761]  eta: 0:14:18  lr: 1.547479055186357e-05  loss: 0.0092 (0.0086)  time: 1.2682  data: 0.0008  max mem: 19378
+Epoch: [29]  [150/761]  eta: 0:13:11  lr: 1.53905612226576e-05  loss: 0.0070 (0.0085)  time: 1.2904  data: 0.0008  max mem: 19378
+Epoch: [29]  [200/761]  eta: 0:12:05  lr: 1.5306280643149133e-05  loss: 0.0079 (0.0085)  time: 1.2845  data: 0.0007  max mem: 19378
+Epoch: [29]  [250/761]  eta: 0:11:00  lr: 1.5221948468213993e-05  loss: 0.0094 (0.0085)  time: 1.3271  data: 0.0012  max mem: 19378
+Epoch: [29]  [300/761]  eta: 0:09:55  lr: 1.5137564348263744e-05  loss: 0.0085 (0.0086)  time: 1.3177  data: 0.0007  max mem: 19378
+Epoch: [29]  [350/761]  eta: 0:08:50  lr: 1.5053127929159907e-05  loss: 0.0085 (0.0085)  time: 1.2911  data: 0.0011  max mem: 19378
+Epoch: [29]  [400/761]  eta: 0:07:45  lr: 1.4968638852125994e-05  loss: 0.0082 (0.0086)  time: 1.2806  data: 0.0009  max mem: 19378
+Epoch: [29]  [450/761]  eta: 0:06:40  lr: 1.4884096753657264e-05  loss: 0.0087 (0.0085)  time: 1.2813  data: 0.0011  max mem: 19378
+Epoch: [29]  [500/761]  eta: 0:05:36  lr: 1.4799501265428186e-05  loss: 0.0091 (0.0086)  time: 1.2867  data: 0.0009  max mem: 19378
+Epoch: [29]  [550/761]  eta: 0:04:31  lr: 1.4714852014197437e-05  loss: 0.0080 (0.0086)  time: 1.2905  data: 0.0009  max mem: 19378
+Epoch: [29]  [600/761]  eta: 0:03:27  lr: 1.463014862171043e-05  loss: 0.0069 (0.0086)  time: 1.2887  data: 0.0012  max mem: 19378
+Epoch: [29]  [650/761]  eta: 0:02:23  lr: 1.4545390704599296e-05  loss: 0.0069 (0.0087)  time: 1.2486  data: 0.0019  max mem: 19378
+Epoch: [29]  [700/761]  eta: 0:01:18  lr: 1.446057787428016e-05  loss: 0.0093 (0.0087)  time: 1.2539  data: 0.0017  max mem: 19378
+Epoch: [29]  [750/761]  eta: 0:00:14  lr: 1.4375709736847706e-05  loss: 0.0075 (0.0087)  time: 1.2592  data: 0.0013  max mem: 19378
+Epoch: [29] Total time: 0:16:17
+Test:  [  0/870]  eta: 0:16:12    time: 1.1177  data: 1.0606  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0420  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0428  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0421  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0423  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 59.41
+
+    precision@0.5 = 67.13
+    precision@0.6 = 59.77
+    precision@0.7 = 51.26
+    precision@0.8 = 40.23
+    precision@0.9 = 23.56
+    overall IoU = 77.83
+
+Epoch 29: Mean IoU 59.41, Overall IoU 77.83
+New best overall IoU: 77.83. Saving model for epoch: 29
+
+Epoch: [30]  [  0/761]  eta: 0:34:19  lr: 1.4357031284847317e-05  loss: 0.0079 (0.0079)  time: 2.7057  data: 1.3373  max mem: 19378
+Epoch: [30]  [ 50/761]  eta: 0:15:11  lr: 1.4272095131409042e-05  loss: 0.0078 (0.0083)  time: 1.2487  data: 0.0017  max mem: 19378
+Epoch: [30]  [100/761]  eta: 0:13:57  lr: 1.418710277681884e-05  loss: 0.0087 (0.0086)  time: 1.2486  data: 0.0019  max mem: 19378
+Epoch: [30]  [150/761]  eta: 0:12:51  lr: 1.4102053809285754e-05  loss: 0.0070 (0.0085)  time: 1.2531  data: 0.0017  max mem: 19378
+Epoch: [30]  [200/761]  eta: 0:11:47  lr: 1.4016947811220003e-05  loss: 0.0081 (0.0085)  time: 1.2513  data: 0.0015  max mem: 19378
+Epoch: [30]  [250/761]  eta: 0:10:44  lr: 1.3931784359111602e-05  loss: 0.0075 (0.0085)  time: 1.2650  data: 0.0012  max mem: 19378
+Epoch: [30]  [300/761]  eta: 0:09:40  lr: 1.3846563023405646e-05  loss: 0.0085 (0.0086)  time: 1.2569  data: 0.0015  max mem: 19378
+Epoch: [30]  [350/761]  eta: 0:08:37  lr: 1.3761283368374044e-05  loss: 0.0074 (0.0086)  time: 1.2584  data: 0.0018  max mem: 19378
+Epoch: [30]  [400/761]  eta: 0:07:34  lr: 1.367594495198368e-05  loss: 0.0067 (0.0086)  time: 1.2571  data: 0.0018  max mem: 19378
+Epoch: [30]  [450/761]  eta: 0:06:31  lr: 1.3590547325760774e-05  loss: 0.0073 (0.0085)  time: 1.2566  data: 0.0015  max mem: 19378
+Epoch: [30]  [500/761]  eta: 0:05:28  lr: 1.3505090034651396e-05  loss: 0.0070 (0.0085)  time: 1.2677  data: 0.0015  max mem: 19378
+Epoch: [30]  [550/761]  eta: 0:04:25  lr: 1.3419572616877942e-05  loss: 0.0082 (0.0085)  time: 1.2662  data: 0.0012  max mem: 19378
+Epoch: [30]  [600/761]  eta: 0:03:22  lr: 1.3333994603791431e-05  loss: 0.0072 (0.0085)  time: 1.3052  data: 0.0008  max mem: 19378
+Epoch: [30]  [650/761]  eta: 0:02:19  lr: 1.32483555197195e-05  loss: 0.0087 (0.0085)  time: 1.2671  data: 0.0013  max mem: 19378
+Epoch: [30]  [700/761]  eta: 0:01:16  lr: 1.3162654881809893e-05  loss: 0.0079 (0.0085)  time: 1.2518  data: 0.0016  max mem: 19378
+Epoch: [30]  [750/761]  eta: 0:00:13  lr: 1.3076892199869345e-05  loss: 0.0070 (0.0085)  time: 1.2469  data: 0.0017  max mem: 19378
+Epoch: [30] Total time: 0:15:57
+Test:  [  0/870]  eta: 0:16:05    time: 1.1094  data: 1.0541  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0431  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0432  data: 0.0008  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0427  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0427  data: 0.0008  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0429  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 59.86
+
+    precision@0.5 = 68.16
+    precision@0.6 = 60.80
+    precision@0.7 = 50.92
+    precision@0.8 = 40.57
+    precision@0.9 = 24.02
+    overall IoU = 77.35
+
+Epoch 30: Mean IoU 59.86, Overall IoU 77.35
+Epoch: [31]  [  0/761]  eta: 0:38:27  lr: 1.3058016034255339e-05  loss: 0.0028 (0.0028)  time: 3.0325  data: 1.4750  max mem: 19378
+Epoch: [31]  [ 50/761]  eta: 0:15:21  lr: 1.2972176983852243e-05  loss: 0.0086 (0.0088)  time: 1.2538  data: 0.0013  max mem: 19378
+Epoch: [31]  [100/761]  eta: 0:14:02  lr: 1.2886274774108784e-05  loss: 0.0075 (0.0084)  time: 1.2506  data: 0.0019  max mem: 19378
+Epoch: [31]  [150/761]  eta: 0:12:54  lr: 1.2800308890040608e-05  loss: 0.0080 (0.0085)  time: 1.2502  data: 0.0014  max mem: 19378
+Epoch: [31]  [200/761]  eta: 0:11:50  lr: 1.2714278808587072e-05  loss: 0.0080 (0.0085)  time: 1.2628  data: 0.0013  max mem: 19378
+Epoch: [31]  [250/761]  eta: 0:10:45  lr: 1.2628183998422857e-05  loss: 0.0079 (0.0084)  time: 1.2495  data: 0.0018  max mem: 19378
+Epoch: [31]  [300/761]  eta: 0:09:41  lr: 1.2542023919763749e-05  loss: 0.0078 (0.0085)  time: 1.2534  data: 0.0015  max mem: 19378
+Epoch: [31]  [350/761]  eta: 0:08:37  lr: 1.2455798024166297e-05  loss: 0.0082 (0.0084)  time: 1.2439  data: 0.0017  max mem: 19378
+Epoch: [31]  [400/761]  eta: 0:07:34  lr: 1.236950575432119e-05  loss: 0.0081 (0.0085)  time: 1.2464  data: 0.0015  max mem: 19378
+Epoch: [31]  [450/761]  eta: 0:06:31  lr: 1.2283146543840038e-05  loss: 0.0068 (0.0084)  time: 1.2505  data: 0.0016  max mem: 19378
+Epoch: [31]  [500/761]  eta: 0:05:28  lr: 1.2196719817035331e-05  loss: 0.0068 (0.0084)  time: 1.2527  data: 0.0013  max mem: 19378
+Epoch: [31]  [550/761]  eta: 0:04:25  lr: 1.2110224988693272e-05  loss: 0.0075 (0.0084)  time: 1.2545  data: 0.0012  max mem: 19378
+Epoch: [31]  [600/761]  eta: 0:03:22  lr: 1.2023661463839236e-05  loss: 0.0072 (0.0083)  time: 1.2498  data: 0.0016  max mem: 19378
+Epoch: [31]  [650/761]  eta: 0:02:19  lr: 1.1937028637495503e-05  loss: 0.0064 (0.0083)  time: 1.2507  data: 0.0014  max mem: 19378
+Epoch: [31]  [700/761]  eta: 0:01:16  lr: 1.1850325894431e-05  loss: 0.0070 (0.0083)  time: 1.2590  data: 0.0018  max mem: 19378
+Epoch: [31]  [750/761]  eta: 0:00:13  lr: 1.176355260890268e-05  loss: 0.0081 (0.0083)  time: 1.2540  data: 0.0015  max mem: 19378
+Epoch: [31] Total time: 0:15:56
+Test:  [  0/870]  eta: 0:15:57    time: 1.1004  data: 1.0452  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:31    time: 0.0424  data: 0.0008  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0420  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0428  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0425  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 59.66
+
+    precision@0.5 = 67.47
+    precision@0.6 = 60.00
+    precision@0.7 = 51.84
+    precision@0.8 = 41.15
+    precision@0.9 = 24.25
+    overall IoU = 77.72
+
+Epoch 31: Mean IoU 59.66, Overall IoU 77.72
+Epoch: [32]  [  0/761]  eta: 0:40:52  lr: 1.17444529562882e-05  loss: 0.0044 (0.0044)  time: 3.2222  data: 1.4927  max mem: 19378
+Epoch: [32]  [ 50/761]  eta: 0:15:17  lr: 1.1657592745883019e-05  loss: 0.0079 (0.0085)  time: 1.2471  data: 0.0010  max mem: 19378
+Epoch: [32]  [100/761]  eta: 0:14:14  lr: 1.1570660564934633e-05  loss: 0.0054 (0.0081)  time: 1.3060  data: 0.0010  max mem: 19378
+Epoch: [32]  [150/761]  eta: 0:13:13  lr: 1.1483655751989068e-05  loss: 0.0073 (0.0080)  time: 1.2699  data: 0.0010  max mem: 19378
+Epoch: [32]  [200/761]  eta: 0:12:02  lr: 1.139657763388873e-05  loss: 0.0082 (0.0080)  time: 1.2577  data: 0.0014  max mem: 19378
+Epoch: [32]  [250/761]  eta: 0:10:54  lr: 1.1309425525464135e-05  loss: 0.0068 (0.0080)  time: 1.2626  data: 0.0011  max mem: 19378
+Epoch: [32]  [300/761]  eta: 0:09:48  lr: 1.1222198729214768e-05  loss: 0.0079 (0.0079)  time: 1.2582  data: 0.0010  max mem: 19378
+Epoch: [32]  [350/761]  eta: 0:08:43  lr: 1.1134896534978654e-05  loss: 0.0078 (0.0079)  time: 1.2599  data: 0.0014  max mem: 19378
+Epoch: [32]  [400/761]  eta: 0:07:38  lr: 1.1047518219590113e-05  loss: 0.0074 (0.0079)  time: 1.2550  data: 0.0011  max mem: 19378
+Epoch: [32]  [450/761]  eta: 0:06:34  lr: 1.0960063046525164e-05  loss: 0.0075 (0.0079)  time: 1.2469  data: 0.0013  max mem: 19378
+Epoch: [32]  [500/761]  eta: 0:05:30  lr: 1.0872530265534031e-05  loss: 0.0078 (0.0079)  time: 1.2487  data: 0.0017  max mem: 19378
+Epoch: [32]  [550/761]  eta: 0:04:27  lr: 1.0784919112260164e-05  loss: 0.0085 (0.0080)  time: 1.2599  data: 0.0011  max mem: 19378
+Epoch: [32]  [600/761]  eta: 0:03:23  lr: 1.0697228807845137e-05  loss: 0.0078 (0.0081)  time: 1.2491  data: 0.0019  max mem: 19378
+Epoch: [32]  [650/761]  eta: 0:02:20  lr: 1.0609458558518784e-05  loss: 0.0075 (0.0081)  time: 1.2558  data: 0.0013  max mem: 19378
+Epoch: [32]  [700/761]  eta: 0:01:17  lr: 1.052160755517387e-05  loss: 0.0067 (0.0080)  time: 1.2517  data: 0.0014  max mem: 19378
+Epoch: [32]  [750/761]  eta: 0:00:13  lr: 1.043367497292457e-05  loss: 0.0069 (0.0081)  time: 1.2503  data: 0.0012  max mem: 19378
+Epoch: [32] Total time: 0:16:01
+Test:  [  0/870]  eta: 0:15:59    time: 1.1024  data: 1.0454  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0444  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0428  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0429  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:12    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0422  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 60.43
+
+    precision@0.5 = 68.74
+    precision@0.6 = 60.80
+    precision@0.7 = 51.03
+    precision@0.8 = 41.38
+    precision@0.9 = 24.60
+    overall IoU = 77.72
+
+Epoch 32: Mean IoU 60.43, Overall IoU 77.72
+Epoch: [33]  [  0/761]  eta: 0:37:57  lr: 1.0414318773730823e-05  loss: 0.0041 (0.0041)  time: 2.9928  data: 1.6623  max mem: 19378
+Epoch: [33]  [ 50/761]  eta: 0:15:14  lr: 1.0326285524519215e-05  loss: 0.0063 (0.0076)  time: 1.2476  data: 0.0016  max mem: 19378
+Epoch: [33]  [100/761]  eta: 0:13:59  lr: 1.0238168806428362e-05  loss: 0.0072 (0.0077)  time: 1.2471  data: 0.0020  max mem: 19378
+Epoch: [33]  [150/761]  eta: 0:12:52  lr: 1.0149967740559531e-05  loss: 0.0070 (0.0078)  time: 1.2493  data: 0.0020  max mem: 19378
+Epoch: [33]  [200/761]  eta: 0:11:48  lr: 1.0061681430175295e-05  loss: 0.0062 (0.0077)  time: 1.2508  data: 0.0013  max mem: 19378
+Epoch: [33]  [250/761]  eta: 0:10:44  lr: 9.973308960159803e-06  loss: 0.0064 (0.0077)  time: 1.2574  data: 0.0013  max mem: 19378
+Epoch: [33]  [300/761]  eta: 0:09:41  lr: 9.884849396457291e-06  loss: 0.0082 (0.0078)  time: 1.2529  data: 0.0019  max mem: 19378
+Epoch: [33]  [350/761]  eta: 0:08:37  lr: 9.796301785487637e-06  loss: 0.0074 (0.0078)  time: 1.2472  data: 0.0017  max mem: 19378
+Epoch: [33]  [400/761]  eta: 0:07:34  lr: 9.707665153537857e-06  loss: 0.0079 (0.0079)  time: 1.2731  data: 0.0005  max mem: 19378
+Epoch: [33]  [450/761]  eta: 0:06:31  lr: 9.61893850612823e-06  loss: 0.0079 (0.0078)  time: 1.2563  data: 0.0007  max mem: 19378
+Epoch: [33]  [500/761]  eta: 0:05:28  lr: 9.530120827351788e-06  loss: 0.0081 (0.0079)  time: 1.2647  data: 0.0013  max mem: 19378
+Epoch: [33]  [550/761]  eta: 0:04:25  lr: 9.441211079185714e-06  loss: 0.0073 (0.0078)  time: 1.2883  data: 0.0016  max mem: 19378
+Epoch: [33]  [600/761]  eta: 0:03:22  lr: 9.352208200773173e-06  loss: 0.0071 (0.0078)  time: 1.2547  data: 0.0015  max mem: 19378
+Epoch: [33]  [650/761]  eta: 0:02:19  lr: 9.263111107673959e-06  loss: 0.0075 (0.0079)  time: 1.2548  data: 0.0016  max mem: 19378
+Epoch: [33]  [700/761]  eta: 0:01:16  lr: 9.173918691082286e-06  loss: 0.0067 (0.0079)  time: 1.2556  data: 0.0017  max mem: 19378
+Epoch: [33]  [750/761]  eta: 0:00:13  lr: 9.08462981700988e-06  loss: 0.0075 (0.0079)  time: 1.2591  data: 0.0017  max mem: 19378
+Epoch: [33] Total time: 0:15:57
+Test:  [  0/870]  eta: 0:16:07    time: 1.1121  data: 1.0582  max mem: 19378
+Test:  [100/870]  eta: 0:00:41    time: 0.0431  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0427  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0420  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0425  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 61.22
+
+    precision@0.5 = 70.57
+    precision@0.6 = 61.72
+    precision@0.7 = 51.61
+    precision@0.8 = 41.49
+    precision@0.9 = 24.48
+    overall IoU = 77.76
+
+Epoch 33: Mean IoU 61.22, Overall IoU 77.76
+Epoch: [34]  [  0/761]  eta: 0:37:32  lr: 9.064973205435519e-06  loss: 0.0137 (0.0137)  time: 2.9599  data: 1.5090  max mem: 19378
+Epoch: [34]  [ 50/761]  eta: 0:15:19  lr: 8.975565079675338e-06  loss: 0.0075 (0.0081)  time: 1.2643  data: 0.0012  max mem: 19378
+Epoch: [34]  [100/761]  eta: 0:14:02  lr: 8.886057884622503e-06  loss: 0.0066 (0.0077)  time: 1.2592  data: 0.0013  max mem: 19378
+Epoch: [34]  [150/761]  eta: 0:12:53  lr: 8.796450399204254e-06  loss: 0.0070 (0.0078)  time: 1.2522  data: 0.0017  max mem: 19378
+Epoch: [34]  [200/761]  eta: 0:11:47  lr: 8.70674137328934e-06  loss: 0.0065 (0.0076)  time: 1.2491  data: 0.0017  max mem: 19378
+Epoch: [34]  [250/761]  eta: 0:10:43  lr: 8.616929526655467e-06  loss: 0.0066 (0.0077)  time: 1.2467  data: 0.0019  max mem: 19378
+Epoch: [34]  [300/761]  eta: 0:09:39  lr: 8.527013547907686e-06  loss: 0.0077 (0.0077)  time: 1.2469  data: 0.0019  max mem: 19378
+Epoch: [34]  [350/761]  eta: 0:08:36  lr: 8.436992093344725e-06  loss: 0.0066 (0.0076)  time: 1.2420  data: 0.0017  max mem: 19378
+Epoch: [34]  [400/761]  eta: 0:07:33  lr: 8.346863785770183e-06  loss: 0.0080 (0.0077)  time: 1.2461  data: 0.0015  max mem: 19378
+Epoch: [34]  [450/761]  eta: 0:06:30  lr: 8.256627213245136e-06  loss: 0.0069 (0.0077)  time: 1.2443  data: 0.0018  max mem: 19378
+Epoch: [34]  [500/761]  eta: 0:05:27  lr: 8.16628092777857e-06  loss: 0.0076 (0.0077)  time: 1.2460  data: 0.0017  max mem: 19378
+Epoch: [34]  [550/761]  eta: 0:04:24  lr: 8.075823443951729e-06  loss: 0.0084 (0.0077)  time: 1.2487  data: 0.0015  max mem: 19378
+Epoch: [34]  [600/761]  eta: 0:03:21  lr: 7.985253237472157e-06  loss: 0.0070 (0.0077)  time: 1.2424  data: 0.0017  max mem: 19378
+Epoch: [34]  [650/761]  eta: 0:02:19  lr: 7.894568743652938e-06  loss: 0.0063 (0.0077)  time: 1.2480  data: 0.0012  max mem: 19378
+Epoch: [34]  [700/761]  eta: 0:01:16  lr: 7.803768355812236e-06  loss: 0.0077 (0.0077)  time: 1.2474  data: 0.0008  max mem: 19378
+Epoch: [34]  [750/761]  eta: 0:00:13  lr: 7.712850423587884e-06  loss: 0.0076 (0.0078)  time: 1.2869  data: 0.0009  max mem: 19378
+Epoch: [34] Total time: 0:15:54
+Test:  [  0/870]  eta: 0:15:31    time: 1.0703  data: 1.0166  max mem: 19378
+Test:  [100/870]  eta: 0:00:39    time: 0.0410  data: 0.0006  max mem: 19378
+Test:  [200/870]  eta: 0:00:31    time: 0.0408  data: 0.0006  max mem: 19378
+Test:  [300/870]  eta: 0:00:25    time: 0.0413  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:20    time: 0.0420  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0433  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0419  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0422  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:37
+Final results:
+Mean IoU is 61.29
+
+    precision@0.5 = 70.00
+    precision@0.6 = 62.30
+    precision@0.7 = 51.49
+    precision@0.8 = 42.30
+    precision@0.9 = 24.94
+    overall IoU = 78.02
+
+Epoch 34: Mean IoU 61.29, Overall IoU 78.02
+New best overall IoU: 78.02. Saving model for epoch: 34
+
+Epoch: [35]  [  0/761]  eta: 0:33:41  lr: 7.692832536537138e-06  loss: 0.0072 (0.0072)  time: 2.6570  data: 1.3456  max mem: 19378
+Epoch: [35]  [ 50/761]  eta: 0:15:09  lr: 7.601768899024607e-06  loss: 0.0071 (0.0072)  time: 1.2513  data: 0.0017  max mem: 19378
+Epoch: [35]  [100/761]  eta: 0:13:55  lr: 7.510583888123845e-06  loss: 0.0073 (0.0075)  time: 1.2529  data: 0.0017  max mem: 19378
+Epoch: [35]  [150/761]  eta: 0:12:48  lr: 7.419275700258345e-06  loss: 0.0075 (0.0076)  time: 1.2498  data: 0.0011  max mem: 19378
+Epoch: [35]  [200/761]  eta: 0:11:44  lr: 7.327842479984502e-06  loss: 0.0077 (0.0076)  time: 1.2557  data: 0.0014  max mem: 19378
+Epoch: [35]  [250/761]  eta: 0:10:41  lr: 7.2362823177590955e-06  loss: 0.0079 (0.0076)  time: 1.2556  data: 0.0013  max mem: 19378
+Epoch: [35]  [300/761]  eta: 0:09:38  lr: 7.144593247577901e-06  loss: 0.0062 (0.0075)  time: 1.2527  data: 0.0014  max mem: 19378
+Epoch: [35]  [350/761]  eta: 0:08:35  lr: 7.0527732444760185e-06  loss: 0.0072 (0.0075)  time: 1.2531  data: 0.0015  max mem: 19378
+Epoch: [35]  [400/761]  eta: 0:07:32  lr: 6.960820221879711e-06  loss: 0.0068 (0.0075)  time: 1.2519  data: 0.0013  max mem: 19378
+Epoch: [35]  [450/761]  eta: 0:06:29  lr: 6.8687320287986256e-06  loss: 0.0065 (0.0075)  time: 1.2544  data: 0.0016  max mem: 19378
+Epoch: [35]  [500/761]  eta: 0:05:26  lr: 6.7765064468462276e-06  loss: 0.0070 (0.0075)  time: 1.2546  data: 0.0015  max mem: 19378
+Epoch: [35]  [550/761]  eta: 0:04:24  lr: 6.684141187075208e-06  loss: 0.0066 (0.0075)  time: 1.2518  data: 0.0013  max mem: 19378
+Epoch: [35]  [600/761]  eta: 0:03:21  lr: 6.5916338866133205e-06  loss: 0.0070 (0.0075)  time: 1.2426  data: 0.0013  max mem: 19378
+Epoch: [35]  [650/761]  eta: 0:02:18  lr: 6.498982105083767e-06  loss: 0.0066 (0.0075)  time: 1.2434  data: 0.0014  max mem: 19378
+Epoch: [35]  [700/761]  eta: 0:01:16  lr: 6.406183320792693e-06  loss: 0.0075 (0.0076)  time: 1.2449  data: 0.0015  max mem: 19378
+Epoch: [35]  [750/761]  eta: 0:00:13  lr: 6.313234926664624e-06  loss: 0.0076 (0.0076)  time: 1.2425  data: 0.0014  max mem: 19378
+Epoch: [35] Total time: 0:15:52
+Test:  [  0/870]  eta: 0:15:59    time: 1.1027  data: 1.0483  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0424  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0427  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0432  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0422  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 60.70
+
+    precision@0.5 = 69.43
+    precision@0.6 = 61.95
+    precision@0.7 = 51.72
+    precision@0.8 = 42.07
+    precision@0.9 = 24.48
+    overall IoU = 78.10
+
+Epoch 35: Mean IoU 60.70, Overall IoU 78.10
+New best overall IoU: 78.10. Saving model for epoch: 35
+
+Epoch: [36]  [  0/761]  eta: 0:33:17  lr: 6.292765936297088e-06  loss: 0.0089 (0.0089)  time: 2.6247  data: 1.3160  max mem: 19378
+Epoch: [36]  [ 50/761]  eta: 0:15:05  lr: 6.199631356892039e-06  loss: 0.0060 (0.0069)  time: 1.2455  data: 0.0015  max mem: 19378
+Epoch: [36]  [100/761]  eta: 0:13:54  lr: 6.106341052506832e-06  loss: 0.0066 (0.0072)  time: 1.2508  data: 0.0011  max mem: 19378
+Epoch: [36]  [150/761]  eta: 0:12:48  lr: 6.0128921101369144e-06  loss: 0.0078 (0.0073)  time: 1.2430  data: 0.0016  max mem: 19378
+Epoch: [36]  [200/761]  eta: 0:11:43  lr: 5.919281510944965e-06  loss: 0.0078 (0.0074)  time: 1.2312  data: 0.0016  max mem: 19378
+Epoch: [36]  [250/761]  eta: 0:10:41  lr: 5.8255061244846944e-06  loss: 0.0072 (0.0074)  time: 1.2575  data: 0.0013  max mem: 19378
+Epoch: [36]  [300/761]  eta: 0:09:38  lr: 5.731562702500201e-06  loss: 0.0088 (0.0075)  time: 1.2577  data: 0.0009  max mem: 19378
+Epoch: [36]  [350/761]  eta: 0:08:35  lr: 5.637447872261373e-06  loss: 0.0065 (0.0075)  time: 1.2469  data: 0.0013  max mem: 19378
+Epoch: [36]  [400/761]  eta: 0:07:32  lr: 5.543158129391349e-06  loss: 0.0070 (0.0075)  time: 1.2482  data: 0.0014  max mem: 19378
+Epoch: [36]  [450/761]  eta: 0:06:29  lr: 5.4486898301369785e-06  loss: 0.0068 (0.0075)  time: 1.2567  data: 0.0015  max mem: 19378
+Epoch: [36]  [500/761]  eta: 0:05:27  lr: 5.354039183027413e-06  loss: 0.0078 (0.0075)  time: 1.2556  data: 0.0015  max mem: 19378
+Epoch: [36]  [550/761]  eta: 0:04:24  lr: 5.259202239859416e-06  loss: 0.0070 (0.0075)  time: 1.2532  data: 0.0013  max mem: 19378
+Epoch: [36]  [600/761]  eta: 0:03:21  lr: 5.164174885940407e-06  loss: 0.0068 (0.0075)  time: 1.2589  data: 0.0015  max mem: 19378
+Epoch: [36]  [650/761]  eta: 0:02:19  lr: 5.068952829511668e-06  loss: 0.0074 (0.0075)  time: 1.2583  data: 0.0015  max mem: 19378
+Epoch: [36]  [700/761]  eta: 0:01:16  lr: 4.9735315902642145e-06  loss: 0.0070 (0.0075)  time: 1.2544  data: 0.0014  max mem: 19378
+Epoch: [36]  [750/761]  eta: 0:00:13  lr: 4.877906486848438e-06  loss: 0.0074 (0.0075)  time: 1.2588  data: 0.0018  max mem: 19378
+Epoch: [36] Total time: 0:15:53
+Test:  [  0/870]  eta: 0:16:02    time: 1.1061  data: 1.0483  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:32    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0426  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0421  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0422  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 60.64
+
+    precision@0.5 = 68.97
+    precision@0.6 = 62.53
+    precision@0.7 = 51.84
+    precision@0.8 = 41.38
+    precision@0.9 = 24.83
+    overall IoU = 78.14
+
+Epoch 36: Mean IoU 60.64, Overall IoU 78.14
+New best overall IoU: 78.14. Saving model for epoch: 36
+
+Epoch: [37]  [  0/761]  eta: 0:34:33  lr: 4.856841123650747e-06  loss: 0.0057 (0.0057)  time: 2.7245  data: 1.4148  max mem: 19378
+Epoch: [37]  [ 50/761]  eta: 0:15:08  lr: 4.760960653300797e-06  loss: 0.0073 (0.0076)  time: 1.2539  data: 0.0013  max mem: 19378
+Epoch: [37]  [100/761]  eta: 0:13:55  lr: 4.664865137286904e-06  loss: 0.0082 (0.0079)  time: 1.2527  data: 0.0019  max mem: 19378
+Epoch: [37]  [150/761]  eta: 0:12:49  lr: 4.56854914796218e-06  loss: 0.0071 (0.0079)  time: 1.2503  data: 0.0015  max mem: 19378
+Epoch: [37]  [200/761]  eta: 0:11:45  lr: 4.472006989986129e-06  loss: 0.0068 (0.0078)  time: 1.2564  data: 0.0014  max mem: 19378
+Epoch: [37]  [250/761]  eta: 0:10:42  lr: 4.375232680364291e-06  loss: 0.0071 (0.0078)  time: 1.2493  data: 0.0019  max mem: 19378
+Epoch: [37]  [300/761]  eta: 0:09:39  lr: 4.278219926470768e-06  loss: 0.0069 (0.0077)  time: 1.2483  data: 0.0018  max mem: 19378
+Epoch: [37]  [350/761]  eta: 0:08:36  lr: 4.18096210179359e-06  loss: 0.0072 (0.0077)  time: 1.2516  data: 0.0012  max mem: 19378
+Epoch: [37]  [400/761]  eta: 0:07:33  lr: 4.083452219101834e-06  loss: 0.0073 (0.0077)  time: 1.2469  data: 0.0017  max mem: 19378
+Epoch: [37]  [450/761]  eta: 0:06:30  lr: 3.985682900684433e-06  loss: 0.0068 (0.0077)  time: 1.2505  data: 0.0019  max mem: 19378
+Epoch: [37]  [500/761]  eta: 0:05:27  lr: 3.887646345252273e-06  loss: 0.0068 (0.0076)  time: 1.2298  data: 0.0017  max mem: 19378
+Epoch: [37]  [550/761]  eta: 0:04:24  lr: 3.7893342910250754e-06  loss: 0.0062 (0.0076)  time: 1.2305  data: 0.0012  max mem: 19378
+Epoch: [37]  [600/761]  eta: 0:03:21  lr: 3.690737974440118e-06  loss: 0.0067 (0.0075)  time: 1.2288  data: 0.0017  max mem: 19378
+Epoch: [37]  [650/761]  eta: 0:02:19  lr: 3.5918480838175326e-06  loss: 0.0068 (0.0075)  time: 1.2502  data: 0.0012  max mem: 19378
+Epoch: [37]  [700/761]  eta: 0:01:16  lr: 3.492654707192268e-06  loss: 0.0057 (0.0075)  time: 1.2505  data: 0.0018  max mem: 19378
+Epoch: [37]  [750/761]  eta: 0:00:13  lr: 3.3931472733701e-06  loss: 0.0061 (0.0074)  time: 1.2542  data: 0.0010  max mem: 19378
+Epoch: [37] Total time: 0:15:54
+Test:  [  0/870]  eta: 0:15:35    time: 1.0752  data: 1.0178  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0427  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:31    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0422  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0425  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0419  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0423  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0424  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:38
+Final results:
+Mean IoU is 61.05
+
+    precision@0.5 = 69.20
+    precision@0.6 = 62.64
+    precision@0.7 = 52.41
+    precision@0.8 = 42.07
+    precision@0.9 = 24.60
+    overall IoU = 78.16
+
+Epoch 37: Mean IoU 61.05, Overall IoU 78.16
+New best overall IoU: 78.16. Saving model for epoch: 37
+
+Epoch: [38]  [  0/761]  eta: 0:34:52  lr: 3.371212384515865e-06  loss: 0.0076 (0.0076)  time: 2.7494  data: 1.3328  max mem: 19378
+Epoch: [38]  [ 50/761]  eta: 0:16:05  lr: 3.271306424083375e-06  loss: 0.0078 (0.0074)  time: 1.3290  data: 0.0013  max mem: 19378
+Epoch: [38]  [100/761]  eta: 0:14:47  lr: 3.1710602317550234e-06  loss: 0.0063 (0.0074)  time: 1.3303  data: 0.0016  max mem: 19378
+Epoch: [38]  [150/761]  eta: 0:13:36  lr: 3.0704606102477645e-06  loss: 0.0073 (0.0074)  time: 1.3337  data: 0.0014  max mem: 19378
+Epoch: [38]  [200/761]  eta: 0:12:28  lr: 2.969493349059133e-06  loss: 0.0058 (0.0075)  time: 1.3287  data: 0.0015  max mem: 19378
+Epoch: [38]  [250/761]  eta: 0:11:20  lr: 2.8681431052500332e-06  loss: 0.0061 (0.0075)  time: 1.3208  data: 0.0015  max mem: 19378
+Epoch: [38]  [300/761]  eta: 0:10:13  lr: 2.7663932649385883e-06  loss: 0.0071 (0.0075)  time: 1.3166  data: 0.0017  max mem: 19378
+Epoch: [38]  [350/761]  eta: 0:09:06  lr: 2.664225781462407e-06  loss: 0.0070 (0.0074)  time: 1.3142  data: 0.0019  max mem: 19378
+Epoch: [38]  [400/761]  eta: 0:07:59  lr: 2.5616209851094764e-06  loss: 0.0065 (0.0074)  time: 1.3189  data: 0.0015  max mem: 19378
+Epoch: [38]  [450/761]  eta: 0:06:52  lr: 2.4585573579244842e-06  loss: 0.0059 (0.0074)  time: 1.3148  data: 0.0015  max mem: 19378
+Epoch: [38]  [500/761]  eta: 0:05:46  lr: 2.355011265239865e-06  loss: 0.0064 (0.0073)  time: 1.3215  data: 0.0015  max mem: 19378
+Epoch: [38]  [550/761]  eta: 0:04:39  lr: 2.2509566330742232e-06  loss: 0.0076 (0.0073)  time: 1.3195  data: 0.0013  max mem: 19378
+Epoch: [38]  [600/761]  eta: 0:03:33  lr: 2.1463645571126448e-06  loss: 0.0057 (0.0073)  time: 1.3241  data: 0.0012  max mem: 19378
+Epoch: [38]  [650/761]  eta: 0:02:27  lr: 2.0412028242259877e-06  loss: 0.0065 (0.0073)  time: 1.3198  data: 0.0017  max mem: 19378
+Epoch: [38]  [700/761]  eta: 0:01:20  lr: 1.9354353207772856e-06  loss: 0.0067 (0.0073)  time: 1.3188  data: 0.0013  max mem: 19378
+Epoch: [38]  [750/761]  eta: 0:00:14  lr: 1.829021292332973e-06  loss: 0.0077 (0.0073)  time: 1.3126  data: 0.0016  max mem: 19378
+Epoch: [38] Total time: 0:16:47
+Test:  [  0/870]  eta: 0:15:30    time: 1.0692  data: 1.0161  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0412  data: 0.0006  max mem: 19378
+Test:  [200/870]  eta: 0:00:31    time: 0.0411  data: 0.0006  max mem: 19378
+Test:  [300/870]  eta: 0:00:25    time: 0.0412  data: 0.0006  max mem: 19378
+Test:  [400/870]  eta: 0:00:20    time: 0.0411  data: 0.0006  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0411  data: 0.0006  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0410  data: 0.0006  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0433  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0434  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:37
+Final results:
+Mean IoU is 60.71
+
+    precision@0.5 = 69.20
+    precision@0.6 = 62.30
+    precision@0.7 = 51.49
+    precision@0.8 = 42.76
+    precision@0.9 = 24.94
+    overall IoU = 78.13
+
+Epoch 38: Mean IoU 60.71, Overall IoU 78.13
+Epoch: [39]  [  0/761]  eta: 0:41:40  lr: 1.8055189630260437e-06  loss: 0.0079 (0.0079)  time: 3.2861  data: 1.4242  max mem: 19378
+Epoch: [39]  [ 50/761]  eta: 0:15:31  lr: 1.6982527827422282e-06  loss: 0.0067 (0.0068)  time: 1.2834  data: 0.0010  max mem: 19378
+Epoch: [39]  [100/761]  eta: 0:14:07  lr: 1.5902278791271128e-06  loss: 0.0061 (0.0067)  time: 1.2525  data: 0.0013  max mem: 19378
+Epoch: [39]  [150/761]  eta: 0:12:56  lr: 1.48138066712087e-06  loss: 0.0068 (0.0067)  time: 1.2463  data: 0.0013  max mem: 19378
+Epoch: [39]  [200/761]  eta: 0:11:50  lr: 1.371636537715728e-06  loss: 0.0067 (0.0067)  time: 1.2444  data: 0.0013  max mem: 19378
+Epoch: [39]  [250/761]  eta: 0:10:45  lr: 1.2609067787421807e-06  loss: 0.0066 (0.0069)  time: 1.2524  data: 0.0012  max mem: 19378
+Epoch: [39]  [300/761]  eta: 0:09:41  lr: 1.1490842435378982e-06  loss: 0.0070 (0.0070)  time: 1.2471  data: 0.0013  max mem: 19378
+Epoch: [39]  [350/761]  eta: 0:08:38  lr: 1.0360370630877566e-06  loss: 0.0057 (0.0070)  time: 1.2536  data: 0.0013  max mem: 19378
+Epoch: [39]  [400/761]  eta: 0:07:34  lr: 9.215991631836536e-07  loss: 0.0068 (0.0070)  time: 1.2560  data: 0.0011  max mem: 19378
+Epoch: [39]  [450/761]  eta: 0:06:31  lr: 8.055552742966868e-07  loss: 0.0068 (0.0070)  time: 1.2480  data: 0.0017  max mem: 19378
+Epoch: [39]  [500/761]  eta: 0:05:28  lr: 6.876157792516416e-07  loss: 0.0080 (0.0071)  time: 1.2478  data: 0.0015  max mem: 19378
+Epoch: [39]  [550/761]  eta: 0:04:25  lr: 5.67371068389309e-07  loss: 0.0075 (0.0071)  time: 1.2506  data: 0.0017  max mem: 19378
+Epoch: [39]  [600/761]  eta: 0:03:22  lr: 4.4419923414759903e-07  loss: 0.0076 (0.0072)  time: 1.2563  data: 0.0014  max mem: 19378
+Epoch: [39]  [650/761]  eta: 0:02:19  lr: 3.170467003825047e-07  loss: 0.0067 (0.0072)  time: 1.2587  data: 0.0015  max mem: 19378
+Epoch: [39]  [700/761]  eta: 0:01:16  lr: 1.8374094530592828e-07  loss: 0.0071 (0.0072)  time: 1.2590  data: 0.0016  max mem: 19378
+Epoch: [39]  [750/761]  eta: 0:00:13  lr: 3.663277521356781e-08  loss: 0.0065 (0.0072)  time: 1.2552  data: 0.0013  max mem: 19378
+Epoch: [39] Total time: 0:15:56
+Test:  [  0/870]  eta: 0:16:12    time: 1.1177  data: 1.0610  max mem: 19378
+Test:  [100/870]  eta: 0:00:40    time: 0.0421  data: 0.0007  max mem: 19378
+Test:  [200/870]  eta: 0:00:31    time: 0.0421  data: 0.0007  max mem: 19378
+Test:  [300/870]  eta: 0:00:26    time: 0.0421  data: 0.0007  max mem: 19378
+Test:  [400/870]  eta: 0:00:21    time: 0.0420  data: 0.0007  max mem: 19378
+Test:  [500/870]  eta: 0:00:16    time: 0.0440  data: 0.0007  max mem: 19378
+Test:  [600/870]  eta: 0:00:11    time: 0.0418  data: 0.0007  max mem: 19378
+Test:  [700/870]  eta: 0:00:07    time: 0.0421  data: 0.0007  max mem: 19378
+Test:  [800/870]  eta: 0:00:03    time: 0.0421  data: 0.0007  max mem: 19378
+Test: Total time: 0:00:37
+Final results:
+Mean IoU is 60.69
+
+    precision@0.5 = 69.66
+    precision@0.6 = 62.76
+    precision@0.7 = 51.95
+    precision@0.8 = 41.61
+    precision@0.9 = 24.60
+    overall IoU = 78.13
+
+Epoch 39: Mean IoU 60.69, Overall IoU 78.13
+Training time 11:11:59
+swanlab: Experiment rrsisd_embedding has completed
+swanlab: 🏠 View project at https://swanlab.cn/@chenfree/rrsis
+swanlab: 🚀 View run at https://swanlab.cn/@chenfree/rrsis/runs/mlm73h7y878jcu56vaqhx
+/root/miniconda3/lib/python3.8/site-packages/torch/distributed/launch.py:180: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  warnings.warn(

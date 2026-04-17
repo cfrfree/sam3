@@ -1,0 +1,78 @@
+nohup: ignoring input
+/root/miniconda3/lib/python3.8/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/root/miniconda3/lib/python3.8/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/root/miniconda3/lib/python3.8/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/root/miniconda3/lib/python3.8/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/root/miniconda3/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/root/miniconda3/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+Traceback (most recent call last):
+  File "train.py", line 10, in <module>
+Traceback (most recent call last):
+  File "train.py", line 10, in <module>
+    from lib import segmentation
+  File "/root/TGRS/rrsis/lib/segmentation.py", line 4, in <module>
+    from .backbone import MultiModalSwinTransformer
+  File "/root/TGRS/rrsis/lib/backbone.py", line 8, in <module>
+    from mmseg.utils import get_root_logger
+    ImportErrorfrom lib import segmentation: 
+cannot import name 'get_root_logger' from 'mmseg.utils' (/root/miniconda3/lib/python3.8/site-packages/mmseg/utils/__init__.py)
+  File "/root/TGRS/rrsis/lib/segmentation.py", line 4, in <module>
+    from .backbone import MultiModalSwinTransformer
+  File "/root/TGRS/rrsis/lib/backbone.py", line 8, in <module>
+    from mmseg.utils import get_root_logger
+ImportError: cannot import name 'get_root_logger' from 'mmseg.utils' (/root/miniconda3/lib/python3.8/site-packages/mmseg/utils/__init__.py)
+/root/miniconda3/lib/python3.8/site-packages/torch/distributed/launch.py:180: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  warnings.warn(
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 2802) of binary: /root/miniconda3/bin/python
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/distributed/launch.py", line 195, in <module>
+    main()
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/distributed/launch.py", line 191, in main
+    launch(args)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/distributed/launch.py", line 176, in launch
+    run(args)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/distributed/run.py", line 753, in run
+    elastic_launch(
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 132, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 246, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-04-07_11:57:24
+  host      : autodl-container-03944882ec-cca664ad
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 2803)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-07_11:57:24
+  host      : autodl-container-03944882ec-cca664ad
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 2802)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

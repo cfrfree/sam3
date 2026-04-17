@@ -302,6 +302,7 @@ class VETextEncoder(nn.Module):
             text_attention_mask = (tokenized != 0).bool()
 
             # manually embed the tokens
+            self.encoder.token_embedding.weight = self.encoder.token_embedding.weight.cuda()
             inputs_embeds = self.encoder.token_embedding(
                 tokenized
             )  # [b, seq_len, d=1024]

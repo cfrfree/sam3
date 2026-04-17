@@ -68,11 +68,21 @@ class Mlp(nn.Module):
         self.drop2 = nn.Dropout(drop_probs[1])
 
     def forward(self, x):
-        x = addmm_act(type(self.act), self.fc1, x)
-        x = self.drop1(x)
-        x = self.norm(x)
-        x = self.fc2(x)
-        x = self.drop2(x)
+        if torch.is_grad_enabled():
+            # Use regular operations during training
+            x = self.fc1(x)
+            x = self.act(x)
+            x = self.drop1(x)
+            x = self.norm(x)
+            x = self.fc2(x)
+            x = self.drop2(x)
+        else:
+            # Use fused operation during inference
+            x = addmm_act(type(self.act), self.fc1, x)
+            x = self.drop1(x)
+            x = self.norm(x)
+            x = self.fc2(x)
+            x = self.drop2(x)
         return x
 
 
@@ -124,6 +134,9 @@ def apply_rotary_enc(
         if xk.shape[-2] != 0
         else None
     )
+    # Handle case where freqs_cis is stored as real (..., 2) instead of complex
+    if freqs_cis.dtype.is_floating_point and freqs_cis.shape[-1] == 2:
+        freqs_cis = torch.view_as_complex(freqs_cis)
     freqs_cis = reshape_for_broadcast(freqs_cis, xq_)
     xq_out = torch.view_as_real(xq_ * freqs_cis).flatten(3)
     if xk_ is None:
