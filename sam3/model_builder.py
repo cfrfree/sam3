@@ -559,12 +559,27 @@ def _load_checkpoint(model, checkpoint_path):
                 if "tracker" in k
             }
         )
-    missing_keys, _ = model.load_state_dict(sam3_image_ckpt, strict=False)
-    if len(missing_keys) > 0:
+    model_state = model.state_dict()
+    shape_mismatch_keys = []
+    filtered_ckpt = {}
+    for key, value in sam3_image_ckpt.items():
+        if key in model_state and model_state[key].shape != value.shape:
+            shape_mismatch_keys.append(
+                (key, tuple(value.shape), tuple(model_state[key].shape))
+            )
+            continue
+        filtered_ckpt[key] = value
+
+    missing_keys, unexpected_keys = model.load_state_dict(filtered_ckpt, strict=False)
+    if len(missing_keys) > 0 or len(unexpected_keys) > 0 or len(shape_mismatch_keys) > 0:
         print(
             f"loaded {checkpoint_path} and found "
-            f"missing and/or unexpected keys:\n{missing_keys=}"
+            f"missing and/or unexpected keys:\n{missing_keys=}\n{unexpected_keys=}"
         )
+        if len(shape_mismatch_keys) > 0:
+            print("skipped shape-mismatch keys:")
+            for key, ckpt_shape, model_shape in shape_mismatch_keys:
+                print(f"  {key}: checkpoint={ckpt_shape}, model={model_shape}")
 
 
 def _setup_device_and_mode(model, device, eval_mode):
