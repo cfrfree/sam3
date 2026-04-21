@@ -450,6 +450,7 @@ def main():
 		eval_mode=False, # 设置为False进行训练
 		load_from_HF=True if args.sam3_checkpoint is None else False,
 		enable_segmentation=True,
+		image_size=args.img_size,
 	)
 	model.to(device)
 	
@@ -464,42 +465,69 @@ def main():
 
 	optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-4)
 
-	best_val = 0.0
-	for epoch in range(1, args.epochs + 1):
-		if utils.is_dist_avail_and_initialized():
-			train_sampler.set_epoch(epoch)
+	best_miou = float("-inf")
+	best_overall_iou = float("-inf")
+	best_score = float("-inf")  # score = miou + overall_iou
+	best_epoch = -1
+	best_precision = {}
+	try:
+		for epoch in range(1, args.epochs + 1):
+			if utils.is_dist_avail_and_initialized():
+				train_sampler.set_epoch(epoch)
 
-		train_loss = train_one_epoch(model, train_loader, optimizer, device, epoch, args)
-		val_mean_iou, val_overall_iou, precision = evaluate(model, val_loader, device, args)
+			train_loss = train_one_epoch(model, train_loader, optimizer, device, epoch, args)
+			val_mean_iou, val_overall_iou, precision = evaluate(model, val_loader, device, args)
 
-		# 5. 仅在主进程保存和日志记录
-		if utils.is_main_process():
-			print(f"Epoch {epoch} | train_loss={train_loss:.4f} | val_mean_iou={val_mean_iou:.2f}% | val_overall_iou={val_overall_iou:.2f}%")
-			for thr, prec in precision.items():
-				print(f"  precision@{thr:.1f} = {prec:.2f}%")
+			# 5. 仅在主进程保存和日志记录
+			if utils.is_main_process():
+				print(f"Epoch {epoch} | train_loss={train_loss:.4f} | val_mean_iou={val_mean_iou:.2f}% | val_overall_iou={val_overall_iou:.2f}%")
+				for thr, prec in precision.items():
+					print(f"  precision@{thr:.1f} = {prec:.2f}%")
 
-			if args.swanlab and args.swanlab_enabled:
-				swanlab.log({
+				if args.swanlab and args.swanlab_enabled:
+					swanlab.log({
+						"epoch": epoch,
+						"train_loss": train_loss,
+						"val_mean_iou": val_mean_iou,
+						"val_overall_iou": val_overall_iou,
+						**{f"precision@{thr}": prec for thr, prec in precision.items()},
+					})
+
+				checkpoint = {
 					"epoch": epoch,
+					"model_state_dict": unwrap_model(model).state_dict(),
+					"optimizer_state_dict": optimizer.state_dict(),
 					"train_loss": train_loss,
 					"val_mean_iou": val_mean_iou,
 					"val_overall_iou": val_overall_iou,
-					**{f"precision@{thr}": prec for thr, prec in precision.items()},
-				})
+				}
+				checkpoint_path = os.path.join(args.output_dir, f"sam3_refship_epoch_{epoch}.pth")
+				torch.save(checkpoint, checkpoint_path)
+				current_score = val_mean_iou + val_overall_iou
+				if current_score > best_score:
+					best_score = current_score
+					best_miou = val_mean_iou
+					best_overall_iou = val_overall_iou
+					best_epoch = epoch
+					best_precision = dict(precision)
+					torch.save(checkpoint, os.path.join(args.output_dir, "sam3_refship_best.pth"))
+	finally:
+		if utils.is_main_process() and best_epoch != -1:
+			print(
+				f"Global Best @ Epoch {best_epoch} | "
+				f"miou={best_miou:.2f}% | overall_iou={best_overall_iou:.2f}%"
+			)
+			for thr in sorted(best_precision.keys()):
+				print(f"  best precision@{thr:.1f} = {best_precision[thr]:.2f}%")
 
-			checkpoint = {
-				"epoch": epoch,
-				"model_state_dict": unwrap_model(model).state_dict(),
-				"optimizer_state_dict": optimizer.state_dict(),
-				"train_loss": train_loss,
-				"val_mean_iou": val_mean_iou,
-				"val_overall_iou": val_overall_iou,
-			}
-			checkpoint_path = os.path.join(args.output_dir, f"sam3_refship_epoch_{epoch}.pth")
-			torch.save(checkpoint, checkpoint_path)
-			if val_mean_iou > best_val:
-				best_val = val_mean_iou
-				torch.save(checkpoint, os.path.join(args.output_dir, "sam3_refship_best.pth"))
+		if utils.is_main_process() and args.swanlab and getattr(args, "swanlab_enabled", False):
+			try:
+				swanlab.finish()
+			except Exception as e:
+				print(f"[WARN] SwanLab finish failed: {e}")
+
+		if dist.is_available() and dist.is_initialized():
+			dist.destroy_process_group()
 
 
 if __name__ == "__main__":

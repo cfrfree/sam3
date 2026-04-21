@@ -74,10 +74,12 @@ def _create_position_encoding(precompute_resolution=None):
     )
 
 
-def _create_vit_backbone(compile_mode=None, use_fa3=False, use_rope_real=False):
+def _create_vit_backbone(
+    img_size=1008, compile_mode=None, use_fa3=False, use_rope_real=False
+):
     """Create ViT backbone for visual feature extraction."""
     return ViT(
-        img_size=1008,
+        img_size=img_size,
         pretrain_img_size=336,
         patch_size=14,
         embed_dim=1024,
@@ -162,7 +164,7 @@ def _create_transformer_encoder(use_fa3=False) -> TransformerEncoderFusion:
     return encoder
 
 
-def _create_transformer_decoder(use_fa3=False) -> TransformerDecoder:
+def _create_transformer_decoder(use_fa3=False, resolution=1008) -> TransformerDecoder:
     """Create transformer decoder with its layer."""
     decoder_layer = TransformerDecoderLayer(
         activation="relu",
@@ -192,7 +194,7 @@ def _create_transformer_decoder(use_fa3=False) -> TransformerDecoder:
         frozen=False,
         interaction_layer=None,
         dac_use_selfatt_ln=True,
-        resolution=1008,
+        resolution=resolution,
         stride=14,
         use_act_checkpoint=True,
         presence_token=True,
@@ -510,13 +512,15 @@ def _create_text_encoder(bpe_path: str) -> VETextEncoder:
 
 
 def _create_vision_backbone(
-    compile_mode=None, enable_inst_interactivity=True
+    compile_mode=None, enable_inst_interactivity=True, image_size=1008
 ) -> Sam3DualViTDetNeck:
     """Create SAM3 visual backbone with ViT and neck."""
     # Position encoding
-    position_encoding = _create_position_encoding(precompute_resolution=1008)
+    position_encoding = _create_position_encoding(precompute_resolution=image_size)
     # ViT backbone
-    vit_backbone: ViT = _create_vit_backbone(compile_mode=compile_mode)
+    vit_backbone: ViT = _create_vit_backbone(
+        img_size=image_size, compile_mode=compile_mode
+    )
     vit_neck: Sam3DualViTDetNeck = _create_vit_neck(
         position_encoding,
         vit_backbone,
@@ -527,11 +531,13 @@ def _create_vision_backbone(
 
 
 def _create_sam3_transformer(
-    has_presence_token: bool = True, use_fa3: bool = False
+    has_presence_token: bool = True, use_fa3: bool = False, image_size: int = 1008
 ) -> TransformerWrapper:
     """Create SAM3 transformer encoder and decoder."""
     encoder: TransformerEncoderFusion = _create_transformer_encoder(use_fa3=use_fa3)
-    decoder: TransformerDecoder = _create_transformer_decoder(use_fa3=use_fa3)
+    decoder: TransformerDecoder = _create_transformer_decoder(
+        use_fa3=use_fa3, resolution=image_size
+    )
 
     return TransformerWrapper(encoder=encoder, decoder=decoder, d_model=256)
 
@@ -584,6 +590,7 @@ def build_sam3_image_model(
     enable_segmentation=True,
     enable_inst_interactivity=False,
     compile=False,
+    image_size: int = 1008,
 ):
     """
     Build SAM3 image model
@@ -608,7 +615,9 @@ def build_sam3_image_model(
     # Create visual components
     compile_mode = "default" if compile else None
     vision_encoder = _create_vision_backbone(
-        compile_mode=compile_mode, enable_inst_interactivity=enable_inst_interactivity
+        compile_mode=compile_mode,
+        enable_inst_interactivity=enable_inst_interactivity,
+        image_size=image_size,
     )
 
     # Create text components
@@ -618,7 +627,7 @@ def build_sam3_image_model(
     backbone = _create_vl_backbone(vision_encoder, text_encoder)
 
     # Create transformer components
-    transformer = _create_sam3_transformer()
+    transformer = _create_sam3_transformer(image_size=image_size)
 
     # Create dot product scoring
     dot_prod_scoring = _create_dot_product_scoring()
