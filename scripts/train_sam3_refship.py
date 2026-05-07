@@ -1,4 +1,5 @@
 import argparse
+import math
 import os
 import random
 import sys
@@ -75,6 +76,127 @@ class RefShipSam3Dataset(Dataset):
 			image, target_mask = self.transform(image, target_mask)
 
 		return image, target_mask, sentence
+
+
+class LoRALinear(nn.Module):
+	"""A minimal LoRA wrapper for nn.Linear."""
+
+	def __init__(self, base_layer: nn.Linear, rank: int, alpha: float, dropout: float):
+		super().__init__()
+		if rank <= 0:
+			raise ValueError(f"LoRA rank must be > 0, got {rank}")
+		self.base = base_layer
+		self.rank = rank
+		self.scaling = alpha / rank
+		self.lora_dropout = nn.Dropout(p=dropout) if dropout > 0 else nn.Identity()
+		param_device = base_layer.weight.device
+		param_dtype = base_layer.weight.dtype
+
+		self.lora_A = nn.Parameter(
+			torch.empty(rank, base_layer.in_features, device=param_device, dtype=param_dtype)
+		)
+		self.lora_B = nn.Parameter(
+			torch.zeros(base_layer.out_features, rank, device=param_device, dtype=param_dtype)
+		)
+		nn.init.kaiming_uniform_(self.lora_A, a=math.sqrt(5))
+
+	def forward(self, x: torch.Tensor) -> torch.Tensor:
+		base_out = self.base(x)
+		lora_x = self.lora_dropout(x)
+		lora_out = F.linear(F.linear(lora_x, self.lora_A), self.lora_B) * self.scaling
+		return base_out + lora_out
+
+	@property
+	def weight(self) -> torch.nn.Parameter:
+		# Keep compatibility with modules/functions that directly read .weight
+		return self.base.weight
+
+	@property
+	def bias(self) -> Optional[torch.nn.Parameter]:
+		# Keep compatibility with modules/functions that directly read .bias
+		return self.base.bias
+
+	@property
+	def in_features(self) -> int:
+		return self.base.in_features
+
+	@property
+	def out_features(self) -> int:
+		return self.base.out_features
+
+
+def _should_apply_lora(module_name: str, target_keywords: List[str], exclude_keywords: List[str]) -> bool:
+	lower_name = module_name.lower()
+	if exclude_keywords and any(k in lower_name for k in exclude_keywords):
+		return False
+	if not target_keywords:
+		return True
+	return any(k in lower_name for k in target_keywords)
+
+
+def inject_lora_modules(
+	model: nn.Module,
+	rank: int,
+	alpha: float,
+	dropout: float,
+	target_keywords: List[str],
+	exclude_keywords: List[str],
+) -> int:
+	replaced = 0
+
+	def _inject(module: nn.Module, prefix: str = ""):
+		nonlocal replaced
+		for child_name, child in list(module.named_children()):
+			full_name = f"{prefix}.{child_name}" if prefix else child_name
+			# torch.nn.MultiheadAttention may access out_proj.weight/bias directly
+			# in functional path; replacing it with LoRA wrapper can break behavior.
+			if isinstance(module, nn.MultiheadAttention) and child_name == "out_proj":
+				continue
+			if isinstance(child, nn.Linear) and _should_apply_lora(full_name, target_keywords, exclude_keywords):
+				setattr(module, child_name, LoRALinear(child, rank=rank, alpha=alpha, dropout=dropout))
+				replaced += 1
+			else:
+				_inject(child, full_name)
+
+	_inject(model)
+	return replaced
+
+
+def configure_trainable_params_for_lora(model: nn.Module, train_bias: str = "none", train_norm: bool = False):
+	for p in model.parameters():
+		p.requires_grad = False
+
+	for name, p in model.named_parameters():
+		is_lora_param = name.endswith("lora_A") or name.endswith("lora_B")
+		if is_lora_param:
+			p.requires_grad = True
+			continue
+
+		if train_bias == "all" and name.endswith("bias"):
+			p.requires_grad = True
+		elif train_bias == "lora_only" and name.endswith("base.bias"):
+			p.requires_grad = True
+
+	if train_norm:
+		for m in model.modules():
+			if isinstance(m, (nn.LayerNorm, nn.BatchNorm1d, nn.BatchNorm2d, nn.BatchNorm3d, nn.GroupNorm)):
+				for p in m.parameters():
+					p.requires_grad = True
+
+
+def get_trainable_param_stats(model: nn.Module):
+	total = sum(p.numel() for p in model.parameters())
+	trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
+	pct = 100.0 * trainable / total if total > 0 else 0.0
+	return total, trainable, pct
+
+
+def get_lora_state_dict(model: nn.Module):
+	return {
+		k: v.detach().cpu()
+		for k, v in model.state_dict().items()
+		if ("lora_A" in k or "lora_B" in k)
+	}
 
 
 def build_box_from_mask(mask_tensor: torch.Tensor) -> torch.Tensor:
@@ -196,8 +318,10 @@ def move_batched_datapoint_to_device(batch: BatchedDatapoint, device: torch.devi
 	return batch
 
 
-def unwrap_model(model):
-	return model.module if hasattr(model, 'module') else model
+def unwrap_model(model: nn.Module) -> nn.Module:
+	if isinstance(model, nn.parallel.DistributedDataParallel):
+		return model.module
+	return model
 
 def evaluate(model, dataloader, device, args):
 	model.eval()
@@ -264,7 +388,8 @@ def compute_mask_from_output(output, shape):
 	pred = output.unsqueeze(1)
 	pred = F.interpolate(pred, size=shape[-2:], mode='bilinear', align_corners=False)
 	pred = pred.squeeze(1)
-	return (pred > 0.5).float()
+	# BCEWithLogits uses logits; probability 0.5 corresponds to logit 0.
+	return pred > 0
 
 def calculate_dummy_loss(obj):
 	"""递归查找所有带有梯度的张量并计算哑损失 (Dummy Loss)"""
@@ -356,10 +481,32 @@ def make_args():
 	parser.add_argument("--lr", default=1e-5, type=float)
 	parser.add_argument("--output-dir", default="/root/nas/refship/logs/sam3", help="Checkpoint and log directory")
 	parser.add_argument("--print-freq", default=50, type=int)
-	parser.add_argument("--experiment-name", default="sam3_refship", help="SwanLab experiment name")
+	parser.add_argument("--experiment-name", default="sam3", help="SwanLab experiment name")
 	parser.add_argument("--swanlab", action="store_true", help="Whether to log metrics to SwanLab")
 	parser.add_argument("--seed", default=42, type=int)
-	parser.add_argument('--model-id', default=None, type=str, help='Model ID for creating model directory in rrsis utils')
+	parser.add_argument("--use-lora", action="store_true", help="Enable LoRA fine-tuning for linear layers")
+	parser.add_argument("--lora-r", default=8, type=int, help="LoRA rank")
+	parser.add_argument("--lora-alpha", default=16.0, type=float, help="LoRA alpha (scaling)")
+	parser.add_argument("--lora-dropout", default=0.0, type=float, help="LoRA dropout")
+	parser.add_argument(
+		"--lora-target-modules",
+		default="",
+		help="Comma-separated module-name keywords to apply LoRA. Empty means all nn.Linear modules.",
+	)
+	parser.add_argument(
+		"--lora-exclude-modules",
+		default="",
+		help="Comma-separated module-name keywords to exclude from LoRA.",
+	)
+	parser.add_argument(
+		"--lora-train-bias",
+		default="none",
+		choices=["none", "all", "lora_only"],
+		help="Bias training strategy in LoRA mode.",
+	)
+	parser.add_argument("--lora-train-norm", action="store_true", help="Whether to train normalization layers in LoRA mode")
+	parser.add_argument("--lora-save-only", action="store_true", help="Save LoRA weights only in checkpoints")
+	# parser.add_argument('--model-id', default="sam3", type=str, help='Model ID for creating model directory in rrsis utils')
 	
 	# 【必须添加】分布式训练所需参数
 	parser.add_argument('--local_rank', default=0, type=int, help='Local rank for distributed training')
@@ -369,12 +516,26 @@ def make_args():
 
 def main():
 	args = make_args()
-	
-	# 1. 初始化多卡分布式模式 (利用 rrsis.utils)
-	utils.init_distributed_mode(args)
-	rank = utils.get_rank()
-	device_id = rank
-	torch.cuda.set_device(device_id)
+
+	if not torch.cuda.is_available():
+		raise RuntimeError("CUDA is required for this training script.")
+
+	# 1. 初始化分布式模式（仅在 torchrun 环境下）
+	use_distributed = (
+		"RANK" in os.environ
+		and "WORLD_SIZE" in os.environ
+		and int(os.environ["WORLD_SIZE"]) > 1
+	)
+	if use_distributed:
+		local_rank_env = os.environ.get("LOCAL_RANK")
+		args.local_rank = int(local_rank_env) if local_rank_env is not None else int(args.local_rank)
+		utils.init_distributed_mode(args)
+		rank = utils.get_rank()
+		device_id = args.local_rank
+	else:
+		rank = 0
+		device_id = 0
+		torch.cuda.set_device(device_id)
 	device = torch.device(f"cuda:{device_id}")
 
 	# 固定随机种子保证多卡一致性
@@ -391,7 +552,7 @@ def main():
 		os.makedirs(args.output_dir, exist_ok=True)
 		if args.swanlab:
 			swanlab.init(
-				project="sam3_refship",
+				project="sam3",
 				experiment_name=args.experiment_name,
 				config=vars(args),
 			)
@@ -453,6 +614,30 @@ def main():
 		image_size=args.img_size,
 	)
 	model.to(device)
+
+	if args.use_lora:
+		target_keywords = [x.strip().lower() for x in args.lora_target_modules.split(",") if x.strip()]
+		exclude_keywords = [x.strip().lower() for x in args.lora_exclude_modules.split(",") if x.strip()]
+		replaced = inject_lora_modules(
+			model,
+			rank=args.lora_r,
+			alpha=args.lora_alpha,
+			dropout=args.lora_dropout,
+			target_keywords=target_keywords,
+			exclude_keywords=exclude_keywords,
+		)
+		if replaced == 0:
+			raise RuntimeError(
+				"LoRA is enabled but no nn.Linear modules were matched. "
+				"Please adjust --lora-target-modules / --lora-exclude-modules."
+			)
+		configure_trainable_params_for_lora(
+			model,
+			train_bias=args.lora_train_bias,
+			train_norm=args.lora_train_norm,
+		)
+		if utils.is_main_process():
+			print(f"LoRA enabled. Replaced linear layers: {replaced}")
 	
 	if utils.is_dist_avail_and_initialized():
 		# 【关键】替换 DataParallel 为 DistributedDataParallel
@@ -463,7 +648,19 @@ def main():
 			find_unused_parameters=True
 		)
 
-	optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-4)
+	trainable_params = [p for p in model.parameters() if p.requires_grad]
+	if len(trainable_params) == 0:
+		raise RuntimeError("No trainable parameters found. Please check training configuration.")
+	optimizer = torch.optim.AdamW(trainable_params, lr=args.lr, weight_decay=1e-4)
+	lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+    optimizer, 
+    T_max=args.epochs,  # 总epoch数
+    eta_min=args.lr * 0.01  # 最小学习率
+	)
+
+	if utils.is_main_process():
+		total_p, trainable_p, pct = get_trainable_param_stats(model)
+		print(f"Trainable params: {trainable_p:,} / {total_p:,} ({pct:.4f}%)")
 
 	best_miou = float("-inf")
 	best_overall_iou = float("-inf")
@@ -472,10 +669,11 @@ def main():
 	best_precision = {}
 	try:
 		for epoch in range(1, args.epochs + 1):
-			if utils.is_dist_avail_and_initialized():
+			if utils.is_dist_avail_and_initialized() and hasattr(train_sampler, "set_epoch"):
 				train_sampler.set_epoch(epoch)
 
 			train_loss = train_one_epoch(model, train_loader, optimizer, device, epoch, args)
+			lr_scheduler.step()
 			val_mean_iou, val_overall_iou, precision = evaluate(model, val_loader, device, args)
 
 			# 5. 仅在主进程保存和日志记录
@@ -495,7 +693,11 @@ def main():
 
 				checkpoint = {
 					"epoch": epoch,
-					"model_state_dict": unwrap_model(model).state_dict(),
+					"model_state_dict": (
+						get_lora_state_dict(unwrap_model(model))
+						if args.use_lora and args.lora_save_only
+						else unwrap_model(model).state_dict()
+					),
 					"optimizer_state_dict": optimizer.state_dict(),
 					"train_loss": train_loss,
 					"val_mean_iou": val_mean_iou,
