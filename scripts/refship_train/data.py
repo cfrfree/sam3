@@ -68,7 +68,7 @@ class RefShipSam3Dataset(Dataset):
         return image, target_mask, sentence
 
 
-def build_box_from_mask(mask_tensor: torch.Tensor) -> torch.Tensor:
+def build_target_box_from_mask(mask_tensor: torch.Tensor) -> torch.Tensor:
     if mask_tensor.dim() == 3 and mask_tensor.shape[0] == 1:
         mask_tensor = mask_tensor.squeeze(0)
     mask_bool = mask_tensor > 0
@@ -89,21 +89,25 @@ def build_box_from_mask(mask_tensor: torch.Tensor) -> torch.Tensor:
     return torch.tensor([cx, cy, w, h], dtype=torch.float32)
 
 
+def build_text_only_find_stage(batch_size: int) -> FindStage:
+    return FindStage(
+        img_ids=list(range(batch_size)),
+        text_ids=list(range(batch_size)),
+        input_boxes=[torch.zeros(0, 4, dtype=torch.float32) for _ in range(batch_size)],
+        input_boxes_label=[torch.zeros(0, dtype=torch.long) for _ in range(batch_size)],
+        input_boxes_mask=[torch.zeros(0, dtype=torch.bool) for _ in range(batch_size)],
+        input_points=[torch.empty(0, 257, dtype=torch.float32) for _ in range(batch_size)],
+        input_points_mask=[torch.empty(0, dtype=torch.bool) for _ in range(batch_size)],
+        object_ids=[[0] for _ in range(batch_size)],
+    )
+
+
 def refship_collate(batch):
     images, targets, sentences = zip(*batch)
     batch_size = len(images)
     img_batch = torch.stack(images, dim=0)
 
-    find_stage = FindStage(
-        img_ids=list(range(batch_size)),
-        text_ids=list(range(batch_size)),
-        input_boxes=[torch.zeros(0, 4, dtype=torch.float32) for _ in range(batch_size)],
-        input_boxes_label=[torch.zeros(0, dtype=torch.long) for _ in range(batch_size)],
-        input_boxes_mask=[torch.ones(0, dtype=torch.bool) for _ in range(batch_size)],
-        input_points=[torch.empty(0, 257, dtype=torch.float32) for _ in range(batch_size)],
-        input_points_mask=[torch.empty(0, dtype=torch.bool) for _ in range(batch_size)],
-        object_ids=[[0] for _ in range(batch_size)],
-    )
+    find_stage = build_text_only_find_stage(batch_size)
 
     boxes = []
     boxes_padded = []
@@ -117,7 +121,7 @@ def refship_collate(batch):
 
     for target in targets:
         target_bool = target.to(torch.bool)
-        target_box = build_box_from_mask(target_bool)
+        target_box = build_target_box_from_mask(target_bool)
         boxes.append(target_box)
         boxes_padded.append(target_box)
         repeated_boxes.append(target_box)

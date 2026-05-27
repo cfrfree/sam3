@@ -112,6 +112,189 @@ class KPLoRALinear(nn.Module):
         return self.base.out_features
 
 
+class MoKALinear(nn.Module):
+    """
+    Mixture of Kronecker Product Adaptation (MoKA).
+    Uses token-wise sparse routing over Kronecker experts.
+    """
+
+    def __init__(
+        self,
+        base_layer: nn.Linear,
+        rank: int,
+        groups: int,
+        num_experts: int,
+        top_k: int,
+        alpha: float,
+        dropout: float,
+    ):
+        super().__init__()
+        if rank <= 0 or groups <= 0 or num_experts <= 0:
+            raise ValueError(
+                f"Rank/groups/num_experts must be > 0, got rank={rank}, groups={groups}, num_experts={num_experts}"
+            )
+        if top_k <= 0:
+            raise ValueError(f"top_k must be > 0, got top_k={top_k}")
+        if top_k > num_experts:
+            raise ValueError(f"top_k ({top_k}) cannot be larger than num_experts ({num_experts})")
+
+        self.base = base_layer
+        self.r = rank
+        self.m = groups
+        self.num_experts = num_experts
+        self.top_k = top_k
+        self.scaling = alpha / rank
+        self.lora_dropout = nn.Dropout(p=dropout) if dropout > 0 else nn.Identity()
+
+        in_f = base_layer.in_features
+        out_f = base_layer.out_features
+        if in_f % self.m != 0 or out_f % self.m != 0:
+            raise ValueError(
+                f"in_features ({in_f}) and out_features ({out_f}) must be divisible by groups (m={self.m})"
+            )
+
+        param_device = base_layer.weight.device
+        param_dtype = base_layer.weight.dtype
+
+        self.lora_A_experts = nn.Parameter(
+            torch.empty(self.num_experts, self.m, self.m, device=param_device, dtype=param_dtype)
+        )
+        self.lora_alpha_experts = nn.Parameter(
+            torch.empty(self.num_experts, in_f // self.m, self.r, device=param_device, dtype=param_dtype)
+        )
+        self.lora_beta_experts = nn.Parameter(
+            torch.zeros(self.num_experts, self.r, out_f // self.m, device=param_device, dtype=param_dtype)
+        )
+        self.lora_router = nn.Linear(in_f, self.num_experts, bias=False, device=param_device, dtype=param_dtype)
+
+        nn.init.xavier_normal_(self.lora_A_experts)
+        nn.init.xavier_normal_(self.lora_alpha_experts)
+        nn.init.xavier_uniform_(self.lora_router.weight)
+
+    def _expert_delta_w(self, expert_idx: int, dtype: torch.dtype) -> torch.Tensor:
+        b_i = torch.matmul(self.lora_alpha_experts[expert_idx], self.lora_beta_experts[expert_idx])
+        return torch.kron(self.lora_A_experts[expert_idx], b_i).to(dtype=dtype)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        base_out = self.base(x)
+        lora_x = self.lora_dropout(x)
+
+        x_shape = lora_x.shape
+        x_flat = lora_x.reshape(-1, self.in_features)
+
+        gate_logits = self.lora_router(x_flat)
+        gate_probs = F.softmax(gate_logits, dim=-1)
+
+        topk_vals, topk_idx = torch.topk(gate_probs, k=self.top_k, dim=-1)
+        sparse_gates = torch.zeros_like(gate_probs)
+        sparse_gates.scatter_(dim=-1, index=topk_idx, src=topk_vals)
+        sparse_gates = sparse_gates / sparse_gates.sum(dim=-1, keepdim=True).clamp_min(1e-9)
+
+        lora_out_flat = torch.zeros(
+            x_flat.shape[0],
+            self.out_features,
+            device=x_flat.device,
+            dtype=x_flat.dtype,
+        )
+
+        for expert_idx in range(self.num_experts):
+            token_mask = sparse_gates[:, expert_idx] > 0
+            if not torch.any(token_mask):
+                continue
+            delta_w = self._expert_delta_w(expert_idx, dtype=x_flat.dtype)
+            expert_out = F.linear(x_flat[token_mask], delta_w.t())
+            gate_weight = sparse_gates[token_mask, expert_idx].unsqueeze(-1)
+            lora_out_flat[token_mask] = lora_out_flat[token_mask] + gate_weight * expert_out
+
+        lora_out = lora_out_flat.reshape(*x_shape[:-1], self.out_features) * self.scaling
+        return base_out + lora_out
+
+    @property
+    def weight(self) -> torch.Tensor:
+        return self.base.weight
+
+    @property
+    def bias(self) -> Optional[torch.Tensor]:
+        return self.base.bias
+
+    @property
+    def in_features(self) -> int:
+        return self.base.in_features
+
+    @property
+    def out_features(self) -> int:
+        return self.base.out_features
+
+
+class KRAdapterLinear(nn.Module):
+    """
+    KRAdapter based on Khatri-Rao product parameterization:
+    DeltaW = (U * V) @ Wm.
+    """
+
+    def __init__(self, base_layer: nn.Linear, rank: int, groups: int, alpha: float, dropout: float):
+        super().__init__()
+        if rank <= 0 or groups <= 0:
+            raise ValueError(f"Rank and groups must be > 0, got rank={rank}, groups={groups}")
+
+        self.base = base_layer
+        self.rank = rank
+        self.groups = groups
+        self.scaling = alpha / rank
+        self.lora_dropout = nn.Dropout(p=dropout) if dropout > 0 else nn.Identity()
+
+        in_f = base_layer.in_features
+        out_f = base_layer.out_features
+        if in_f % self.groups != 0:
+            raise ValueError(f"in_features ({in_f}) must be divisible by groups ({self.groups}) for KRAdapter")
+
+        param_device = base_layer.weight.device
+        param_dtype = base_layer.weight.dtype
+
+        # (groups, rank) and (in_f/groups, rank) -> Khatri-Rao gives (in_f, rank)
+        self.lora_U = nn.Parameter(torch.empty(self.groups, self.rank, device=param_device, dtype=param_dtype))
+        self.lora_V = nn.Parameter(
+            torch.empty(in_f // self.groups, self.rank, device=param_device, dtype=param_dtype)
+        )
+        self.lora_Wm = nn.Parameter(torch.zeros(self.rank, out_f, device=param_device, dtype=param_dtype))
+
+        nn.init.xavier_normal_(self.lora_U)
+        nn.init.xavier_normal_(self.lora_V)
+
+    def _khatri_rao(self, u: torch.Tensor, v: torch.Tensor) -> torch.Tensor:
+        # Column-wise Kronecker product: (a, r) * (b, r) -> (a*b, r)
+        a, r_u = u.shape
+        b, r_v = v.shape
+        if r_u != r_v:
+            raise ValueError(f"Khatri-Rao requires same rank, got {r_u} and {r_v}")
+        return torch.einsum("ar,br->abr", u, v).reshape(a * b, r_u)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        base_out = self.base(x)
+        lora_x = self.lora_dropout(x)
+
+        kr_mat = self._khatri_rao(self.lora_U, self.lora_V).to(dtype=lora_x.dtype)
+        delta_w = torch.matmul(kr_mat, self.lora_Wm.to(dtype=lora_x.dtype))
+        lora_out = F.linear(lora_x, delta_w.t()) * self.scaling
+        return base_out + lora_out
+
+    @property
+    def weight(self) -> torch.Tensor:
+        return self.base.weight
+
+    @property
+    def bias(self) -> Optional[torch.Tensor]:
+        return self.base.bias
+
+    @property
+    def in_features(self) -> int:
+        return self.base.in_features
+
+    @property
+    def out_features(self) -> int:
+        return self.base.out_features
+
+
 class LoRALinear(nn.Module):
     """LoRA/DoRA wrapper for nn.Linear, controlled by adapter_type."""
 
@@ -199,6 +382,8 @@ def inject_lora_modules(
     model: nn.Module,
     rank: int,
     groups: int,
+    moka_num_experts: int,
+    moka_top_k: int,
     alpha: float,
     dropout: float,
     adapter_type: str,
@@ -252,6 +437,24 @@ def inject_lora_modules(
                             alpha=alpha,
                             dropout=dropout,
                         )
+                elif adapter_type == "moka":
+                    replacement_layer = MoKALinear(
+                        child,
+                        rank=rank,
+                        groups=groups,
+                        num_experts=moka_num_experts,
+                        top_k=moka_top_k,
+                        alpha=alpha,
+                        dropout=dropout,
+                    )
+                elif adapter_type == "kradapter":
+                    replacement_layer = KRAdapterLinear(
+                        child,
+                        rank=rank,
+                        groups=groups,
+                        alpha=alpha,
+                        dropout=dropout,
+                    )
                 else:
                     replacement_layer = LoRALinear(
                         child,
@@ -314,17 +517,39 @@ def get_optimizer_param_groups(model: nn.Module, base_lr: float, lora_k: float):
     lora_a_params = [
         p
         for n, p in model.named_parameters()
-        if p.requires_grad and ("lora_A" in n or "lora_alpha_param" in n or n.endswith(".A"))
+        if p.requires_grad
+        and (
+            "lora_A" in n
+            or "lora_alpha_param" in n
+            or "lora_alpha_experts" in n
+            or "lora_U" in n
+            or "lora_V" in n
+            or "lora_router" in n
+            or n.endswith(".A")
+        )
     ]
     lora_b_params = [
         p
         for n, p in model.named_parameters()
-        if p.requires_grad and ("lora_B" in n or "lora_beta_param" in n)
+        if p.requires_grad and ("lora_B" in n or "lora_beta_param" in n or "lora_beta_experts" in n or "lora_Wm" in n)
     ]
     other_params = [
         p
         for n, p in model.named_parameters()
-        if p.requires_grad and ("lora_A" not in n and "lora_B" not in n and "lora_alpha_param" not in n and "lora_beta_param" not in n and not n.endswith(".A"))
+        if p.requires_grad
+        and (
+            "lora_A" not in n
+            and "lora_B" not in n
+            and "lora_alpha_param" not in n
+            and "lora_beta_param" not in n
+            and "lora_alpha_experts" not in n
+            and "lora_beta_experts" not in n
+            and "lora_U" not in n
+            and "lora_V" not in n
+            and "lora_Wm" not in n
+            and "lora_router" not in n
+            and not n.endswith(".A")
+        )
     ]
     return [
         {"params": lora_a_params, "lr": base_lr},

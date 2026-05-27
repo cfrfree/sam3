@@ -57,6 +57,8 @@ def main():
             model,
             rank=args.lora_r,
             groups=args.lora_groups,
+            moka_num_experts=args.moka_num_experts,
+            moka_top_k=args.moka_top_k,
             alpha=args.lora_alpha,
             dropout=args.lora_dropout,
             adapter_type=args.lora_adapter_type,
@@ -115,7 +117,13 @@ def main():
 
             train_loss = train_one_epoch(model, train_loader, optimizer, device, epoch, args, utils)
             lr_scheduler.step()
-            val_mean_iou, val_overall_iou, precision = evaluate(model, val_loader, device, utils)
+            val_mean_iou, val_overall_iou, precision = evaluate(
+                model,
+                val_loader,
+                device,
+                utils,
+                query_selection=args.query_selection,
+            )
 
             if utils.is_main_process():
                 print(
